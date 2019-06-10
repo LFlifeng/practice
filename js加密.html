@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js加密</title>
+</head>
+
+<body>
+    <script src="./Base64.js"></script>
+    <script src="./Secret_Key.js"></script>
+    <script>
+        var str1 = 'baidu';
+        var psd = '123456';
+        // Secret_Key('参数一','参数二','参数三')
+        // 该函数传三个参数，分别为。。。。。。
+        var pass1 = Secret_Key(str1, psd, 'encryption'); //给字符串加密 结果：369c39d0d7b8843505226b7a
+        var pass2 = Secret_Key(pass1, psd, 'decryption'); //解密     结果：baidu
+        console.log(pass1);
+        console.log(pass2);
+        var x = 1;
+        if (function f() { }) {
+            x += typeof f;
+        }
+        console.log(x);
+        console.log(typeof x)
+        var a = 1;
+        var f = function () { };
+        if (f) {
+            a += typeof f;
+        }
+        console.log(a)
+
+        //
+        //判断对象的数据类型
+        const isType = type => target => `[object ${type}]` === Object.prototype.toString.call(target);
+        const isArray = isType('Array');
+        console.log(isArray([]));
+
+        //
+        //ES5实现数组map方法
+        const selfMap = function (fn, context) {
+            let arr = Array.prototype.slice.call(this);
+            let mappedArr = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (!arr.hasOwnProperty(i)) continue;
+                mappedArr.push(fn.call(context, arr[i], i, this))
+            }
+            return mappedArr;
+        };
+
+        //
+        //使用reduce实现数组map方法
+        const selfMap2 = function (fn, context) {
+            let arr = Array.prototype.slice.call(this);
+            return arr.reduce((pre, cur, index) => {
+                return [...pre, fn.call(context, cur, index.this)]
+            }, []);
+        };
+
+        //
+        // ES5实现数组filter方法
+        const selfFilter = function (fn, context) {
+            let arr = Array.prototype.slice.call(this);
+            let filteredArr = [];
+            for (let i = 0; i < arr.length; i++) {
+                if (!arr.hasOwnProperty(i)) continue;
+                fn.call(context, arr[i], i, this) && filteredArr.push(ar[i]);
+            }
+        };
+
+        //
+        //使用reduce实现数组filter方法
+        const selfFilter2 = function (fn, context) {
+            return this.reduce((pre, cur, index) => {
+                return fn.call(context, cur, index, this) ? [...pre, cur] : [...pre];
+            }, []);
+        };
+
+        //
+        //ES5实现数组的some方法
+        const selfSome = function (fn, context) {
+            let arr = Array.prototype.slice.call(this);
+            if (!arr.length) return false;
+            for (let i = 0; i < arr.length; i++) {
+                if (!arr.hasOwnProperty(i)) continue;
+                let res = fn.call(context, arr[i], i, this);
+                if (res) return true;
+            }
+        };
+
+        //
+        //ES5实现数组的reduce方法
+        Array.prototype.selReduce = function (fn, initialValue) {
+            let arr = Array.prototype.slice.call(this);
+            let res;
+            let startIndex;
+            if (initialValue === undefined) {
+                //找到第一个非空单元的元素和下标
+                for (let i = 0; i < arr.length; i++) {
+                    if (!arr.hasOwnProperty[i]) continue;
+                    startIndex = i;
+                    res = arr[i];
+                    break;
+                }
+            } else {
+                res = initialValue;
+            }
+            for (let i = ++startIndex || 0; i < arr.length; i++) {
+                if (!arr.hasOwnProperty(i)) continue;
+                res = fn.call(null, res, arr[i], i, this);
+            }
+            return res;
+        }
+
+        //
+        //使用reduce实现数组的flat方法
+        const selfFlat = function (depth = 1) {
+            let arr = Array.prototype.slice.call(this);
+            if (depth === 0) return arr;
+            return arr.reduce((pre, cur) => {
+                if (Array.isArray(cur)) {
+                    return [...pre, ...selfFlat.call(cur, depth - 1)];
+                } else {
+                    return [...pre, cur];
+                }
+            }, [])
+        };
+
+        //
+        //实现ES6的class语法
+        function inherit(subType, superType) {
+            subType.prototype = Object.create(superType.prototype, {
+                constructor: {
+                    enumerable: false,
+                    configurable: true,
+                    writable: true,
+                    value: subType.constructor
+                }
+            })
+            Object.setPrototypeOf(subType, superType);
+        }
+
+        //
+        //函数柯里化
+        function curry(fn) {
+            if (fn.length <= 1) return fn;
+            const generator = (...args) => {
+                if (fn.length === args.length) {
+                    return fn(...args);
+                } else {
+                    return (...args2) => {
+                        return generator(...args, ...args2);
+                    }
+                }
+            }
+            return generator;
+        }
+        let add = (a, b, c, d) => a + b + c + d;
+        const curriedAdd = curry(add);
+        curriedAdd(5)(6)(7)(8);
+
+        //
+        //偏函数
+        const partialFunc = (func, ...args) => {
+            let placeholderNum = 0;
+            return (...args2) => {
+                args2.forEach(arg => {
+                    let index = args.findIndex(item => item === '_');
+                    if (index < 0) return;
+                    args[index] = arg;
+                    placeholderNum++;
+                })
+                if (placeholderNum < args2.length) {
+                    args2 = args2.slice(placeholderNum, args.length);
+                }
+                return func.apply(this, [...args, ...args2]);
+            }
+        }
+
+        //
+        //斐波那契数列及其优化
+        let fibonacci = function (n) {
+            if (n < 1) throw new Error('参数有误');
+            if (n === 1 || n === 2) return 1;
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+        const memory = function (fn) {
+            let obj = {};
+            return function (n) {
+                if (obj[n] === undefined) obj[n] = fn(n);
+                return obj[n];
+            }
+        }
+        fibonacci = memory(fibonacci);
+
+        //
+        //实现函数bind方法
+        const isComplexDataType2 = obj =>
+            (typeof obj === 'object' || typeof obj === 'function') && obj !== null;
+        const selfBind = function (bindTarget, ...argsl) {
+            if (typeof this !== 'function')
+                throw new TypeError('Bind must be called on a function');
+            let func = this;
+            let boundFunc = function (...args2) {
+                let args = [...args1, ...args2]
+                if (new.target) {
+                    let res = func.apply(this, args);
+                    if (isComplexDataType2(res)) return res;
+                    return this;
+                } else {
+                    func.apply(bindTarget, args)
+                }
+            }
+            this.prototype && (boundFunc.prototype = Object.create(this.prototype))
+            let desc = Object.getOwnPropertyDescriptors(func);
+            Object.defineProperties(boundFunc, {
+                length: desc.length,
+                name: Object.assign(desc.name, {
+                    value: `bound${desc.name.value}`
+                })
+            })
+            return boundFunc;
+        }
+
+        //
+        //实现函数call方法
+        const selfCall = function (context, ...args) {
+            let func = this;
+            context || (context = window);
+            if (typeof func !== 'function') throw new TypeError('this is not function');
+            let caller = Symbol('caller');
+            context[caller] = func;
+            let res = context[caller](...args);
+            delete context[caller];
+            return res;
+        }
+
+        //
+        //简易的CO模块
+        function run(generatorFunc) {
+            let it = generatorFunc();
+            let result = it.next();
+            return new Promise((resolve, reject) => {
+                const next = function (result) {
+                    if (result.done) {
+                        resolve(result.value)
+                    }
+                    result.value = Promise.resolve(result.value);
+                    result.value.then(res => {
+                        let result = it.next(res);
+                        next(result);
+                    }).catch(err => {
+                        reject(err)
+                    })
+                }
+                next(result);
+            })
+        }
+
+        //
+        //函数防抖
+        const debounce = (
+            func,
+            time = 17,
+            options = {
+                leading: true,
+                trailing: true,
+                context: null
+            }
+        ) => {
+            let timer;
+            const _debounce = function (...args) {
+                if (timer) {
+                    clearTimeout(timer);
+                }
+                if (options.length && !timer) {
+                    timer = setTimeout(null, time);
+                    func.apply(options.context, args);
+                } else if (options.trailing) {
+                    timer = setTimeout(() => {
+                        func.apply(options.context, args);
+                        timer = null;
+                    }, time);
+                }
+            }
+            _debounce.cancel = function () {
+                clearTimeout(timer);
+                timer = null;
+            }
+            return _debounce;
+        }
+
+        //
+        //函数节流
+        const throttle = (
+            func,
+            time = 17,
+            options = {
+                leading: true,
+                trailing: false,
+                context: null
+            }
+        ) => {
+            let previous = new Date(0).getTime();
+            let timer;
+            const _throttle = function (...args) {
+                let now = new Date().getTime();
+                if (!options.leading) {
+                    if (timer) return;
+                    timer = setTimeout(() => {
+                        timer = null;
+                        func.apply(options.context, args);
+                    }, time);
+                } else if (now - previous > time) {
+                    func.apply(options.context, args);
+                    previous = now;
+                } else if (options.trailing) {
+                    clearTimeout(timer);
+                    timer = setTimeout(() => {
+                        func.apply(options.context, args)
+                    }, time);
+                }
+            }
+            _throttle.cancel = () => {
+                previous = 0;
+                clearTimeout(timer);
+                timer = null;
+            };
+            return _throttle;
+        }
+
+        //
+        //图片懒加载
+        let imgList = [...document.querySelectorAll('img')];
+        let num = imgList.length;
+        let lazyLoad = (function () {
+            let count = 0;
+            return function () {
+                let deleteIndexList = [];
+                imgList.forEach((img, index) => {
+                    let rect = img.getBoundingClientRect();
+                    if (rect.top < window.innerHeight) {
+                        img.src = img.dataset.src;
+                        deleteIndexList.push(index);
+                        count++;
+                        if (count === num) {
+                            document.removeEventListener('scroll', lazyLoad1);
+                        }
+                    }
+                })
+                imgList = imgList.filter((_, index) => !deleteIndexList.includes(index));
+            }
+        })();
+
+        //
+        //new关键字
+        const isComplexDataType = obj =>
+            (typeof obj === 'object' || typeof obj === 'function') && obj !== null;
+        const selfNew = function (fn, ...rest) {
+            let instance = Object.create(fn.prototype);
+            let res = fn.apply(instance, rest);
+            return isComplexDataType(res) ? res : instance;
+        }
+
+        //
+        //实现Object.assign
+        'use strict' //严格模式下
+        const isComplexDataType1 = obj =>
+            (typeof obj === 'object' || typeof obj === 'function') && obj !== null;
+        const selfAssign = function (target, ...source) {
+            if (target == null) throw new TypeError('Cannot convert undefined or null to object');
+            return source.reduce((acc, cur) => {
+                isComplexDataType1(acc) || (acc = new Object(acc));
+                if (cur == null) return acc;
+                [...Object.keys(cur), ...Object.getOwnPropertySymbols(cur)].forEach(
+                    key => {
+                        acc[key] = cur[key];
+                    }
+                );
+                return acc;
+            }, target)
+        };
+
+        //
+        //instanceof
+        const selfInstanceof = function (left, right) {
+            let proto = Object.getPrototypeOf(left);
+            while (true) {
+                if (proto == null) return false;
+                if (proto === right.prototype) {
+                    return true;
+                }
+                proto = Object.getPrototypeOf(proto);
+            }
+        }
+
+        //
+        //私有变量的实现
+        const proxy = function (obj) {
+            return new Proxy(obj, {
+                get(target, key) {
+                    if (key.startsWith('_')) {
+                        throw new Error('private key');
+                    }
+                    return Reflect.get(target, key);
+                },
+                ownKeys(target) {
+                    return Reflect.ownKeys(target).filter(key => !key.startsWith('_'));
+                }
+            });
+        }
+
+        //
+        //洗牌算法
+        // 原地洗牌
+        function shuffle(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                let randomIndex = i + Math.floor(Math.random() * (arr.length - i));
+                [arr[i], arr[randomIndex]] = [arr[randomIndex], arr[i]];
+            }
+            return arr;
+        }
+
+        // 非原地洗牌
+        function shuffle2(arr) {
+            let _arr = [];
+            while (arr.length) {
+                let randomIndex = Math.floor(Math.random() * arr.length);
+                _arr.push(arr.splice(randomIndex, 1)[0]);
+            }
+            return _arr;
+        }
+
+        //
+        //单列模式
+        function proxy1(func) {
+            let instance;
+            let handler = {
+                construct(target, args) {
+                    if (!instance) {
+                        instance = Reflect.construct(func, args);
+                    }
+                    return instance;
+                }
+            }
+            return new Proxy(func, handler);
+        }
+
+        //
+        //promisify
+        function promisify(asyncFunc) {
+            return function (...args) {
+                return new Promise((resolve, reject) => {
+                    args.push(function callback(err, ...values) {
+                        if (err) {
+                            return reject(err);
+                        }
+                        return resolve(...values);
+                    })
+                    asyncFunc.call(this, ...args);
+                })
+            }
+        }
+        // const fs = 1;
+        // const fsp = new Proxy(fs, {
+        //     get(target, key) {
+        //         return promisify(target[key])
+        //     }
+        // })
+
+        //
+        //优雅的处理async/await
+        async function errorCaptured(asyncFunc) {
+            try {
+                let res = await asyncFunc();
+                return [null, res];
+            } catch (e) {
+                return [e, null]
+            }
+        }
+
+        //
+        //发布订阅EventEmitter
+        class EventEmitter {
+            constructor() {
+                this.subs = {}
+            }
+            on(event, cb) {
+                (this.subs[event] || (this.subs[event] = [])).push(cb);
+            }
+            trigger(event, ...args) {
+                this.subs[event] && this.subs[event].forEach(cb => {
+                    cb(...args);
+                })
+            }
+            once(event, onceCb) {
+                const cb = (...args) => {
+                    onceCb(...args);
+                    this.off(event, onceCb);
+                }
+                this.on(event, cb);
+            }
+            off(event, offCb) {
+                if (this.subs[event]) {
+                    let index = this.subs[event].findIndex(cb => cb === offCb);
+                    this.subs[event].splice(index, 1);
+                    if (!this.subs[event].length) delete this.subs[event];
+                }
+            }
+        }
+
+        //
+        //实现JSON.stringify
+
+        //
+        //深拷贝(递归方式解决，当前只是区分了数组和对象)
+        function deepCopy(target) {
+            let copyed_objs = [];
+            function _deepCopy(target) {
+                if ((typeof target !== 'object') || !target) return target;
+                for (let i = 0; i < copyed_objs.length; i++) {
+                    if (copyed_objs[i].target === target) {
+                        return copyed_objs[i].copyTarget;
+                    }
+                }
+                let obj = {};
+                if (Array.isArray(target)) {
+                    obj = [];
+                }
+                copyed_objs.push({ target: target, copyTarget: obj });
+                Object.keys(target).forEach(key => {
+                    if (obj[key]) return;
+                    obj[key] = _deepCopy(target[key]);
+                });
+                return obj;
+            }
+            return _deepCopy(target);
+        }
+        var a = {
+            arr: [1, 2, 3, { key: '123' }],//数组测试
+        };
+        a.self = a;//循环引用测试
+        a.common1 = { name: 'ccc' };
+        a.common2 = a.common1;//相同引用测试
+        var c = deepCopy(a);
+        c.common1.name = 'changed';
+        console.log(c);
+        //
+        let obj = { asd: 'asd' };
+        let obj2 = { name: 'aaaaa' };
+        obj.ttt1 = obj2;
+        obj.ttt2 = obj2;
+        let cp = JSON.parse(JSON.stringify(obj));
+        obj.ttt1.name = 'change';
+        cp.ttt1.name = 'change';
+        console.log(obj, cp);
+    </script>
+</body>
+
+</html>
