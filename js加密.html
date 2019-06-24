@@ -17,7 +17,7 @@
 
 <body>
     <h1 id="numBox"></h1>
-    <script>
+    <!-- <script>
         function numRunFun(num, maxNum) {
             var numBox = document.getElementById("numBox");
             // var num = num;
@@ -48,7 +48,7 @@
             numSlideFun();
         }
         numRunFun(1, 156372362812);
-    </script>
+    </script> -->
     <script src="./Base64.js"></script>
     <script src="./Secret_Key.js"></script>
     <script>
@@ -638,9 +638,13 @@
         console.log(b1);
 
         //{1：{…}, 2: {…}, 3: {…}, …}转换成[{…},{…},{…}, …]
-        var obj1 = data; //定义对象
+        var obj1 = {
+            1:{1:1},
+            2:{2:2},
+            3:{3:3}
+        }; //定义对象
         var arr = []; //定义数组
-
+        //对象遍历方式for( ... in ...){} 将对象的数据放入数组内      是否可以互换？  数组的遍历方式重新赋值一个对象
         for (var i in obj1) {
             arr.push(obj1[i]);
         }
