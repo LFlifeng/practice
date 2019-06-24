@@ -6,9 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>js加密</title>
+    <style>
+        #numBox {
+            color: #ba3f44;
+            font-weight: 700;
+            font-size: 30px;
+        }
+    </style>
 </head>
 
 <body>
+    <h1 id="numBox"></h1>
+    <script>
+        function numRunFun(num, maxNum) {
+            var numBox = document.getElementById("numBox");
+            // var num = num;
+            // var maxNum = maxNum;
+            // var timer = setInterval(function(){
+            //     num++;//调节速度
+            //     // num*=num;
+            //     if(num >= maxNum){
+            //         numBox.innerHTML = maxNum;
+            //         clearInterval(timer);
+            //     } else {
+            //         numBox.innerHTML = ~~(num);
+            //     }
+            // },1);
+            var numText = num;
+            var golb; // 为了清除requestAnimationFrame
+            function numSlideFun() {
+                numText += 1; // 速度的计算可以为小数
+                if (numText >= maxNum) {
+                    numText = maxNum;
+                    cancelAnimationFrame(golb);
+                } else {
+                    golb = requestAnimationFrame(numSlideFun);
+                }
+                numBox.innerHTML = ~~(numText)
+
+            }
+            numSlideFun();
+        }
+        numRunFun(1, 156372362812);
+    </script>
     <script src="./Base64.js"></script>
     <script src="./Secret_Key.js"></script>
     <script>
@@ -157,6 +197,19 @@
                 }
             }
             return generator;
+            // var length = fn.length,
+            //     args = [];
+            // var result = function (arg) {
+            //     args.push(arg);
+            //     length--;
+            //     if (length <= 0) {
+            //         return fn.apply(this, args);
+            //     } else {
+            //         return result;
+            //     }
+            // }
+
+            // return result;
         }
         let add = (a, b, c, d) => a + b + c + d;
         const curriedAdd = curry(add);
@@ -557,6 +610,42 @@
         obj.ttt1.name = 'change';
         cp.ttt1.name = 'change';
         console.log(obj, cp);
+
+        //json 数据格式转换 1
+        var a = [{ 1: 2 }, { 1: 3 }, { 2: 2 }, { 2: 3 }];
+        var b = {};
+        for (var i in a) {
+            var key = Object.keys(a[i])[0];
+            if (!b[key]) {
+                b[key] = [];
+            }
+            b[key].push(Object.values(a[i])[0]);
+        }
+        // 到这里得到的 b 是个对象，如果需要转成字符串，用 JSON.stringify 方法
+        console.log(JSON.stringify(b));
+
+        //json 数据格式转换 2
+        var a = [{ 1: 2 }, { 1: 3 }, { 2: 2 }, { 2: 3 }];
+        var b1 = {};
+        for (var i = 0; i < a.length; i++) {
+            var key = Object.keys(a[i]);
+            if (b1[key]) {
+                b1[key].push(a[i][key]);
+            } else {
+                b1[key] = [a[i][key]];
+            }
+        }
+        console.log(b1);
+
+        //{1：{…}, 2: {…}, 3: {…}, …}转换成[{…},{…},{…}, …]
+        var obj1 = data; //定义对象
+        var arr = []; //定义数组
+
+        for (var i in obj1) {
+            arr.push(obj1[i]);
+        }
+
+        console.log(arr)
     </script>
 </body>
 
