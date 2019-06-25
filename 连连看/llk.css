@@ -1,0 +1,39 @@
+#game {
+    width: 580px;
+    border: 4px solid #ba3f44;
+}
+.border{
+	display: inline-block;
+	width: 40px;
+	height:40px;
+	font-weight: 600;
+    font-size: 36px;
+	margin:1px;
+}
+.border.showPath{
+	background-color:#99FF00;
+}
+.cell{
+	display: inline-block;
+	width: 40px;
+    height:40px;
+    line-height: 40px;
+	border:1px solid #0099FF;
+	text-align: center;
+	font-weight: 600;
+	font-size:36px;
+	background-color:#FFFFFF;
+    color: #000000;
+    cursor: pointer;
+}
+.cell.selected{
+	background-color:#3399FF;
+	color: #FFFFFF;
+}
+.cell.showPath{
+	background-color:#99FF00;
+}
+.row{
+    display: block;
+	height: 42px;
+}

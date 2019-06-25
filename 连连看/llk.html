@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>连连看</title>
+    <link rel="stylesheet" href="llk.css">
+</head>
+
+<body>
+    <div id="game"></div>
+    <script>
+        var nx = 12, ny = 8;
+
+        function fid(id) {
+            return document.getElementById(id);
+        }
+        var gameDiv = fid('game');
+        var selectedCell = null;
+        var empty = '&nbsp;';
+        var count = nx * ny;
+        var cellArray = [];
+        function fc(x, y) {
+            if (x < 0 || x > nx + 1 || y < 0 || y > ny + 1) {
+                return null;
+            }
+            return cellArray[y][x];
+        }
+        function neibors(c) {
+            var neiborArr = [
+                fc(c.x - 1, c.y),
+                fc(c.x + 1, c.y),
+                fc(c.x, c.y + 1),
+                fc(c.x, c.y - 1)
+            ];
+            return neiborArr;
+        }
+
+        function findPath(c, target, pathStack, trunCount) {
+            if (!c) {
+                return false;
+            }
+            var c_2 = pathStack[pathStack.length - 2];
+            if (c_2 && c_2.x != c.x && c_2.y != c.y) {
+                if (++trunCount > 2) {
+                    return false;
+                }
+            }
+            if (c == target) {
+                pathStack.push(c);
+                return true;
+            }
+            if (c.innerHTML != empty) {
+                return false;
+            }
+            if (pathStack.indexOf(c) >= 0) {
+                return false;
+            }
+            pathStack.push(c);
+
+            var nexts = neibors(c);
+            for (var i = 0; i < nexts.length; i++) {
+                if (findPath(nexts[i], target, pathStack, trunCount)) {
+                    return true;
+                }
+            }
+            pathStack.pop();
+            return false;
+        }
+
+        function clearPath(path) {
+            for (var i = 0; i < path.length; i++) {
+                path[i].setAttribute('class', path[i].getAttribute('class').replace(' showPath', ''));
+            }
+        }
+
+        function drawPath(path) {
+            for (var i = 0; i < path.length; i++) {
+                path[i].setAttribute('class', path[i].getAttribute('class') + ' showPath');
+            }
+            setTimeout(clearPath, 150, path);
+        }
+
+        function tryMatch(ca, cb) {
+            if (ca == cb) {
+                return;
+            }
+            if (ca.innerHTML !== cb.innerHTML) {
+                return;
+            }
+            var pathStack = [ca];
+            var found = false;
+            var nexts = neibors(ca);
+            for (var i = 0; i < nexts.length; i++) {
+                if (findPath(nexts[i], cb, pathStack, 0)) {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                return;
+            }
+            ca.innerHTML = cb.innerHTML = empty;
+            setTimeout(drawPath, 10, pathStack);
+            count -= 2;
+            if (count < 2) {
+                alert('You win!');
+            }
+        }
+        function onCellClicked(e) {
+            console.log(this.x + ' ' + this.y);
+            if (this.innerHTML == empty) {
+                return;
+            }
+            if (selectedCell) {
+                tryMatch(selectedCell, this);
+                selectedCell.setAttribute('class', 'cell');
+                selectedCell = null;
+            } else {
+                selectedCell = this;
+                selectedCell.setAttribute('class', 'cell selected');
+            }
+        }
+        function init(m, n) {
+            for (var i = 0; i < n + 2; i++) {
+                var row = document.createElement('div');
+                row.setAttribute('class', 'row');
+                var cellArrayRow = [];
+                cellArray.push(cellArrayRow);
+                gameDiv.appendChild(row);
+                for (var j = 0; j < m + 2; j++) {
+                    var cell = document.createElement('div');
+                    cellArrayRow.push(cell);
+                    if (i == 0 || j == 0 || i == n + 1 || j == m + 1) {
+                        cell.setAttribute('class', 'border');
+                        cell.innerHTML = empty;
+                    } else {
+                        cell.setAttribute('class', 'cell');
+                        cell.addEventListener('click', onCellClicked);
+                    }
+                    cell.setAttribute('id', j + '_gc_' + i);
+                    cell.x = j;
+                    cell.y = i;
+                    row.appendChild(cell);
+                }
+            }
+        }
+
+        init(nx, ny);
+        var symbols = 'ABCDEFGHIGKLMNOPQRSTUVWXYZ123456789';
+        function reset() {
+            var all = count = nx * ny;
+            var halfAll = all / 2;
+            var tmp = [];
+            for (var i = 0; i < halfAll; i++) {
+                var c = symbols.charAt(Math.floor(Math.random() * 35));
+                tmp.push(c);
+                tmp.push(c);
+            }
+            for (var i = all - 1; i >= 0; i--) {
+                var r = Math.floor(Math.random() * i);
+                var c = tmp.splice(r, 1);
+                var y = Math.floor(i / nx);
+                var x = i - y * nx;
+                fc(x + 1, y + 1).innerHTML = c;
+            }
+        }
+        reset();
+    </script>
+</body>
+
+</html>
