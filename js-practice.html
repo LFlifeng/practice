@@ -639,9 +639,9 @@
 
         //{1：{…}, 2: {…}, 3: {…}, …}转换成[{…},{…},{…}, …]
         var obj1 = {
-            1:{one:1},
-            2:{two:2},
-            3:{three:3}
+            1: { one: 1 },
+            2: { two: 2 },
+            3: { three: 3 }
         }; //定义对象
         var arr = []; //定义数组
         //对象遍历方式for( ... in ...){} 将对象的数据放入数组内      是否可以互换？  数组的遍历方式重新赋值一个对象
@@ -650,6 +650,82 @@
         }
         console.log(arr);
         console.log(arr[0].one);
+
+        //函数提升
+        foo();
+        function foo() {
+            console.log('bar');
+        }
+        // baz();
+        // var baz = function() {
+        //     console.log('bar2');
+        // }
+
+        //声明以及赋初值
+        var n = null;
+        console.log(typeof n);
+        console.log(n * 32);
+
+        //
+        //
+        function baz() {
+            //当前的调用栈是baz
+            //当前的调用位置是全局作用域，即当前的调用栈的前一个调用
+            console.log('baz');
+            bar();
+        }
+        function bar() {
+            //当前调用栈是 baz -->bar
+            //当前的调用位置是：baz
+            console.log('bar');
+            foo();
+        }
+        function foo() {
+            //当前的调用栈是baz --> bar --> foo
+            //当前的调用位置是bar
+
+        }
+        baz();//<-- baz的调用位置就是全局作用域
+
+        //Array.prototype.includes()方法 
+        var arry = [1,2,3];
+        console.log(arry.includes(2));// ---> true;
+        var pets = ['cat','dog','bat'];
+        console.log(pets.includes('cat'));//  ---> true;
+        console.log(pets.includes('at'));//  --->false;
+
+        //块级作用域
+        var funcs = [];
+        for(let i=0;i<5;i++) {
+            funcs.push(function(){
+                console.log(i);
+            })
+        }
+        funcs[3]();// ---> 3 循环的每一次迭代都会重新声明一个新的i
+
+        var funct = [];
+        for(var i=0;i<5;i++) {
+            funct.push(function(){
+                console.log(i);
+            })
+        }
+        funct[3]();// ---> 5
+
+        //块作用域函数
+        var something = 0;
+        if(something){
+            function foo(){
+                console.log('1');
+            }
+        } else {
+            function foo(){
+                console.log('2');
+            }
+        }
+        foo();
+
+        //+
+        
     </script>
 </body>
 
