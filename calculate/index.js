@@ -9,7 +9,7 @@
 //             // console.log(Vinput[j].value)
 //             // console.log(e)
 //             if(e.target.value = j) {
-//                 $('#box').value = Vinput[j].value;
+//                 $('#box').value = this.value;
 //             }
 //        }
 //     }
