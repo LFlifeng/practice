@@ -1,0 +1,93 @@
+ /* 主体 */
+
+ .counter {
+     width: 396px;
+     height: 486px;
+     background-color: #F2F2F2;
+     border: 1px solid #C2C3C6;
+     margin: 50px auto;
+ }
+
+ /* 显示框 */
+
+ #box {
+     height: 70px;
+     width: 336px;
+     background-color: #323232;
+     border: none;
+     margin: 40px 25px 32px 25px;
+     font: 700 40px/70px "微软雅黑";
+     color: #ffffff;
+     padding-right: 10px;
+ }
+
+ /* 功能区 */
+
+ .funct {
+     padding: 0 20px;
+     position: relative;
+ }
+
+ /* 按钮样式 */
+
+ .funct input {
+     height: 40px;
+     width: 60px;
+     margin: 10px 10px;
+     font: 400 20px/40px "微软雅黑";
+ }
+
+ /* 清除按钮样式 */
+
+ .funct #res {
+     width: 150px;
+ }
+
+ /* + - = . 按钮浮动 */
+
+ #add, #reduce, #round, #sum {
+     position: absolute;
+     right: 0px;
+     bottom: 0px;
+ }
+
+ /* 减号位置 */
+
+ #reduce {
+     right: 30px;
+     top: 60px;
+ }
+
+ /* 加号位置 */
+
+ #add {
+     right: 30px;
+     top: 120px;
+ }
+
+ /* 等于号位置 */
+
+ #sum {
+     height: 100px;
+     right: 30px;
+     bottom: 0px;
+ }
+
+ /* 小数点位置 */
+
+ #round {
+     right: 120px;
+     bottom: 0px;
+ }
+
+ /* 0 */
+
+ #zero {
+     width: 150px;
+ }
+
+ /* 数字区 */
+
+ .numb {
+     width: 280px;
+ }
