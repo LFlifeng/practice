@@ -735,7 +735,39 @@
         var {x:x,y:y,z:z} = barr();  //对象结构
         console.log(a,b,c);
         console.log(x,y,z)
+
+        //模块
         
+
+        //类class
+        // 1)扩展原生类
+        class MyCoolArray extends Array {
+            first() {return this[0];}
+            last() {return this[this.length - 1];}
+        }
+        var a = new MyCoolArray(1,2,4);
+        console.log(a.length);
+        console.log(a);
+        console.log(a.first());
+        console.log(a.last());
+        // 2)元属性
+        class Fooo {
+            constructor() {
+                console.log("Fooo: ",new.target.name);
+            }
+        }
+        class Barr extends Fooo {
+            constructor() {
+                super();
+                console.log("Barr: ",new.target.name);
+            }
+            bazz(){
+                console.log("bazz: ",new.target);
+            }
+        }
+        var a = new Fooo();
+        var bb = new Barr();
+        bb.bazz();
     </script>
 </body>
 
