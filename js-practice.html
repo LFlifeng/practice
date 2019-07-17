@@ -724,7 +724,17 @@
         }
         foo();
 
-        //+
+        //解构赋值
+        function fooo() {
+            return [1,2,3];
+        }
+        function barr() {
+            return {x:4,y:5,z:6};
+        }
+        var [a,b,c] = fooo();   //数组结构
+        var {x:x,y:y,z:z} = barr();  //对象结构
+        console.log(a,b,c);
+        console.log(x,y,z)
         
     </script>
 </body>
