@@ -768,6 +768,146 @@
         var a = new Fooo();
         var bb = new Barr();
         bb.bazz();
+
+        //promise
+        // function *main() {
+        //     var ret = yield step1();
+        //     try {
+        //         ret = yield step2(ret);
+        //     }
+        //     catch (err) {
+        //         ret = yield step2Failed(err);
+        //     }
+        //     ret = yield Promise.all([
+        //         step3a(ret),
+        //         step3b(ret),
+        //         step3c(ret)
+        //     ]);
+        //     yield step4(ret);
+        // }
+        // run(main)
+        // .then(
+        //     function fulfilled(){
+        //         console.log('*main()成功完成');
+        //     },
+        //     function rejected(reason){
+                
+        //     }
+        // )
+
+        //Map
+        var m = new Map();
+        var x = {id:1},
+            y = {id:2};
+            m.set(x,'foo');
+            m.set(y,'bar');
+            console.log(m.get(x));
+            console.log(m.get(y));
+            // m.delete(y);//删除某一项
+            // m.clear();//清除整个map的内容
+            // m.size;//map的长度（键值的个数）
+            // var vals = [...m.values()];
+            // console.log(vals);
+            // console.log(Array.from(m.values()));
+            var vals = [...m.entries()];
+            console.log(vals[0][0] === x);
+            console.log(vals[0][1]);
+            console.log(vals[0][0] === y);
+            console.log(vals[1][1]);
+            
+            //新增API
+            //静态函数Array.of()
+            var a = Array(3);
+            a.length;
+            a[0];
+            var ab = Array.of(3);
+            ab.length;
+            ab[0];
+            var abc = Array.of(1,2,3);
+            abc.length;
+            abc;
+            //
+            class MyCoolArray0 extends Array {
+                sum(){
+                    return this.reduce(function reducer(arr,curr){
+                        return arr + curr;
+                    },0);
+                }
+            }
+            var x = new MyCoolArray0(3);
+            x.length;
+            x.sum();
+            var y = new MyCoolArray0(3);
+            y.length;
+            y.sum();
+            var z = MyCoolArray0.of(3);
+            z.length;
+            z.sum();
+
+            //静态函数Array.from()
+            var arrLike = {
+                length:4,
+                2: "foo"
+            };
+            Array.from(arrLike,function mapper(val,idx){
+                if(typeof val == "string") {
+                    return val.toUpperCase();
+                }
+                else {
+                    return idx;
+                }
+            });
+            //创建数组和子类型
+            class MyCoolArray1 extends Array {
+                static get [Symbol.species]() { return Array;}
+            }
+            var x = new MyCoolArray1(1,2,3);
+            x.slice(1) instanceof MyCoolArray1; //false
+            x.slice(1) instanceof Array;  //true
+
+            //原型方法copeWithin(...)
+            console.log([1,2,3,4,5].copyWithin(3,0));
+            console.log([1,2,3,4,5].copyWithin(3,0,1));
+            console.log([1,2,3,4,5].copyWithin(0,-2));
+            console.log([1,2,3,4,5].copyWithin(0,-2,-1));
+
+            //原型方法fill(...)
+            var aaa = Array(4).fill(undefined);
+            aaa;
+            var aaa = [null,null,null,null].fill(42,1,3);
+            console.log(aaa);
+
+            //原型方法find(...)
+            var aaaa = [1,2,3,4,5];
+            aaa.find(function matcher(v){
+                return v === "2";
+            });
+            aaa.find(function matcher(v){
+                return v === 7;
+            });
+            var points = [
+                {x:10,y:20},
+                {x:20,y:30},
+                {x:30,y:40},
+                {x:40,y:50},
+                {x:50,y:60}
+            ];
+            points.find(function matcher(point){
+                return (
+                    point.x%3 == 0 && point.y%4 == 0
+                );
+            });
+
+            //静态函数Object.getOwnPropertySymbols
+            var oo = {
+                foo: 42,
+                [Symbol("bar")]: "hello world",
+                baz: true
+            };
+            console.log(Object.getOwnPropertySymbols(oo));
+
+            //代理
+            
     </script>
 </body>
 
