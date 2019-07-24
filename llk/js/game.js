@@ -160,6 +160,90 @@ var Game = (function(){
                 success: success,
                 pos: pos,
             };
+        },
+        directlyConnectable(before,after){
+            var status = this.connectable(before,after);
+            return status;
+        },
+        coceCorner(before,after){
+            var _this = this;
+            var success = false;
+            var pos = [];
+            var corners = this.getCorner(bofore,after);
+            corners.forEach(function(el){
+                if(!_this.isEmpty(_this.getItem(el)) || success){
+                    return;
+                }
+                var _status = [
+                    _this.connectable(before,el),
+                    _this.connectable(el,after),
+                ];
+                var ok = _status.every(function(status){
+                    return status.success;
+                });
+                if(ok){
+                    _status[0].pos.push(el);
+                    success = true;
+                    pos = _status[0].pos.concat(_status[1].pos);
+                }
+            });
+            return {
+                success: success,
+                pos: pos,
+            };
+        },
+        twiceCorner(before,after){
+            var success = false;
+            var pos = [];
+            var arounds = this.getAround(before);
+            call: for(var i=0;i<arounds.length;i++){
+                var j = before;
+                while(j += arounds[i]){
+                    var current = this.getItem(j);
+                    if(!this.isEmpty(current)){
+                        break;
+                    }
+                    var _status = this.onceCorner(j,after);
+                    if(_status.success){
+                        success = true;
+                        var _pos = this.directlyConnectable(before,j).pos;
+                        _pos.push(j);
+                        pos = _pos.concat(_status.pos);
+                        break call;
+                    }
+                    if(this.isLimit(j)){
+                        break;
+                    }
+                }
+            }
+            return {
+                success: successs,
+                pos: pos,
+            }
+        },
+        isConnectable(before,after){
+            var status = {};
+            if(before === after) return false;
+            if(!this.isSame(before,after)) return false;
+            var calleds = [
+                //直连
+                this.directlyConnectable,
+                //一次拐角
+                this.onceCorner,
+                //两次拐角
+                this.twiceCorner,
+            ];
+            for(var i=0;i<calleds.length;i++){
+                var fn = calleds[i].bind(this);
+                status = fn(before,after);
+                if(status.success){
+                    break;
+                }
+            }
+            return status;
+        },
+        judge(before,after){
+            
         }
     }
 })
