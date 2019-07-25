@@ -252,7 +252,7 @@ var Game = (() => {
                 if(status && status.success){
                     status.pos.unshift(before);
                     status.pos.push(after);
-                    this.view.showLine(status.pos,(){
+                    this.view.showLine(status.pos,() => {
                         _this.removeItem(before,after);
                     });
                 }else{
