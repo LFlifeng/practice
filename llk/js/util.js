@@ -9,22 +9,22 @@ var random = function(start,end){
     return Math.floor(rand);
 };
 var on = function(elem,type,callback,status){
-    elem.addEventListener(type,function(e){
+    elem.addEventListener(type,function(e) {
         callback(e);
         if(status){
             return false;
         }
-    })
+    });
 };
-var css = function(elem,styleObj){
+var css = function(elem,styleObj) {
     for(var i in styleObj){
         elem.style[i] = styleObj[i];
     }
 };
-var getLocalStorage = function(key){
+var getLocalStorage = function(key) {
     return localStorage[key] ? JSON.parse(localStorage[key]) : null;
 };
-var toNdimension = function(arr,num){
+var toNdimension = function(arr,num) {
     var new_arr = [];
     for(var i=0;i<arr.length;i+=num){
         new_arr.push(arr.slice(i,i+num));

@@ -1,4 +1,4 @@
-var Game = (() => {
+var Game = (function () {
     var Row = config.row + 2;
     var COL = config.col + 2;
     var itemCount = config.row * config.col;
@@ -8,67 +8,70 @@ var Game = (() => {
     };
     var timeCooldown = 60;
     var helpData = [];
-    var Game = () =>{
+    var Game = function () {
 
     };
     Game.prototype = {
-        setup(){
+        setup() {
             this.view = new View();
             this.init();
         },
-        init(){
+        init() {
             this.start();
-            this.view.init(this,data);
+            this.view.init(this, data);
         },
-        start(){
+        start() {
             this.initCell();
             this.fillCell();
             this.checkDeadlock();
             this.update();
         },
-        restart(){
+        restart() {
             location.reload();
         },
-        help(){
-            this.judge.apply(this,helpData);
+        help() {
+            this.judge.apply(this, helpData);
         },
-        update(){
+        update() {
             this.updateTime();
             window.requestAnimationFrame(this.update.bind(this));
         },
-        updateTime(){
+        updateTime() {
             timeCooldown--;
-            if(!timeCooldown){
+            if (!timeCooldown) {
                 timeCooldown = 60;
                 data.time--;
                 this.view.updateTime(data.time);
             }
-            if(data.time === 0){
+            if (data.time === 0) {
                 this.over();
             }
         },
-        initCell(){
+        initCell() {
             var index = -1;
-            for(var i=0;i<Row;i++){
-                index++;
-                data.cell[i][j] = {
-                    val:null,
-                    index:index,
+            for (var i = 0; i < Row; i++) {
+                data.cell[i] = [];
+                for (var j = 0; j < COL; j++) {
+                    index++;
+                    data.cell[i][j] = {
+                        val: null,
+                        index: index,
+                    }
                 }
             }
         },
-        fillCell(){
+        fillCell() {
             var row = config.row;
             var col = config.col;
             var count = config.objectCount;
             var repeat = config.repeatCount;
-            for(var i=0;i<count;i++){
-                for(var j=0;j<repeat;j++){
-                    while(true){
-                        var x = random(1,col);
-                        var y = random(1,row);
+            for (var i = 0; i < count; i++) {
+                for (var j = 0; j < repeat; j++) {
+                    while (true) {
+                        var x = random(1, col);
+                        var y = random(1, row);
                         var item = data.cell[y][x].val = i;
-                        if(item.val === null){
+                        if (item.val === null) {
                             data.cell[y][x].val = i;
                             break;
                         }
@@ -76,18 +79,18 @@ var Game = (() => {
                 }
             }
         },
-        indexToPos(){
+        indexToPos() {
             return {
                 x: index % COL,
                 y: Math.floor(index / COL),
             };
         },
-        posToIndex(){
+        posToIndex() {
             return (
                 obj.y * COL + obj.x
             );
         },
-        removeItem(before,after){
+        removeItem(before, after) {
             this.getItem(before).val = null;
             this.getItem(after).val = null;
             this.view.removeItem(before);
@@ -95,16 +98,16 @@ var Game = (() => {
             itemCount -= 2;
             this.checkWinning();
         },
-        isEmpty(obj){
+        isEmpty(obj) {
             return obj.val === null;
         },
-        isSame(before,after){
+        isSame(before, after) {
             return this.getItem(before).val === this.getItem(after).val;
         },
-        identicalX(before,after){
+        identicalX(before, after) {
             return this.indexToPos(before).y === this.indexToPos(after).y;
         },
-        getAround(index){
+        getAround(index) {
             return [
                 -COL,
                 COL,
@@ -112,9 +115,9 @@ var Game = (() => {
                 1
             ];
         },
-        getCorner(before,after){
-            var min = Math.min.call(null,before,after);
-            var max = Math.max.call(null,before,after);
+        getCorner(before, after) {
+            var min = Math.min.call(null, before, after);
+            var max = Math.max.call(null, before, after);
             min = this.indexToPos(min);
             max = this.indexToPos(max);
             return [
@@ -128,34 +131,34 @@ var Game = (() => {
                 }),
             ];
         },
-        connectable(before,after){
+        connectable(before, after) {
             var _this = this;
             var pos = [];
             var success = false;
-            var min = Math.min.call(null,before,after);
-            var max = Math.max.call(null,before,after);
+            var min = Math.min.call(null, before, after);
+            var max = Math.max.call(null, before, after);
             var called = (dir) => {
                 var i = min;
                 var num = dir === 'x' ? COL : 1;
-                for(var i=0;i+=num;i<=max){
+                for (var i = 0; i += num; i <= max) {
                     var current = _this.getItem(i);
-                    if(current === _this.getItem(max)){
+                    if (current === _this.getItem(max)) {
                         success = true;
                         break;
-                    }else if(_this.isEmpty(current)){
+                    } else if (_this.isEmpty(current)) {
                         pos.push(current.index);
-                    }else{
+                    } else {
                         break;
                     }
                 }
             };
-            if(this.identicalY(before,after)){
+            if (this.identicalY(before, after)) {
                 called('y');
-            }else if(this.identicalX(before,after)){
+            } else if (this.identicalX(before, after)) {
                 called('x');
             }
-            if(success){
-                if(min !== before){
+            if (success) {
+                if (min !== before) {
                     pos = pos.reverse;
                 }
             }
@@ -164,27 +167,27 @@ var Game = (() => {
                 pos: pos,
             };
         },
-        directlyConnectable(before,after){
-            var status = this.connectable(before,after);
+        directlyConnectable(before, after) {
+            var status = this.connectable(before, after);
             return status;
         },
-        coceCorner(before,after){
+        coceCorner(before, after) {
             var _this = this;
             var success = false;
             var pos = [];
-            var corners = this.getCorner(bofore,after);
+            var corners = this.getCorner(bofore, after);
             corners.forEach((el) => {
-                if(!_this.isEmpty(_this.getItem(el)) || success){
+                if (!_this.isEmpty(_this.getItem(el)) || success) {
                     return;
                 }
                 var _status = [
-                    _this.connectable(before,el),
-                    _this.connectable(el,after),
+                    _this.connectable(before, el),
+                    _this.connectable(el, after),
                 ];
                 var ok = _status.every((status) => {
                     return status.success;
                 });
-                if(ok){
+                if (ok) {
                     _status[0].pos.push(el);
                     success = true;
                     pos = _status[0].pos.concat(_status[1].pos);
@@ -195,26 +198,26 @@ var Game = (() => {
                 pos: pos,
             };
         },
-        twiceCorner(before,after){
+        twiceCorner(before, after) {
             var success = false;
             var pos = [];
             var arounds = this.getAround(before);
-            call: for(var i=0;i<arounds.length;i++){
+            call: for (var i = 0; i < arounds.length; i++) {
                 var j = before;
-                while(j += arounds[i]){
+                while (j += arounds[i]) {
                     var current = this.getItem(j);
-                    if(!this.isEmpty(current)){
+                    if (!this.isEmpty(current)) {
                         break;
                     }
-                    var _status = this.onceCorner(j,after);
-                    if(_status.success){
+                    var _status = this.onceCorner(j, after);
+                    if (_status.success) {
                         success = true;
-                        var _pos = this.directlyConnectable(before,j).pos;
+                        var _pos = this.directlyConnectable(before, j).pos;
                         _pos.push(j);
                         pos = _pos.concat(_status.pos);
                         break call;
                     }
-                    if(this.isLimit(j)){
+                    if (this.isLimit(j)) {
                         break;
                     }
                 }
@@ -224,10 +227,10 @@ var Game = (() => {
                 pos: pos,
             }
         },
-        isConnectable(before,after){
+        isConnectable(before, after) {
             var status = {};
-            if(before === after) return false;
-            if(!this.isSame(before,after)) return false;
+            if (before === after) return false;
+            if (!this.isSame(before, after)) return false;
             var calleds = [
                 //直连
                 this.directlyConnectable,
@@ -236,73 +239,73 @@ var Game = (() => {
                 //两次拐角
                 this.twiceCorner,
             ];
-            for(var i=0;i<calleds.length;i++){
+            for (var i = 0; i < calleds.length; i++) {
                 var fn = calleds[i].bind(this);
-                status = fn(before,after);
-                if(status.success){
+                status = fn(before, after);
+                if (status.success) {
                     break;
                 }
             }
             return status;
         },
-        judge(before,after){
+        judge(before, after) {
             var _this = this;
-            var status = this.isConnectable(before,after);
-            if(status && status.success){
-                if(status && status.success){
+            var status = this.isConnectable(before, after);
+            if (status && status.success) {
+                if (status && status.success) {
                     status.pos.unshift(before);
                     status.pos.push(after);
-                    this.view.showLine(status.pos,() => {
-                        _this.removeItem(before,after);
+                    this.view.showLine(status.pos, () => {
+                        _this.removeItem(before, after);
                     });
-                }else{
-                    this.removeItem(before,after);
+                } else {
+                    this.removeItem(before, after);
                 }
                 return true;
-            }else{
+            } else {
                 return false;
             }
         },
-        isOutside(index){
+        isOutside(index) {
             var pos = this.indexToPos(index);
             return (
-                pos.x < 0 || pos.y < 0 || pos.x > COL-1 || pos.y > Row-1
+                pos.x < 0 || pos.y < 0 || pos.x > COL - 1 || pos.y > Row - 1
             );
         },
-        isLimit(index){
+        isLimit(index) {
             var pos = this.indexToPos(index);
             return (
-                pos.x === 0 || pos.y === 0 || pos.x === COL-1 || pos.y === Row-1
+                pos.x === 0 || pos.y === 0 || pos.x === COL - 1 || pos.y === Row - 1
             );
         },
-        getItem(index){
-            if(this.isOutside(index)){
+        getItem(index) {
+            if (this.isOutside(index)) {
                 return {};
             }
             var pos = this.indexToPos(index);
             return data.cell[pos.y][pos.x];
         },
-        winning(){
+        winning() {
             setTimeout(() => {
                 var str = "已经完成，确定再来一局吗？";
                 alert(str);
                 location.reload();
-            },50);
+            }, 50);
         },
-        over(){
+        over() {
             data.time = config.time;
             var str = "失败！确定再来一次吗？";
             alert(str);
             location.reload();
         },
-        checkWinning(){
-            if(itemCount ===0 ){
+        checkWinning() {
+            if (itemCount === 0) {
                 this.winning();
-            }else{
+            } else {
                 this.checkDeadlock();
             }
         },
-        checkDeadlock(){
+        checkDeadlock() {
             log(1);
             var count = config.objectCount;
             var cell = reduceDimension(data.cell);
@@ -311,15 +314,15 @@ var Game = (() => {
                     return el.val === i;
                 });
             };
-            for(var i=0;i<count;i++){
+            for (var i = 0; i < count; i++) {
                 var result = filter(i);
                 var len = result.length;
-                for(var j=0;j<len;j++){
+                for (var j = 0; j < len; j++) {
                     var el = result[j].index;
-                    for(var k=0;k<len;k++){
-                        var status = this.isConnectable(el,result[k].index);
-                        if(status && status.success) {
-                            helpData = [el,result[k].index];
+                    for (var k = 0; k < len; k++) {
+                        var status = this.isConnectable(el, result[k].index);
+                        if (status && status.success) {
+                            helpData = [el, result[k].index];
                             return;
                         }
                     }
@@ -327,7 +330,7 @@ var Game = (() => {
             }
             this.randomReset();
         },
-        randomReset(){
+        randomReset() {
             var _this = this;
             var row = config.row;
             var col = config.col;
@@ -338,22 +341,23 @@ var Game = (() => {
             })();
             this.initCell();
             cell.forEach((el) => {
-                while(true){
-                    var x = random(1,col);
-                    var y = random(1,row);
+                while (true) {
+                    var x = random(1, col);
+                    var y = random(1, row);
                     var item = data.cell[y][x];
-                    if(item.val === null){
+                    if (item.val === null) {
                         data.cell[y][x] = {
                             val: el.val,
-                            index: _this.posToIndex({x: x,y: y}),
+                            index: _this.posToIndex({ x: x, y: y }),
                         }
                         break;
                     }
                 }
             });
-            this.view.init(this,data);
+            this.view.init(this, data);
             this.checkDeadlock();
         }
     }
     return Game;
-})();
+});
+console.dir(Game)

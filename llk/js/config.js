@@ -1,4 +1,4 @@
-var config = (function(){
+var config = ( function(){
     var row = 8;
     var col = 7;
     var objectCount = 14;
@@ -6,7 +6,7 @@ var config = (function(){
     var time = 120;
     var imgUrl = "./img/";
     var imgExtension = ".png";
-    var imgByName = function(name){
+    var imgByName = function(name) {
         var src = imgUrl + name + imgExtension;
         return `<img draggable="false" src="${src}">`;
     }

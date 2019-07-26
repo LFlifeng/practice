@@ -10,10 +10,10 @@ var View = (function(){
             this.updateTime(data.time);
             this.initGrid(data.cell);
         },
-        updateTime:function(time){
+        updateTime(time){
             timeDom.innerHTML = time;
         },
-        itemHTML:function(el){
+        itemHTML(el){
             var empty = el.val === null;
             var img = config.imgByName(empty ? 0 : el.val);
             return (
@@ -88,4 +88,5 @@ var View = (function(){
             });
         },
     };
-})();
+});
+console.dir(View);
