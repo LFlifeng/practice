@@ -12,6 +12,7 @@ var Game = function () {
 
     };
     Game.prototype = {
+        constructor: Game,
         setup() {
             this.view = new View();
             this.init();
