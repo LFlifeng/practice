@@ -12,7 +12,7 @@ var Game = (function () {
 
     };
     Game.prototype = {
-        setup() {
+        setup:function() {
             this.view = new View();
             this.init();
         },
