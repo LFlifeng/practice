@@ -1,4 +1,4 @@
-var config = ( function(){
+var config = function(){
     var row = 8;
     var col = 7;
     var objectCount = 14;
@@ -25,4 +25,4 @@ var config = ( function(){
         itemDirectionHTML: itemDirectionHTML,
         time: time,
     }
-})();
+};

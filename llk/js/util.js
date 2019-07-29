@@ -1,4 +1,4 @@
-var log = console.log(console);
+// var log = console.log(console);
 var $ = function(elem) {
     return document.querySelectorAll(elem);
 };

@@ -1,4 +1,4 @@
-var View = (function(){
+var View = function(){
     var container = $('.container')[0];
     var gridContainer = $('.grid-container')[0];
     var timeDom = $('.time')[0];
@@ -88,5 +88,5 @@ var View = (function(){
             });
         },
     };
-});
+};
 console.dir(View);

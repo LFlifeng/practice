@@ -1,4 +1,4 @@
-var Game = (function () {
+var Game = function () {
     var Row = config.row + 2;
     var COL = config.col + 2;
     var itemCount = config.row * config.col;
@@ -359,5 +359,5 @@ var Game = (function () {
         }
     }
     return Game;
-});
+};
 console.dir(Game)
