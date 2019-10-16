@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./earth.css">
 </head>
 <script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
-<script src="./JSON.json"></script>
+<!-- <script src="./JSON.json"></script> -->
 
 
 <body>
@@ -103,135 +103,135 @@
         var chinaDatas = [
             {
                 name: '北京',
-                value: 86
+                value: 0
             },
             {
                 name: '福建',
-                value: 65
+                value: 0
             },
             {
                 name: '广东',
-                value: 53
+                value: 0
             },
             {
                 name: '上海',
-                value: 48
+                value: 0
             },
 
             {
                 name: '河北',
-                value: 2
+                value: 0
             },
             {
                 name: '天津',
-                value: 6
+                value: 0
             },
             {
                 name: '山西',
-                value: 12
+                value: 0
             },
             {
                 name: '陕西',
-                value: 2
+                value: 0
             },
             {
                 name: '甘肃',
-                value: 4
+                value: 0
             },
             {
                 name: '宁夏',
-                value: 5
+                value: 0
             },
             {
                 name: '青海',
-                value: 3
+                value: 0
             },
             {
                 name: '新疆',
-                value: 0.4
+                value: 0
             },
             {
                 name: '西藏',
-                value: 0.3
+                value: 0
             },
             {
                 name: '四川',
-                value: 22
+                value: 0
             },
             {
                 name: '重庆',
-                value: 12
+                value: 0
             },
             {
                 name: '山东',
-                value: 9
+                value: 0
             },
             {
                 name: '河南',
-                value: 0.9
+                value: 0
             },
             {
                 name: '江苏',
-                value: 24
+                value: 0
             },
             {
                 name: '安徽',
-                value: 15
+                value: 0
             },
             {
                 name: '湖北',
-                value: 6
+                value: 0
             },
             {
                 name: '浙江',
-                value: 15
+                value: 0
             },
             {
                 name: '内蒙古',
-                value: 0.3
+                value: 0
             },
             {
                 name: '江西',
-                value: 34
+                value: 0
             },
             {
                 name: '湖南',
-                value: 12
+                value: 0
             },
             {
                 name: '贵州',
-                value: 0.8
+                value: 0
             },
             {
                 name: '广西',
-                value: 16
+                value: 0
             },
             {
                 name: '海南',
-                value: 37
+                value: 0
             },
             {
                 name: '辽宁',
-                value: 0.2
+                value: 0
             },
             {
                 name: '吉林',
-                value: 0.4
+                value: 0
             },
             {
                 name: '云南',
-                value: 34
+                value: 0
             },
             {
                 name: '黑龙江',
-                value: 5
+                value: 0
             }
         ];
         var convertData = function (data, type) {
             /*type:1 地图参数；type:2数据参数*/
             var res = [];
             for (var i = 0; i < data.length; i++) {
-                var geoCoord = geoCoordMap1[data[i].name];
+                var geoCoord = geoCoordMap[data[i].name];
                 if (geoCoord) {
                     if (type == 2) {
                         res.push({
@@ -598,7 +598,9 @@
         var pro;
         var c_index = 0;
         var item;
-        var timer ;
+        var timer;
+        var json = [];
+        var inited = false;
         // 数组排序
         function compare(obj1, obj2) {
             var val1 = obj1.value;
@@ -606,7 +608,10 @@
             return val2 - val1;
         }
         (function () {
-
+            // init()
+            WebSocketTest();
+        })();
+        function init() {
             for (var i = 0; i < json.length; i++) {
                 var name = json[i].n;
                 for (var j = 0; j < chinaDatas.length; j++) {
@@ -632,8 +637,7 @@
                 c_index = index;
                 showClassify()
             }, 2000)
-            WebSocketTest();
-        })();
+        }
         // 展示省市数据
         function showData(p) {
             var runidx = Math.floor(Math.random() * 3);
@@ -649,7 +653,7 @@
                     var array = json[i].l;
                     pro = i;
                     for (var j = 0; j < array.length; j++) {
-                        $(".ul1").append("<div>" + "<span>" + array[j].n + "</span>" + "<span>" + json[j].c + "</span>" + "</div>");
+                        $(".ul1").append("<div>" + "<span>" + array[j].n + "</span>" + "<span>" + array[j].c + "</span>" + "</div>");
                     }
                     option.series[typeidx].data = [{
                         address: json[i].c,
@@ -693,7 +697,7 @@
         // WebSocketTest外部链接
         function WebSocketTest() {
             if ("WebSocket" in window) {
-                let a = new WebSocket(encodeURI('ws://192.168.0.36:7999/echo'));
+                var a = new WebSocket(encodeURI('ws://192.168.0.36:7999/echo'));
                 a.onopen = function () {
                     //发送数据
                     a.send("SECOND");
@@ -703,12 +707,19 @@
                     //接受数据
 
                     if (msg.data.indexOf("item:") == -1) {
-                        json = eval('(' + msg.data + ')');
 
+                        json = eval('(' + msg.data + ')');
+                        if(!inited)
+                        {
+                            init();
+                            inited = true;
+                        }
+                        
                     }
                     else {
                         data = eval('(' + msg.data.substring(5) + ')');
                         // console.log(data)
+                        // a.close()
                         //0: {cIndex: "3", count: "1941", province: "山东省", type: "中标公告"}
                         for (var i = 0; i < data.length; i++) {
 
@@ -757,7 +768,7 @@
                             }
                         }
                         var obj = data[data.length - 1];
-                        console.log(obj)
+                        // console.log(obj)
                         var valarr = geoCoordMap1[obj.province];
                         var typeidx = Math.floor(Math.random() * 3);
                         option.series[typeidx].data = [{
@@ -774,7 +785,12 @@
                 }
                 a.onclose = function () {
                     // // 关闭 websocket
-                    alert(1)
+                    // alert(1)
+                    clearTimeout(_time);
+                    _time = setTimeout(function () {
+                        WebSocketTest();
+                        // console.log(121)
+                    }, 2000);
                 };
             } else {
                 // console.log("您的浏览器不支持WebSocket");
