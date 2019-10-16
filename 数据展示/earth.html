@@ -231,14 +231,14 @@
             /*type:1 地图参数；type:2数据参数*/
             var res = [];
             for (var i = 0; i < data.length; i++) {
-                var geoCoord = geoCoordMap[data[i].name];
+                var geoCoord = geoCoordMap1[data[i].name];
                 if (geoCoord) {
                     if (type == 2) {
                         res.push({
                             name: data[i].name,
                             value: geoCoord.concat(data[i].value),
-                            username: data[i].username,
-                            telphone: data[i].telphone,
+                            // username: data[i].username,
+                            // telphone: data[i].telphone,
                             address: data[i].address
                         });
                     } else {
@@ -479,43 +479,43 @@
                         color: '#e93f42',
                     }
                 },
-                // {
-                //     type: 'effectScatter',
-                //     coordinateSystem: 'geo',
-                //     z: 1,
-                //     data: [],
-                //     symbolSize: 14,
-                //     label: {
-                //         normal: {
-                //             show: true,
-                //             formatter: function (params) {
-                //                 return '{fline|年度招投标总数' + '  ' + '}\n{tline|' + params.data.address + '}';
-                //             },
-                //             position: 'top',
-                //             backgroundColor: 'rgba(8,186,236,.9)',
-                //             padding: [0, 0],
-                //             borderRadius: 3,
-                //             lineHeight: 32,
-                //             color: '#ffffff',
-                //             rich: {
-                //                 fline: {
-                //                     padding: [0, 10, 10, 10],
-                //                     color: '#ffffff'
-                //                 },
-                //                 tline: {
-                //                     padding: [10, 10, 0, 10],
-                //                     color: '#ffffff'
-                //                 }
-                //             }
-                //         },
-                //         emphasis: {
-                //             show: true
-                //         }
-                //     },
-                //     itemStyle: {
-                //         color: '#08baec',
-                //     }
-                // },
+                {
+                    type: 'effectScatter',
+                    coordinateSystem: 'geo',
+                    z: 1,
+                    data: [],
+                    symbolSize: 14,
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: function (params) {
+                                return '{fline|年度招投标总数' + '  ' + '}\n{tline|' + params.data.address + '}';
+                            },
+                            position: 'top',
+                            backgroundColor: 'rgba(8,186,236,.9)',
+                            padding: [0, 0],
+                            borderRadius: 3,
+                            lineHeight: 32,
+                            color: '#ffffff',
+                            rich: {
+                                fline: {
+                                    padding: [0, 10, 10, 10],
+                                    color: '#ffffff'
+                                },
+                                tline: {
+                                    padding: [10, 10, 0, 10],
+                                    color: '#ffffff'
+                                }
+                            }
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    itemStyle: {
+                        color: '#08baec',
+                    }
+                },
                 //地图
                 {
                     type: 'map',
@@ -664,7 +664,7 @@
                 var index = (c_index + 1) % json[pro].l.length;
                 c_index = index;
                 showClassify()
-            }, 2000)
+            }, 3000)
         }
         // 展示招投标分类数据
         function showClassify() {
@@ -757,6 +757,7 @@
                             }
                         }
                         var obj = data[data.length - 1];
+                        console.log(obj)
                         var valarr = geoCoordMap1[obj.province];
                         var typeidx = Math.floor(Math.random() * 3);
                         option.series[typeidx].data = [{
