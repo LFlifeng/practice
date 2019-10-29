@@ -612,6 +612,7 @@
             // init()
             WebSocketTest();
         })();
+        //初始化页面数据
         function init() {
             for (var i = 0; i < json.length; i++) {
                 var name = json[i].n;
@@ -620,7 +621,6 @@
                         chinaDatas[j].value = json[i].c;
                     }
                 }
-
             }
             chinaDatas.sort(compare);
             for (var j = 0; j < chinaDatas.length; j++) {
@@ -630,14 +630,13 @@
                     yData.push(j + chinaDatas[j].name);
                 }
             }
-
             showData("山东");
             showClassify();
             timer = setInterval(function () {
                 var index = (c_index + 1) % json[pro].l.length;
                 c_index = index;
                 showClassify()
-            }, 2000)
+            }, 2000);
         }
         // 展示省市数据
         function showData(p) {
@@ -646,7 +645,7 @@
             var dataidx = Math.floor(Math.random() * 32);
             var ranval = Math.floor(Math.random() * 10);
             var valarr = geoCoordMap1[p];
-            $(".ul1").html('')
+            $(".ul1").html('');
             // 展示市级数据信息
             for (var i = 0; i < json.length; i++) {
                 var name = json[i].n;
@@ -661,15 +660,14 @@
                         value: valarr
                     }];
                     myChart.setOption(option, true);
-
                 }
             }
             clearInterval(timer);
             timer = setInterval(function () {
                 var index = (c_index + 1) % json[pro].l.length;
                 c_index = index;
-                showClassify()
-            }, 3000)
+                showClassify();
+            }, 3000);
         }
         // 展示招投标分类数据
         function showClassify() {
@@ -691,9 +689,9 @@
         }
         //点击省份显示市级的各项数据
         myChart.on('click', function (params) {
-            showData(params.name)
+            showData(params.name);
             c_index = 0;
-            showClassify()
+            showClassify();
         });
         // WebSocketTest外部链接
         function WebSocketTest() {
@@ -702,28 +700,19 @@
                 a.onopen = function () {
                     //发送数据
                     a.send("SECOND");
-                    // console.log("数据发送中...");
                 }
                 a.onmessage = function (msg) {
                     //接受数据
-
                     if (msg.data.indexOf("item:") == -1) {
-
                         json = eval('(' + msg.data + ')');
-                        if(!inited)
-                        {
+                        if (!inited) {
                             init();
                             inited = true;
                         }
-                        
                     }
                     else {
                         data = eval('(' + msg.data.substring(5) + ')');
-                        // console.log(data)
-                        // a.close()
-                        //0: {cIndex: "3", count: "1941", province: "山东省", type: "中标公告"}
                         for (var i = 0; i < data.length; i++) {
-
                             var name = data[i].province;
                             for (var j = 0; j < json.length; j++) {
                                 if (name == json[j].n) {
@@ -735,12 +724,10 @@
                                             flag = true;
                                             break;
                                         }
-
                                     }
                                     if (!flag) {
                                         var map1 = new Map();
                                         for (const key in map) {
-
                                             map1.set(key, map[key])
                                         }
                                         map1.set(data[i].type, data[i].count)
@@ -757,7 +744,6 @@
                                     chinaDatas[j].value = json[i].c;
                                 }
                             }
-
                         }
                         yData = [];
                         chinaDatas.sort(compare);
@@ -769,7 +755,6 @@
                             }
                         }
                         var obj = data[data.length - 1];
-                        // console.log(obj)
                         var valarr = geoCoordMap1[obj.province];
                         var typeidx = Math.floor(Math.random() * 3);
                         option.series[typeidx].data = [{
@@ -779,18 +764,14 @@
                         myChart.setOption(option, true);
                         showData(obj.province)
                         c_index = 0;
-                        showClassify()
-
+                        showClassify();
                     }
-
                 }
                 a.onclose = function () {
                     // // 关闭 websocket
-                    // alert(1)
                     clearTimeout(_time);
                     _time = setTimeout(function () {
                         WebSocketTest();
-                        // console.log(121)
                     }, 2000);
                 };
             } else {
