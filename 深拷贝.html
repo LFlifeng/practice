@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>深拷贝</title>
 </head>
+
 <body>
     <script src="./jquery-3.3.1.min.js"></script>
     <script>
         //基本类型复制
         var a = 1;
         var b = a;
-        console.log(b,a);
+        console.log(b, a);
         a = 2;
-        console.log(b,a);
+        console.log(b, a);
 
         //引用类型的复制
-        var arr = ['red','green'];
+        var arr = ['red', 'green'];
         var array = arr;
         console.log(array);
         arr.push('black');
-        console.log("arr:"+arr);
-        console.log("array:"+array);
+        console.log("arr:" + arr);
+        console.log("array:" + array);
 
         //slice（concat性质跟slice一样）
         //一维数组适用
-        var arr1 = ['orange','black'];
+        var arr1 = ['orange', 'black'];
         var array1 = arr1.slice(0);
         console.log(array1);
         arr1.push('red')
@@ -34,7 +36,7 @@
         console.log(array1)
         // 二维数组
         // 二维数组不适用
-        var arr2 = ['r','b',[1,2,3]];
+        var arr2 = ['r', 'b', [1, 2, 3]];
         var array2 = arr2.slice(0);
         console.log(array2)
         arr2[2].push(4);
@@ -42,7 +44,7 @@
         console.log(array2);
 
         //jQuery方法深拷贝
-        var arr3 = [1,2,3];
+        var arr3 = [1, 2, 3];
         var array3 = JSON.parse(JSON.stringify(arr3));
         console.log(array3);
         arr3.push(4);
@@ -50,19 +52,19 @@
         console.log(array3);
 
         // js原生方法深拷贝
-        function deepCopy(obj){
+        function deepCopy(obj) {
             // 判断objC是什么类型的数据
-            let objC = obj instanceof Object?[]:{};
-            if(obj && typeof obj ==='object'){
-                for(key in obj){
+            let objC = obj instanceof Object ? [] : {};
+            if (obj && typeof obj === 'object') {
+                for (key in obj) {
                     // console.log(key)
                     // console.log(obj)
                     //判断该对象是否有此属性
-                    if(obj.hasOwnProperty(key)){
+                    if (obj.hasOwnProperty(key)) {
                         // 判断obj子元素是否为对象，如果是，则递归复制
-                        if(obj[key] && typeof obj[key] === 'object'){
+                        if (obj[key] && typeof obj[key] === 'object') {
                             objC[key] = deepCopy(obj[key]);
-                        }else{
+                        } else {
                             objC[key] = obj[key];
                         }
                     }
@@ -70,13 +72,13 @@
             }
             return objC;
         }
-        var obj = {x:1,y:2,z:3};
+        var obj = { x: 1, y: 2, z: 3 };
         var obj1 = deepCopy(obj);
         obj.x = 3;
         obj.g = 4;
         console.log(obj);
         console.log(obj1);
-        var oo = [1,2,3,4,5];
+        var oo = [1, 2, 3, 4, 5];
         var oo1 = deepCopy(oo);
         oo.push(6);
         oo[2] = 4;
@@ -84,6 +86,75 @@
         console.log(oo[2]);
         console.log(oo);
         console.log(oo1);
+
+        // 根据包名，在指定空间中创建对象
+        function namespace(oNamespace, sPackage) {
+            var res = oNamespace;
+            //将字符串分割成字符串数组
+            var arr = sPackage.split('.');
+            arr.forEach(function (item, index) {
+                if (arr[index] in oNamespace) {
+                    if (typeof oNamespace[arr[index]] !== 'object') {
+                        oNamespace[arr[index]] = {};
+                    }
+                } else {
+                    oNamespace[arr[index]] = {};
+                }
+                oNamespace = oNamespace[arr[index]];
+            });
+            return res;
+        }
+        namespace({ a: { test: 1, b: 2 } }, 'a.b.c.d');
+        // 为 Array 对象添加一个去除重复项的方法
+        Array.prototype.uniq = function () {
+            var arr = [];
+            var flag = true;
+            this.forEach(function (item) {
+                if (item != item) {
+                    if (arr.indexOf(item) === -1) {
+                        if (flag) {
+                            arr.push(item);
+                            flag = false;
+                        }
+                    }
+                } else {
+                    if (arr.indexOf(item) === -1) {
+                        arr.push(item);
+                    }
+                }
+                // 排除 NaN (重要！！！)
+                //if (item != item) {
+                // flag && arr.indexOf(item) === -1 ? arr.push(item) : '';
+                //flag = false;
+                // } else {
+                // arr.indexOf(item) === -1 ? arr.push(item) : ''
+                //}
+            })
+            return arr;
+        }
+        // 查找两个节点的最近的一个共同父节点，可以包括节点自身
+        function commonParentNode(oNode1, oNode2) {
+            if (oNode1.contains(oNode2)) {
+                return oNode1;
+            } else {
+                return commonParentNode(oNode1.parentNode, oNode2)
+            }
+        }
+        // 用 JavaScript 实现斐波那契数列函数,返回第n个斐波那契数。 f(1) = 1, f(2) = 1 等
+        function fibonacci(n) {
+            var f1 = 1;
+            var f2 = 1;
+            if (n == 1 || n == 2) {
+                return f1;
+            }
+            for (var i = 3; i <= n; i++) {
+                var f3 = f1 + f2;
+                f1 = f2;
+                f2 = f3;
+            }
+            return f3;
+        }
     </script>
 </body>
+
 </html>
