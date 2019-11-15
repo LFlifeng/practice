@@ -154,7 +154,50 @@
             }
             return f3;
         }
+
+        var arr = [1, 32, 21, 9, 3, 28, 2, 18];
+        function sortArr(a, b) {
+            return a - b;
+        }
+        arr.sort(sortArr);
+        console.log(arr)
     </script>
+    <!-- <form class="" report-submit="false" bindsubmit="" bindreset="">
+        <div><span>*商品编码</span><input type="text" required></div>
+        <div><span>商品名称</span><input type="text"></div>
+        <div><span>商品型号</span><input type="text"></div>
+        <div>
+            <span>计量单位</span>
+            <select name="" id="">
+                <option value="">请选择</option>
+                <option value="">件</option>
+                <option value="">个</option>
+            </select>
+        </div>
+        <div><span>*收货人</span><input type="text" required></div>
+        <div><span>*收货地址</span><input type="text" required></div>
+        <div><span>*收货电话</span><input type="text" required></div>
+        <div><span>备注信息</span><textarea name="" id="" cols="30" rows="10"></textarea></div>
+        <div>
+            <input type="radio" name="" id="">男
+            <input type="radio" name="" id="">女
+        </div>
+        <button>提交</button>
+    </form>
+    <script>
+        $('from button').on('click',function(){
+            console.log(11111)
+            $.ajax({
+                url:"/",
+                type: "post",
+                data: $("from").serialize(),
+                async: false,
+                success: function(data){
+                    console.log(data)
+                }
+            })
+        })
+    </script> -->
 </body>
 
 </html>
