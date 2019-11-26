@@ -10,10 +10,12 @@
 
 
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.3.0/echarts.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.3.0/echarts.min.js"></script> -->
     <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.3.0/echarts-en.js.map"></script>
-    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+        src="./echarts-en.js.map"></script>
+    <script src="./echarts.min.js"></script>
+    <!-- <script type="text/javascript" src="https://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script> -->
+    <script src="./china.js"></script>
     <div class="box clearfix">
         <div id="_top" class="l" style="width: 60%;height: 1030px;">
         </div>
@@ -31,7 +33,6 @@
     </div>
     <script type="text/javascript">
         var myChart = echarts.init(document.getElementById('_top'));
-
         var option = null;
         var geoCoordMap = {
             "上海": [119.1803, 31.2891],
