@@ -125,6 +125,57 @@ function breadthFirstSearch(nodes, targetValue) {
     }
     return breadthFirstSearch(nextArr, targetValue);
 }
+/**
+ * 比较两棵树，得到差异
+ * @param {*} originRoot 
+ * @param {*} newRoot 
+ */
+function diff(originRoot, newRoot) {
+    var results = []; //记录两个节点的差异
+    if (!originRoot && !newRoot) {
+        return [];//两个节点都不存在，无差异
+    } else if (!originRoot && newRoot) {
+        results.push({
+            type: '新增',
+            originNode: originRoot,
+            newNode: newRoot
+        });
+    } else if (originRoot && !newRoot) {
+        results.push({
+            type: '删除',
+            originNode: originRoot,
+            newNode: newRoot
+        });
+    } else if (originRoot.value !== newRoot.value) {
+        results.push({
+            type: '修改',
+            originNode: originRoot,
+            newNode: newRoot
+        });
+        var results1 = diff(originRoot.left, newRoot.left);
+        var results2 = diff(originRoot.right, newRoot.right);
+        /**
+         * apply  call
+         */
+        results1.push.apply(results1, results2);
+        results.push.apply(results, results1);
+        // results.push.call(results, results1,results2);
+        //将后续的差异汇总到当前的差异数组中
+        // results = results.concat(results1).concat(results2);
+    } else {
+        var results1 = diff(originRoot.left, newRoot.left);
+        var results2 = diff(originRoot.right, newRoot.right);
+        /**
+         * apply  call
+         */
+        results1.push.apply(results1, results2);
+        results.push.apply(results, results1);
+        // results.push.call(results, results1,results2);
+        //将后续的差异汇总到当前的差异数组中
+        // results = results.concat(results1).concat(results2);
+    }
+    return results;
+}
 // var a = new Node('a');
 // var b = new Node('b');
 // var c = new Node('c');
@@ -143,6 +194,9 @@ function breadthFirstSearch(nodes, targetValue) {
 // DLR(a);
 // LDR(a);
 // LRD(a);
-var root = getTree('abdegcf', 'dbgeafc');
-console.log(root);
+var root1 = getTree('abdegcf', 'dbgeafc');
+console.log(root1);
+var root2 = getTree('abdhecm', 'hdbeamc');
 // console.log(getDeep(root))
+diff(root1, root2);
+console.log(diff(root1, root2));//输出有问题
