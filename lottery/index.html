@@ -96,19 +96,7 @@
                     })
                     .slice(0, count)
                     .map(function (m) {
-                        // console.log(m)
-                        // console.log(getKey(m))
-                        // console.log(member[m.index].name===(m.name))
-                        // if (member[m.index].name === m.name) {
-                        //     var zj = [];
-                        //     zj.push(member[m.index])
-                        //     console.log(zj)
-                        //     // var member1 = member.splice(m.index, 1);
-                        //     // member1.push(member1)
-                        //     // console.log(member1)
-                        //     // member = member;
-                        //     // console.log(member)
-                        // }
+                        console.log(m)
                         choosed[getKey(m)] = 1;
                         list[m.index].style.color = color;
                         return '<p>' + m.name + '</p>' + '<img width="120px" height="120px" src="' + m.path + '" />';
@@ -187,30 +175,17 @@
                             //     $('#result').css('display', 'block').html('<span>已抽完</span>');
                             //     return;
                             // }
-                            // 判断抽奖结束
+                            // 判断是否抽奖结束
                             if ($('.jiang .img>span>img').length  == total) {
                                 $('#result').css('display', 'block').html('<span>全部奖项均已抽完</span>');
-                                return;
-                            } else if ($('.te .img>span>img').length  == 1) {
-                                $('#result').css('display', 'block').html('<span>特等奖已抽完</span>');
-                                return;
-                            } else if ($('.one .img>span>img').length  == 2) {
-                                $('#result').css('display', 'block').html('<span>一等奖已抽完</span>');
-                                return;
-                            } else if ($('.two .img>span>img').length  == 3) {
-                                $('#result').css('display', 'block').html('<span>二等奖已抽完</span>');
-                                return;
-                            } else if ($('.three .img>span>img').length  == 5) {
-                                $('#result').css('display', 'block').html('<span>三等奖已抽完</span>');
-                                return;
-                            } else if ($('.four .img>span>img').length  == 10) {
-                                $('#result').css('display', 'block').html('<span>幸运奖已抽完</span>');
                                 return;
                             } else if (this.selected  == 0) {
                                 $('#result').css('display', 'block').html('<span>请选择奖项</span>');
                                 return;
                             }
+                            //大屏显示中奖信息
                             $('#result').css('display', 'block').html('<span>' + ret.join('</span><span>') + '</span>');
+                            //左下角显示中奖信息
                             if (j_name == '特等奖') {
                                 $('.te .img').html('<span>' + ret.join('</span><span>') + '</span>');
                             } else if (j_name == '一等奖') {
@@ -234,7 +209,6 @@
                         }
                         this.running = !this.running;
                     },
-
                 },
             });
         })();
