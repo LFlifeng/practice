@@ -1,0 +1,70 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/love/love",
+    "pages/me/me",
+    "pages/search/search",
+    "custom-tab-bar/index",
+    "more/more_sheet/more_sheet",
+    "more/more_newsong/more_newsong",
+    "more/more_dj/more_dj",
+    "more/more_mv/more_mv",
+    "more/more_newest/more_newest",
+    "more/more_program/more_program",
+    "more/more_toplist/more_toplist",
+    "more/more_djlist/more_djlist",
+    "more/more_pay/more_pay",
+    "more/more_songer/more_songer",
+    "play/play",
+    "play/play_mv",
+    "more/more_sheet/moremore_sheet",
+    "more/more_songer/moremore_songer",
+    "more/toplist0/toplist0",
+    "more/toplist1/toplist1",
+    "more/toplist2/toplist2",
+    "more/toplist3/toplist3"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#DC4238",
+    "navigationBarTitleText": "云音乐",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#C62F2F",
+    "backgroundTextStyle": "light",
+    "onReachBottomDistance": 50,
+    "enablePullDownRefresh": true,
+    "pageOrientation": "auto"
+    
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#8D8D8D",
+    "selectedColor": "#DC4238",
+    "backgroundColor": "#f6f6f8",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "乐库",
+        "iconPath": "images/music.png",
+        "selectedIconPath": "images/selected-music.png"
+      },
+      {
+        "pagePath": "pages/love/love",
+        "text": "收藏",
+        "iconPath": "images/love.png",
+        "selectedIconPath": "images/selected-love.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/selected-me.png"
+      }
+    ]
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "sitemapLocation": "sitemap.json"
+}
