@@ -86,7 +86,41 @@
         console.log(oo[2]);
         console.log(oo);
         console.log(oo1);
-
+        //深拷贝函数
+        function deepcopy(fromObj, toObj) {
+            //判断错误
+            if(fromObj === null) return null;
+            if(fromObj instanceof RegExp) return new RegExp(fromObj); //当fromObj为正则
+            if(fromObj instanceof Date) return new Date(fromObj); //当fromObj为Date
+            toObj = toObj || {};
+            for(let key in fromObj){
+                if(typeof fromObj[key] !== 'object') {
+                    toObj[key] = fromObj[key];
+                }else{
+                    if(fromObj[key] === null){
+                        toObj[key] = null;
+                    }else{
+                        toObj[key] = new fromObj[key].constructor;
+                        deepcopy(fromObj[key],toObj[key]);
+                    }
+                }
+            }
+            return toObj;
+        }
+        let dog = {
+            name: '小白',
+            sex: '男',
+            firends: [
+                {
+                    name: '小黄',
+                    sex: '女'
+                }
+            ]
+        }
+        let dogcopy = deepcopy(dog);
+        dog.firends.push({naem:'小红',sex:'女'});
+        console.log(dog)
+        consoloe.log(dogcopy)
         // 根据包名，在指定空间中创建对象
         function namespace(oNamespace, sPackage) {
             var res = oNamespace;

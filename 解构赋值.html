@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //无解构赋值情况
+        // let arr = [0,1,2];
+        // let a = arr[0];
+
+        //数组解构赋值
+        let arr = [0,1,2];
+        let [a,b,c] = arr;
+        //对象解构赋值
+        // let {name,age} = {name: 'swr',age:28};
+        // console.log(name);
+        // console.log(age);
+
+        // let {name:Name,age} = {name: 'swr',age:28};
+
+        let name,aeg;
+        ({name,age} = {name:'swr',age:22})
+        console.log(name);
+        console.log(age);
+    </script>
+</body>
+</html>
