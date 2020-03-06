@@ -271,10 +271,14 @@
         Function.prototype.bind3 = function (context) {
             var _this = this;
             var agrs = [].slice.call(arguments, 1);
-            return function () {
+            function Transfer() { }
+            function Func() {
                 var _args = agrs.concat([].slice.call(arguments))
-                _this.apply(context, _args)
+                _this.apply(this.__proto__ === Func.prototype ? this : context, _args)
             }
+            Transfer.prototype = this.prototype;
+            Func.prototype = new Transfer();
+            return Func;
         }
         function Animal3(name) {
             this.name = name;
@@ -289,6 +293,18 @@
         console.log(mouse2);
         console.log(obj3);
         //模拟new关键字
+        function newFunction() {
+            var res = {};
+            //排除第一个构造函数参数
+            var construct  = Array.prototype.shift.call(arguments);
+            res.__proto__ = construct.prototype;
+            //使用apply执行构造函数，将构造函数的属性挂载在res上面
+            var conRes = construct.apply(res,arguments);
+            //判断返回类型
+            return conRes instanceof Object ? conRes : res;
+        }
+        //模拟实现call，apply
+        
     </script>
 </body>
 
