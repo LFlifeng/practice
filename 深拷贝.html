@@ -296,7 +296,7 @@
         function newFunction() {
             var res = {};
             //排除第一个构造函数参数
-            var construct  = Array.prototype.shift.call(arguments);
+            var construct = Array.prototype.shift.call(arguments);
             res.__proto__ = construct.prototype;
             //使用apply执行构造函数，将构造函数的属性挂载在res上面
             var conRes = construct.apply(res,arguments);
@@ -304,7 +304,7 @@
             return conRes instanceof Object ? conRes : res;
         }
         //模拟实现call，apply
-        
+
     </script>
 </body>
 
