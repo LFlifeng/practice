@@ -216,44 +216,80 @@
             })
             .then(function () {
                 console.log('promise2');
-            })
+            });
+
+        //bind()、call()、apply()区别
+        var obj1 = {
+            a: 1
+        }
+        function foo(b = 0) {
+            console.log(this.a + b);
+        };
+        foo.call(obj1, 1); //2
+        foo.apply(obj1, [1]); //2
+        var bar = foo.bind(obj1, 1);
+        bar(); //2
+
+        //js模拟实现bind()
+        Function.prototype.bind2 = function (context) {
+            //保存上层函数this值
+            var _this = this;
+            //保存上层函数的参数
+            var args = [].slice.call(arguments, 1);
+            //闭包
+            return function () {
+                //将参数拼接
+                var _args = args.concat([].slice.call(arguments));
+                //利用apply更改this，并把拼接的参数传到函数中
+                _this.apply(context, _args);
+            }
+        }
+        function foo1(b = 0) {
+            console.log(this.a + b);
+        }
+        var obj2 = {
+            a: 1
+        };
+        var bar1 = foo1.bind2(obj2, 1);
+        bar1(); //2
+        var bar2 = foo1.bind2(obj2);
+        bar2(); //1
+        //bind()另一特性，即当绑定函数作为构造函数使用的时候里面的this就会失效
+        function Animal(name) {
+            this.name = name;
+        }
+        var obj = {
+            name: 'test'
+        }
+        var cat = new Animal('Tom');
+        var Animal2 = Animal.bind(obj);
+        var cat2 = new Animal2('Tom');
+        console.log(cat);
+        console.log(cat2);
+        console.log(obj);
+        //
+        Function.prototype.bind3 = function (context) {
+            var _this = this;
+            var agrs = [].slice.call(arguments, 1);
+            return function () {
+                var _args = agrs.concat([].slice.call(arguments))
+                _this.apply(context, _args)
+            }
+        }
+        function Animal3(name) {
+            this.name = name;
+        }
+        var obj3 = {
+            name: 'test'
+        };
+        var mouse = new Animal3('jerry');
+        var Animal4 = Animal3.bind3(obj3);
+        var mouse2 = new Animal4('jerry');
+        console.log(mouse);
+        console.log(mouse2);
+        console.log(obj3);
+        //模拟new关键字
     </script>
-    <!-- <form class="" report-submit="false" bindsubmit="" bindreset="">
-        <div><span>*商品编码</span><input type="text" required></div>
-        <div><span>商品名称</span><input type="text"></div>
-        <div><span>商品型号</span><input type="text"></div>
-        <div>
-            <span>计量单位</span>
-            <select name="" id="">
-                <option value="">请选择</option>
-                <option value="">件</option>
-                <option value="">个</option>
-            </select>
-        </div>
-        <div><span>*收货人</span><input type="text" required></div>
-        <div><span>*收货地址</span><input type="text" required></div>
-        <div><span>*收货电话</span><input type="text" required></div>
-        <div><span>备注信息</span><textarea name="" id="" cols="30" rows="10"></textarea></div>
-        <div>
-            <input type="radio" name="" id="">男
-            <input type="radio" name="" id="">女
-        </div>
-        <button>提交</button>
-    </form>
-    <script>
-        $('from button').on('click',function(){
-            console.log(11111)
-            $.ajax({
-                url:"/",
-                type: "post",
-                data: $("from").serialize(),
-                async: false,
-                success: function(data){
-                    console.log(data)
-                }
-            })
-        })
-    </script> -->
 </body>
 
 </html>
