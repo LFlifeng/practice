@@ -1,0 +1,246 @@
+/* 选项 */
+
+.zh_top {
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    margin: 10px;
+}
+
+.zh_top a {
+    color: #000;
+    font-size: 17px;
+}
+
+.zh_top a i {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.zh_top span {
+    color: #000;
+    font-size: 17px;
+}
+
+/* 选项卡 */
+
+.tabs {
+    background-color: #fff;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.tabs>ul {
+    display: flex;
+    text-align: center;
+}
+
+.tabs>ul li {
+    width: 50%;
+}
+
+.tabs>ul li span {
+    font-size: 15px;
+    color: #646464;
+}
+
+.tabs>ul li i:nth-child(3) {
+    display: none;
+}
+
+.tabs>ul li span.active, .tabs>ul li i.active {
+    color: #f12727;
+}
+
+.tabs>ul li i:nth-child(2) {
+    display: inline;
+}
+
+.ul {
+    position: fixed;
+    left: 0;
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.ul .li {
+    display: none;
+    background-color: #fff;
+    width: 100%;
+}
+
+.ul .li.active {
+    display: block;
+}
+
+.ul .li.keys {
+    text-align: center;
+}
+
+.keys .key_name_info {
+    text-align: center;
+}
+
+.keys .key_name_info span {
+    color: #202020;
+    margin: 8px;
+    border: 1px solid #e2e2e2;
+    padding: 6px 15px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.keys .key_name_info span.active {
+    background-color: #fff1ee;
+}
+
+.ul .li.address {
+    height: 250px;
+}
+
+.address .province {
+    height: 100%;
+    width: 100%;
+}
+
+.address .province .pro_name, .address .province .city_name {
+    height: 100%;
+    overflow: auto;
+}
+
+.address .province .pro_name {
+    width: 30%;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.address .province .pro_name li {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+
+.address .province .pro_name li.active {
+    background-color: #fff;
+    color: #646464;
+}
+
+.address .province .city_name {
+    width: 70%;
+    display: none;
+}
+
+.address .province .city_name.active {
+    display: block;
+}
+
+.address .province .city_name li {
+    padding-left: 60px;
+    height: 35px;
+    line-height: 35px;
+}
+
+.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before {
+    color: #f2504e;
+}
+
+.queding {
+    color: #fff;
+    padding: 8px 0;
+    background-color: #f2504e;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* 相关信息 */
+
+.info {
+    margin-top: 15px;
+}
+
+.mui-table-view {
+    background-color: #e2e2e2;
+}
+
+.mui-table-view:after {
+    background-color: #fff;
+}
+
+.mui-table-view li {
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+.mui-media-body {
+    color: #505050;
+    width: 100%;
+}
+
+.mui-media-body>span {
+    display: inline-block;
+    color: #505050;
+    font-size: 16px;
+    width: 100%;
+    white-space: normal;
+    color: transparent;
+    text-shadow: #111 0 0 5px;
+}
+
+.item_flex {
+    color: #e2e2e2;
+    margin-top: 5px;
+}
+
+.item_flex .flex i {
+    color: #f2504e;
+    margin-left: 5px;
+}
+
+.mask {
+	position: fixed;
+	top: 0;
+	background: rgba(0,0,0,0.3);
+	width: 100%;
+    z-index: 20000;
+    display: none;
+}
+
+.m_content {
+    width: 80%;
+    height: 250px;
+    background: url(../img/jxxmtc.png) no-repeat;
+    background-size: cover;
+    margin: 150px auto;
+    border-radius: 6px;
+	position: relative;
+	padding: 5px;
+}
+.m_content i {
+    position: absolute;
+    top: -26px;
+    right: -26px;
+    color: #fff;
+    font-size: 36px;
+}
+.m_content .text {
+    margin-top: 120px;
+    padding: 0 61px;
+    font-size: 16px;
+}
+.m_content .text span {
+    color: #f2504e;
+    font-size: 16px;
+}
+.m_content .botton {
+    padding: 20px 50px;
+}
+.m_content .botton a {
+    display: inline-block;
+    padding: 5px 62px;
+    font-size: 16px;
+    color: #f1ff94;
+    background-color: #f2504e;
+    border-radius: 5px;
+}

@@ -1,0 +1,75 @@
+html, body {
+    background-color: #f1f1fb !important;
+}
+
+.zh_topBar a i {
+    color: #000;
+    font-size: 18px !important;
+}
+
+.zh_topBar span {
+    color: #000;
+    font-size: 17px;
+}
+
+/*  */
+
+.qy {
+    margin-top: 45px;
+}
+
+/* 企业资料 */
+
+.top_info {
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid #b3b3b3;
+}
+
+.qy_title {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0;
+}
+
+.qy_title .qyt {
+    display: flex;
+}
+
+.qy_title .qyt div {
+    color: #202020;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 3px;
+}
+
+.zbfx {
+    background-color: #fff;
+    margin-top: 10px;
+    /* padding: 5px; */
+}
+
+.zbfx>p {
+    padding: 8px;
+}
+
+.zbfx>p>i {
+    display: inline-block;
+    vertical-align: middle;
+    width: 4px;
+    height: 4px;
+    background-color: #d93f3f;
+    margin-top: -3px;
+}
+
+.zbfx>p>span {
+    color: #404040;
+    font-size: 15px;
+}
+
+.zbfx>p>span:last-child {
+    color: #b3b3b3;
+    float: right;
+    font-size: 12px;
+}
+

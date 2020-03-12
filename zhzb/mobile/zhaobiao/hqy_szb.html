@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <link href="res/mui/css/mui.min.css" rel="stylesheet" />
+    <link href="res/mui/css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/hqy_zb.css">
+</head>
+
+<body>
+    <div class="zh_container">
+        <header class="zh_top clearfix">
+            <a href="javascript:history.back()" class="l"><i class="mui-icon iconfont icon-back"></i></a>
+            <span>历史招标信息</span>
+        </header>
+        <div class="mui-content">
+            <div class="mui-slider">
+                <div class="mui-slider-group mui-slider-loop">
+                    <!--支持循环，需要重复图片节点-->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                    </div>
+                    <div class="mui-slider-item">
+                        <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                    </div>
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                    </div>
+                    <div class="mui-slider-item">
+                        <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 相关信息 -->
+    <div class="info">
+        <ul class="mui-table-view">
+            <li class="mui-table-view-cell mui-media">
+                <a href="detail.html">
+                    <div class="mui-media-body">
+                        <span>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告</span>
+                        <div class="item_flex">
+                            <div class="flex"><img src="./img/wz.png" alt=""><span>北京</span></div>
+                            <div class="flex"><img src="./img/fl.png" alt=""><span>招标信息</span></div>
+                            <div class="flex"><img src="./img/sj.png" alt=""><span>2018-05-12</span></div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media">
+                <a href="javascript:;">
+                    <div class="mui-media-body">
+                        <span>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告</span>
+                        <div class="item_flex">
+                            <div class="flex"><img src="./img/wz.png" alt=""><span>北京</span></div>
+                            <div class="flex"><img src="./img/fl.png" alt=""><span>招标信息</span></div>
+                            <div class="flex"><img src="./img/sj.png" alt=""><span>2018-05-12</span></div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media">
+                <a href="javascript:;">
+                    <div class="mui-media-body">
+                        <span>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告</span>
+                        <div class="item_flex">
+                            <div class="flex"><img src="./img/wz.png" alt=""><span>北京</span></div>
+                            <div class="flex"><img src="./img/fl.png" alt=""><span>招标信息</span></div>
+                            <div class="flex"><img src="./img/sj.png" alt=""><span>2018-05-12</span></div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="res/mui/js/mui.min.js"></script>
+    <script src="js/data.city.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        //获得slider插件对象
+        var gallery = mui('.mui-slider');
+        gallery.slider({
+            interval: 5000//自动轮播周期，若为0则不自动播放，默认为0；
+        });
+    </script>
+</body>
+
+</html>

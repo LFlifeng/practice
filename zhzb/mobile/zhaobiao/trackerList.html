@@ -1,0 +1,348 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <link href="res/mui/css/mui.min.css" rel="stylesheet" />
+    <link href="res/mui/css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="res/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/trackerList.css">
+</head>
+<style>
+    .mui-media-body>span:nth-child(2) {
+        font-size: 12px;
+        color: #ada8a8;
+        width: 100%;
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .mui-media-body>span:nth-child(2)>i {
+        color: #d24041;
+        font-size: 12px;
+    }
+</style>
+<body>
+    <div class="zh_layout">
+        <div id="wrapper0">
+            <div class="s_options">
+                <div class="option active">招标订阅</div>
+                <!-- <div class="option">预审公告</div>
+                <div class="option">变更公告</div>
+                <div class="option">中标公告</div>
+                <div class="option">政府招标</div>
+                <div class="option">企业招标</div>
+                <div class="option">采购公告</div>
+                <div class="option">中标采购</div>
+                <div class="option">企业采购</div>
+                <div class="option">合同采购</div>
+                <div class="option">政府采购</div>
+                <div class="option" style="overflow: hidden;text-overflow:ellipsis;
+                                                white-space: nowrap;">废标/流标公告</div>
+                <div class="option">结果公告</div>
+                <div class="option">合同公告</div>
+                <div class="option">延期公告</div>
+                <div class="option">终止公告</div> -->
+                <div class="option">中标订阅</div>
+            </div>
+        </div>
+
+    </div>
+    <div class="one active">
+        <div class="tabs">
+            <ul>
+                <li class="tab" id="1">
+                    <span>地区</span>
+                    <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-caret-up"></i>
+                </li>
+                <li class="tab" id="2">
+                    <span>关键词</span>
+                    <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-caret-up"></i>
+                </li>
+                <li id="3">
+                    <span onclick="window.open('./tracker.html','_self')">编辑</span>
+                </li>
+            </ul>
+        </div>
+        <div class="ul">
+            <div class="li address" id="address">
+                <div class="province clearfix">
+                    <ul class="pro_name l">
+                        <li v-for='item in address' :data-p='item.text'>{{item.text}}</li>
+                    </ul>
+                    <ul class="city_name l" v-for='item in address'>
+                        <li v-for="item1 in item.children" class="mui-input-row mui-checkbox mui-left"><input
+                                type="checkbox" :data-p='item.text' :data-c='item1.text'><span>{{item1.text}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="queding">确定</div>
+            </div>
+            <div class="li keys">
+                <div class="key_name" style="margin-left: 10px;">关键词</div>
+                <div class="key_name_info">
+                    <span>空调</span>
+                    <span class="active">中央空调</span>
+                    <span>企业空调</span>
+                    <span>企业空调</span>
+                </div>
+                <div class="queding">确定</div>
+            </div>
+        </div>
+        <div class="mui-content">
+            <div class="mui-slider">
+                <div class="mui-slider-group mui-slider-loop">
+                    <!--支持循环，需要重复图片节点-->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                    </div>
+                    <div class="mui-slider-item">
+                        <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                    </div>
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                    </div>
+                    <div class="mui-slider-item">
+                        <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="mui-table-view">
+            <li class="mui-table-view-cell">
+                <a href="detail.html">
+                    <div class="mui-media-body">
+                        <span>伍家岗区园林绿化建设<i>管护</i>中心2020-2023年度花卉采购及栽植管养项目招标公告</span>
+                        <span>伍家岗区园林绿化建设<i>管护</i>中心2020-2023年度花卉采购是不是呢呢恩恩恩额额及栽植管养项目招标公告</span>
+                        <div class="item_flex">
+                            <div class="flex"><img src="./img/wz.png" alt=""><span>北京</span></div>
+                            <div class="flex"><img src="./img/fl.png" alt=""><span>招标信息</span></div>
+                            <div class="flex"><img src="./img/sj.png" alt=""><span>2018-05-12</span></div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="one">
+        <div class="tabs">
+            <ul>
+                <li class="tab" id="1">
+                    <span>地区</span>
+                    <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-caret-up"></i>
+                </li>
+                <li class="tab" id="2">
+                    <span>关键词</span>
+                    <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-caret-up"></i>
+                </li>
+                <li id="3">
+                    <span onclick="window.open('./tracker.html','_self')">编辑</span>
+                </li>
+            </ul>
+        </div>
+        <div class="ul">
+            <div class="li address" id="address">
+                <div class="province clearfix">
+                    <ul class="pro_name l">
+                        <li v-for='item in address' :data-p='item.text'>{{item.text}}</li>
+                    </ul>
+                    <ul class="city_name l" v-for='item in address'>
+                        <li v-for="item1 in item.children" class="mui-input-row mui-checkbox mui-left"><input
+                                type="checkbox" :data-p='item.text' :data-c='item1.text'><span>{{item1.text}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="queding">确定</div>
+            </div>
+            <div class="li keys">
+                <div class="key_name">关键词</div>
+                <div class="key_name_info">
+                    <span>空调</span>
+                    <span class="active">中央空调</span>
+                    <span>企业空调</span>
+                    <span>企业空调</span>
+                </div>
+                <div class="queding">确定</div>
+            </div>
+        </div>
+        <div class="mui-content">
+            <div class="mui-slider">
+                <div class="mui-slider-group mui-slider-loop">
+                    <!--支持循环，需要重复图片节点-->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                    </div>
+                    <div class="mui-slider-item">
+                        <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                    </div>
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                    </div>
+                    <div class="mui-slider-item">
+                        <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="mui-table-view">
+            <li class="mui-table-view-cell">
+                <a href="detail.html">
+                    <div class="mui-media-body">
+                        <span>伍家岗区园林绿化建设<i>管护</i>中心2020-2023年度花卉采购及栽植管养项目招标公告</span>
+                        <div class="item_flex">
+                            <div class="flex"><img src="./img/wz.png" alt=""><span>北京</span></div>
+                            <div class="flex"><img src="./img/fl.png" alt=""><span>招标信息</span></div>
+                            <div class="flex"><img src="./img/sj.png" alt=""><span>2018-05-12</span></div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="create"><a href="javascript:;">购买地区</a></div>
+    <!-- 底部工具栏 -->
+    <footer class="zh_tabs">
+        <a href="index.html" class="tab_home mui-icon iconfont icon-home"><span>搜索</span></a>
+        <!-- <a href="classify.html" class="tab_classify fa fa-th-large"><span>分类</span></a> -->
+        <a href="trackerList.html" class="tab_bookmark mui-icon iconfont icon-rss now"><span class="now">订阅</span></a>
+        <a href="user/user.html" class="tab_user mui-icon iconfont icon-me"><span>我的</span></a>
+    </footer>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="res/mui/js/mui.min.js"></script>
+    <script src="js/data.city.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        // import 'js/common.js'
+        new Vue({
+            el: "#address",
+            data() {
+                return {
+                    address: [],
+                }
+            },
+            created() {
+                this.showAddress()
+            },
+            methods: {
+                showAddress() {
+                    this.address = init_city_picker;
+                }
+            }
+        });
+        // import tracker from './js/data.city.js';
+        // console.log(tracker)
+        var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        $('.s_options .option').on('tap', function () {
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+        //tab栏切换
+        var tabs = $('.tabs>ul li.tab');
+        var keys = $('.ul .li');
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].index = i;
+            $(tabs[i]).on('tap', function () {
+                $('.ul').css({
+                    'height': h + 'px',
+                    'z-index': '100000',
+                    'background': 'rgba(0, 0, 0, 0.3)'
+                })
+                $(this).children('i:nth-child(3)').css({
+                    'display': 'inline'
+                });
+                $(this).children('i:nth-child(2)').css({
+                    'display': 'none'
+                });
+                $(this).children('span,i:nth-child(3)').addClass('active');
+                for (var j = 0; j < tabs.length; j++) {
+                    var num = this.index;
+                    $(keys[num]).addClass('active');
+                    $(keys[num]).siblings().removeClass('active');
+                    //点击确定按钮关闭弹出层
+                    $('.queding').on('tap', function () {
+                        $('.ul').css({
+                            'z-index': '0',
+                            'background': 'rgba(0, 0, 0, 0)'
+                        });
+                        $(keys[num]).removeClass('active');
+                        $('.tabs>ul li').children('i:nth-child(2)').css({
+                            'display': 'inline'
+                        });
+                        $('.tabs>ul li').children(' i:nth-child(3)').css({
+                            'display': 'none'
+                        });
+                        $('.tabs>ul li').children('span,i:nth-child(3)').removeClass('active');
+                    });
+                }
+                $(this).siblings().children('i:nth-child(2)').css({
+                    'display': 'inline'
+                });
+                $(this).siblings().children(' i:nth-child(3)').css({
+                    'display': 'none'
+                });
+                $(this).siblings().children('span,i:nth-child(3)').removeClass('active');
+            });
+        }
+
+        //省市区
+        var province = $('.address .province .pro_name li');
+        var city = $('.address .province .city_name');
+        for (var i = 0; i < province.length; i++) {
+            province[i].index = i;
+            $(province).on('tap', function () {
+                $(this).addClass('active');
+                $(this).siblings().removeClass('active');
+                for (var j = 0; j < province.length; j++) {
+                    var num = this.index;
+                    $(city[num]).addClass('active');
+                    $(city[num]).siblings().removeClass('active');
+                    //点击确定按钮关闭弹出层
+                    $('.queding').on('tap', function () {
+                        $('.ul').css({
+                            'z-index': '0 !important',
+                            'background': 'rgba(0, 0, 0, 0)'
+                        });
+                        $('.tabs>ul li').children('i:nth-child(2)').css({
+                            'display': 'inline'
+                        });
+                        $('.tabs>ul li').children(' i:nth-child(3)').css({
+                            'display': 'none'
+                        });
+                        $('.tabs>ul li').children('span,i:nth-child(3)').removeClass('active');
+                    });
+                }
+            })
+        }
+        //获得slider插件对象
+        var gallery = mui('.mui-slider');
+        gallery.slider({
+            interval: 5000//自动轮播周期，若为0则不自动播放，默认为0；
+        });
+        //栏切换
+        var options = $('.s_options .option');
+        var one = $('.one');
+        for (var i = 0; i < options.length; i++) {
+            options[i].index = i;
+            $(options[i]).on('tap', function () {
+                $(this).addClass('active').siblings().removeClass('active');
+                for (var j = 0; j < options.length; j++) {
+                    var num = this.index;
+                    $(one[num]).addClass('active').siblings().removeClass('active');
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>

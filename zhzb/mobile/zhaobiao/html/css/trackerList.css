@@ -1,0 +1,69 @@
+.tishi {
+    width: 100%;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    color: #f34f4f;
+    position: fixed;
+    z-index: 100000;
+    background-color: #fbfcae;
+    opacity: .8;
+}
+.create {
+    position: fixed;
+    z-index: 100;
+    bottom: 100px;
+    right: 40px;
+    width: 62px;
+    height: 62px;
+    line-height: 62px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #f2504e;
+    box-shadow: 1px 2px 8px #c0c0c0;
+}
+.create a {
+    color: #fff;
+    font-size: 16px;
+}
+.trackerTitle {
+    color: #505050;
+    font-size: 16px;
+}
+.trackerContent {
+    margin-top: 11px;
+}
+.trackerContent span {
+    font-size: 13px;
+    color: #f34f4f;
+    margin-right: 10px;
+}
+.trackerContent span:first-child {
+    color: #646464;
+}
+/* 上下划线 */
+.mui-table-view:before {
+    background-color: #fff;
+}
+.mui-table-view:after {
+    background-color: #e7e7e7;
+}
+.mui-scroll .mui-table-view:nth-child(2) {
+    margin-top: 5px;
+}
+.mui-table-view-cell>a:not(.mui-btn) {
+    width: 98%;
+}
+.more img {
+    width: 16px;
+}
+.mui-backdrop {
+    z-index: 998;
+    display:block;
+}
+.mui-scroll-wrapper {
+    margin-top: 10px;
+}
+.mui-pull-top-pocket {
+    top: 0;
+}

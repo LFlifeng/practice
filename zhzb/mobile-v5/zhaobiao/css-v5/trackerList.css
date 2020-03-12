@@ -1,0 +1,267 @@
+
+/* 选项卡 */
+.tabs {
+    background-color: #fff;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    z-index: 20000;
+}
+.tabs>ul {
+    display: flex;
+    text-align: center;
+}
+.tabs>ul li {
+    width: 25%;
+}
+.tabs>ul li span {
+    font-size: 15px;
+    color: #646464;
+}
+.tabs>ul li:last-child span {
+    display: inline-block;
+    width: 75px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: #f12727;
+    border-left: 1px solid #c8c8c8;
+}
+.tabs>ul li:last-child span img {
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+}
+.tabs>ul li i:nth-child(3) {
+    display: none;
+}
+.tabs>ul li span.active, .tabs>ul li i.active {
+    color: #f12727;
+}
+.tabs>ul li i:nth-child(2) {
+    display: inline;
+}
+
+.ul {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.ul .li {
+    display: none;
+    background-color: #fff;
+    width: 100%;
+}
+.ul .li.active {
+    display: block;
+}
+
+.ul .li.keys {
+    
+}
+.keys .key_name {
+    color: #000;
+    font-size: 16px;
+    text-align: left;
+}
+.keys .key_name_info {
+    text-align: left;
+}
+.keys .key_name_info span {
+    color: #202020;
+    margin: 8px;
+    border: 1px solid #e2e2e2;
+    padding:6px 15px;
+    border-radius: 4px;
+    display: inline-block;
+}
+.keys .key_name_info span.active {
+    background-color: #fff1ee;
+}
+.ul .li.address {
+    height: 380px;
+}
+.address .province {
+    height: 100%;
+    width: 100%;
+}
+.address .province .pro_name,.address .province .city_name {
+    height: 100%;
+    overflow: auto;
+}
+.address .province .pro_name {
+    width: 30%;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+.address .province .pro_name li {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+.address .province .pro_name li.active {
+    background-color: #fff;
+    color: #646464;
+}
+.address .province .city_name {
+    width: 70%;
+    display: none;
+}
+.address .province .city_name.active {
+    display: block;
+}
+.address .province .city_name li {
+    padding-left: 60px;
+    height: 35px;
+    line-height: 35px;
+}
+.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before {
+    color: #f2504e;
+}
+.queding {
+    color: #fff;
+    padding: 8px 0;
+    background-color: #f2504e;
+    border-radius: 4px;
+    text-align: center;
+}
+/* 订阅信息 */
+.ssjg {
+    background-color: #f4f4f4;
+    border-top: 1px solid #f4f4f4;
+}
+.ssjg .t_history {
+    background-color: #fff;
+    color: #969696;
+    margin: 0;
+    padding: 0 15px;
+    position: relative;
+    z-index: 10000;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.mui-table-view {
+    background-color: #f4f4f4;
+}
+.mui-table-view li {
+    background-color: #fff;
+    margin-top: 10px;
+}
+.mui-table-view li:first-child {
+    margin-top: 0;
+}
+.mui-table-view li:last-child {
+    /* margin-bottom: 80px; */
+}
+.mui-media-body a {
+    display: block;
+    width: 100%;
+    white-space: normal;
+}
+
+.mui-media-body a>span:first-child {
+    color: #202020;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+}
+.mui-media-body a>span:first-child i {
+    display: inline-block;
+    margin-top: 5px;
+    width: 44px;
+    height: 21px;
+    line-height: 21px;
+    padding-left: 2px;
+    margin-right: 5px;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.mui-media-body a>span:first-child .c1 {
+    background-image: url('../img-v5/c1.png');
+}
+.mui-media-body a>span:first-child .c2 {
+    background-image: url('../img-v5/c2.png');
+}
+.mui-media-body a>span:first-child .c3 {
+    background-image: url('../img-v5/c3.png');
+}
+.mui-media-body a>span:first-child .c4 {
+    background-image: url('../img-v5/c4.png');
+}
+.mui-media-body a>span:first-child .c5 {
+    background-image: url('../img-v5/c5.png');
+}
+.mui-media-body a>span:nth-child(2) {
+    font-size: 12px;
+    color: #969696;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+.mui-table-view li img {
+    width: 13px;
+    height: 13px;
+    margin-top: -4px;
+    margin-right: 5px;
+}
+
+.item_flex {
+    display: flex;
+    align-items: center;
+}
+
+.item_flex>.flex {
+    line-height: 24px;
+    margin-right: 8px;
+    padding: 1px 6px;
+    /* background-color: #f6f6f6; */
+    border-radius: 5px;
+    align-items: center;
+}
+
+.item_flex>.flex>span {
+    font-size: 12px;
+    color: #969696;
+}
+
+/* .item_flex>.flex:first-child span {
+    color: #f16363;
+}
+
+.item_flex>.flex:nth-child(2) span {
+    color: #6b82ff;
+}
+
+.item_flex>.flex:last-child span {
+    color: #56d43c;
+} */
+
+.mui-table-view:before {
+    background-color: #fff;
+}
+
+.mui-table-view-cell:after {
+    width: 90%;
+}
+.item_flex>.flex:last-child img {
+    width: 16px;
+    height: 16px;
+    margin-left: 260%;
+}
+
+/* 上下划线 */
+.mui-table-view:after {
+    background-color: #e7e7e7;
+}
+

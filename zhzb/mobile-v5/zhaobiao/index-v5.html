@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>汇投标</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link href="res/mui/css/mui.min.css" rel="stylesheet" />
+	<link href="res/mui/css/iconfont.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css-v5/base.css">
+	<link rel="stylesheet" href="css-v5/index.css">
+	<link rel="stylesheet" href="css/mask.css">
+</head>
+
+<body>
+	<div class="mui-content">
+		<div class="mui-row">
+			<div class="mui-col-sm-12 mui-col-xs-12">
+				<!-- 头部 -->
+				<div class="header">
+					<!-- 今日更新数据 -->
+					<div class="update clearfix">
+						<div class="l txt">今日已更新</div>
+						<div class="l number" id="number">2</div>
+						<div class="l number" id="number1">7</div>
+						<div class="l number" id="number2">9</div>
+						<div class="l number" id="number3">4</div>
+						<div class="l number" id="number4">6</div>
+						<div class="l">条</div>
+					</div>
+					<!-- 搜索框 -->
+					<div class="search" onclick="window.open('./newSearch-v5.html','_self')">
+						<img src="./img-v5/index_search.png" alt="">
+						<span>搜索关键词 行业 分类</span>
+					</div>
+				</div>
+				<!-- 中间部分 -->
+				<div class="mid">
+					<!-- 服务分类 -->
+					<div class="index_menu">
+						<li>
+							<a href="search.html">
+								<img src="img-v5/icon1.png" />
+								<p>搜招标</p>
+							</a>
+						</li>
+						<li>
+							<a href="szz.html">
+								<img src="img-v5/icon2.png" />
+								<p>搜中标</p>
+							</a>
+						</li>
+						<li>
+							<a href="cgList.html">
+								<img src="img-v5/icon3.png" />
+								<p>拟在建</p>
+							</a>
+						</li>
+
+						<li>
+							<a href="jrkb.html">
+								<img src="img-v5/icon4.png" />
+								<p>今日开标</p>
+							</a>
+						</li>
+					</div>
+					<!-- 点击最多 -->
+					<div class="more_click">
+						<div class="c_title">
+							<img src="./img-v5/index_icon5.jpg" alt="">
+							<span class="c_txt">点击最多</span>
+						</div>
+						<div class="m_cont">
+							<div class="c_title l">
+								<a href="">
+									<img src="./img-v5/index_icon1.jpg" alt="">
+									<span class="c_txt">搜招标</span>
+								</a>
+							</div>
+							<div class="c_title l">
+								<a href="">
+									<img src="./img-v5/index_icon2.jpg" alt="">
+									<span class="c_txt">搜中标</span>
+								</a>
+							</div>
+							<div class="c_title l">
+								<a href="">
+									<img src="./img-v5/index_icon3.jpg" alt="">
+									<span class="c_txt">政府招标</span>
+								</a>
+							</div>
+							<div class="c_title l">
+								<a href="">
+									<img src="./img-v5/index_icon4.jpg" alt="">
+									<span class="c_txt">拟建项目</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<!-- 搜索排行 -->
+					<div class="more_click" style="height:290px;">
+						<div class="c_title">
+							<img src="./img-v5/index_icon5.jpg" alt="">
+							<span class="c_txt">搜索排行</span>
+						</div>
+						<div class="m_cont">
+							<div class="s_title l"><a href="">装修</a></div>
+							<div class="s_title l"><a href="">银行招标</a></div>
+							<div class="s_title l"><a href="">医疗器械</a></div>
+							<div class="s_title l"><a href="">空调安装装修</a></div>
+							<div class="s_title l"><a href="">水利水电</a></div>
+							<div class="s_title l"><a href="">监控安防</a></div>
+							<div class="s_title l"><a href="">医疗器械</a></div>
+							<div class="s_title l"><a href="">空调安装装修</a></div>
+							<div class="s_title l"><a href="">水利水电</a></div>
+							<div class="s_title l"><a href="">监控安防</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 底部工具栏 -->
+	<footer class="zh_tabs">
+		<a href="index-v5.html" class="tab_home mui-icon iconfont icon-home now"><span class="now">搜索</span></a>
+		<a href="trackerList-v5.html" class="tab_bookmark mui-icon iconfont icon-rss"><span>订阅</span></a>
+		<a href="cqy-v5.html" class="tab_bookmark mui-icon iconfont icon-rss"><span>搜企业</span></a>
+		<a href="user/user-v5.html" class="tab_user mui-icon iconfont icon-me"><span>我的</span></a>
+	</footer>
+	<!-- 立即订阅弹出层 -->
+	<div class="mask">
+		<div class="m_content">
+			<i class="mui-icon mui-icon-closeempty"></i>
+			<a href="./tracker.html"><img src="./img/wdytcc.jpg" alt=""></a>
+		</div>
+	</div>
+	<!-- 未开通会员弹出层 -->
+	<div class="mask">
+		<div class="m_content1">
+			<img src="./img/wktyh.png" alt="" onclick="window.open('./user/pt_member.html','_self')">
+			<i class="mui-icon mui-icon-closeempty"></i>
+		</div>
+	</div>
+	<!-- 新用户大礼包弹出层 -->
+	<div class="mask">
+		<div class="m_content2">
+			<i class="mui-icon mui-icon-closeempty"></i>
+			<div class="one">
+				<div class="info clearfix">
+					<div class="left l">
+						<div>1 <i>天</i></div>
+					</div>
+					<div class="right l">
+						<div>会员体验券</div>
+						<div>有效期：2019-12-01至2020-01-01</div>
+					</div>
+				</div>
+				<div class="info clearfix">
+					<div class="left l">
+						<div>￥<i>10</i></div>
+						<div>满100可用</div>
+					</div>
+					<div class="right l">
+						<div>新人专享优惠券</div>
+						<div>有效期：2019-12-01至2020-01-01</div>
+					</div>
+				</div>
+				<div class="info clearfix">
+					<div class="left l">
+						<div>￥<i>10</i></div>
+						<div>满100可用</div>
+					</div>
+					<div class="right l">
+						<div>新人专享优惠券</div>
+						<div>有效期：2019-12-01至2020-01-01</div>
+					</div>
+				</div>
+				<div class="info clearfix">
+					<div class="left l">
+						<div>￥<i>10</i></div>
+						<div>满100可用</div>
+					</div>
+					<div class="right l">
+						<div>新人专享优惠券</div>
+						<div>有效期：2019-12-01至2020-01-01</div>
+					</div>
+				</div>
+				<div class="info clearfix">
+					<div class="left l">
+						<div>￥<i>10</i></div>
+						<div>满100可用</div>
+					</div>
+					<div class="right l">
+						<div>新人专享优惠券</div>
+						<div>有效期：2019-12-01至2020-01-01</div>
+					</div>
+				</div>
+				<div class="info clearfix">
+					<div class="left l">
+						<div>￥<i>10</i></div>
+						<div>满100可用</div>
+					</div>
+					<div class="right l">
+						<div>新人专享优惠券</div>
+						<div>有效期：2019-12-01至2020-01-01</div>
+					</div>
+				</div>
+			</div>
+			<div class="kthy"><span>一键领取并使用会员</span></div>
+		</div>
+	</div>
+	<!-- 订阅未付费地区 -->
+	<div class="mask">
+		<div class="m_content3" id="m_content3">
+			<i class="mui-icon mui-icon-closeempty"></i>
+			<p>抱歉！您付费的地区仅限于查看</p>
+			<div class="address">
+				<span>北京</span>
+				<span>北京</span>
+				<span>北京</span>
+				<span>北京</span>
+				<span>北京</span>
+				<span>北京</span>
+			</div>
+			<p>如需查看更多的地区，请您开通该地区会员</p>
+			<div class="kthy"><span onclick="window.open('./user/pt_member.html','_self')">开通会员</span></div>
+		</div>
+	</div>
+	<!-- 新用户VIP提示 -->
+	<div class="mask">
+		<div class="m_content4">
+			<img src="./img/xr19y.png" alt="">
+			<i class="mui-icon mui-icon-closeempty"></i>
+			<div class="kthy"><span onclick="window.open('./user/pt_member.html','_self')">开通会员</span></div>
+		</div>
+	</div>
+	<!-- 暖春战役活动 -->
+	<div class="mask">
+		<div class="m_content6">
+			<img src="./img/zyhd.png" alt="" onclick="window.open('./user/pt_member.html','_self')">
+			<i class="mui-icon mui-icon-closeempty"></i>
+		</div>
+	</div>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="res/mui/js/mui.min.js"></script>
+	<script src="js/countUp.js"></script>
+	<script src="js-v5/index.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		
+	</script>
+</body>
+
+</html>

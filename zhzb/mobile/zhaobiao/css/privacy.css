@@ -1,0 +1,44 @@
+body {
+    background-color: #f7f7f7;
+}
+/* 头部 */
+.zh_topBar {
+    background-color:#d93f3f;
+}
+.zh_topBar a {
+    color: #fff;
+    font-size: 26px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.zh_topBar a i {
+    color: #fff;
+    font-size: 18px;
+    margin: 0 10px;
+}
+.zh_topBar span {
+    color: #fff;
+    font-size: 17px;
+}
+.about_content {
+    width: 1200px;
+}
+
+.about_content_arc {
+    padding: 50px 10px;
+    padding-bottom: 0;
+}
+
+.about_content_arc span {
+    display: inline-block;
+    margin: 10px 0;
+    color: #ba3f44;
+    font-weight: 700;
+}
+.about_content_arc.active {
+    display: block;
+}
+.about_content p {
+    line-height: 34px;
+    color: #323232;
+}

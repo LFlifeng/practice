@@ -1,0 +1,48 @@
+body {
+    background-color: #f7f7f7;
+}
+/* 头部 */
+.zh_topBar {
+    
+}
+.zh_topBar a {
+    color: #000;
+    font-size: 17px;
+}
+.zh_topBar a i {
+    color: #000;
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+.zh_topBar span {
+    color: #000;
+    font-size: 17px;
+}
+.zh_container {
+    padding-top: 45px;
+}
+.dd_info {
+    border-top: 1px solid #fff;
+    background-color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+}
+.dd_info .ddh_one {
+    border-bottom: 1px solid #f7f7f7;
+}
+.dd_info .ddh {
+    height: 30px;
+    line-height: 30px;
+}
+.dd_info .ddh i {
+    color: #000;
+}
+.dd_info .ddh span.r {
+    display: inline-block;
+    background-color: #f2504e;
+    color: #fff;
+    padding: 0 15px;
+    border-radius: 5px;
+    line-height: 25px;
+}

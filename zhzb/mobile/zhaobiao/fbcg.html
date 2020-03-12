@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="res/mui/css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="res/mui/css/mui.picker.css">
+    <link rel="stylesheet" href="res/mui/css/mui.poppicker.css">
+    <link href="res/mui/css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/fbcg.css">
+</head>
+
+<body>
+    <header class="zh_topBar mui-bar mui-bar-nav ">
+        <a href="javascript:history.back()" class="l"><i class="mui-icon iconfont icon-back"></i></a>
+        <span>发布</span>
+    </header>
+    <div class="cg_info">
+        <div class="info">
+            <div class="info_pro">采购产品</div>
+            <input class="word" placeholder="输入产品名称" type="text"></input>
+        </div>
+        <div class="info">
+            <div class="info_pro">采购数量</div>
+            <input class="word" placeholder="输入产品数量" type="number"></input>
+        </div>
+        <div class="info">
+            <div class="info_pro">截止日期<i>(最大有效期限一个月)</i></div>
+            <input class="word" type="date"></input>
+        </div>
+        <div class="info">
+            <div class="info_pro">地区</div>
+            <input class="word address" placeholder="选择地区" type="text"></input>
+        </div>
+        <div class="info">
+            <div class="info_pro">描述</div>
+            <input class="word" placeholder="如产品大小 新旧程度" type="text"></input>
+        </div>
+        <div class="info">
+            <div class="info_pro">联系电话</div>
+            <input class="word" placeholder="" type="number"></input>
+        </div>
+        <div class="info">
+            <div class="info_pro">联系人</div>
+            <input class="word" placeholder="" type="text"></input>
+        </div>
+        <div class="confirm">确认发布</div>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="res/mui/js/mui.min.js"></script>
+    <script src="res/mui/js/mui.picker.js"></script>
+    <script src="res/mui/js/mui.poppicker.js"></script>
+    <script src="js/data.city.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        $('.address').on('tap', function () {
+            var _this = this;
+            var picker = new mui.PopPicker({
+                layer: 2
+            });
+            picker.setData(init_city_picker);
+            picker.pickers[0].setSelectedIndex(1);
+            picker.pickers[1].setSelectedIndex(1);
+            //添加所在地区
+            picker.show(function (selectItems) {
+                $(_this).val(selectItems[0].text + ' ' +selectItems[0].children[0].text);
+            });
+        });
+    </script>
+</body>
+
+</html>

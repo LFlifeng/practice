@@ -1,0 +1,100 @@
+
+.zh_topBar {
+    display: flex;
+    height: 54px;
+    position: relative;
+    z-index: 10000;
+}
+.zh_topBar a {
+    color: #000;
+    width: 18px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    margin: 0 10px;
+}
+.zh_topBar a.sousuo {
+    width: 50px;
+}
+.zh_topBar a i {
+    color: #000;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+}
+.zh_topBar input {
+    font-size: 14px;
+    margin-top: 6px;
+}
+/* 热门搜索*/
+.info_title {
+    /* background-color: #fff; */
+    height: 20px;
+}
+.info_title .recommend {
+    margin-left: 15px;
+}
+.info_title .recommend span {
+    font-size: 17px;
+    color: #505050;
+    margin-left: 5px;
+}
+.info_title img {
+    width: 15px;
+    margin-top: -6px;
+}
+.mui-scroll-wrapper {
+    position: relative;
+    height: 100%;
+    overflow: initial;
+}
+.mui-pull-top-pocket {
+    top: 0;
+}
+.info {
+    margin: 10px;
+}
+.info ul li {
+    border-bottom: 1px solid #ccc;
+}
+.mui-media-body {
+	font-size: 16px;
+	color: #505050;
+	width: 100%;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.qy img {
+    width: 46px;
+    border-radius: 50%;
+}
+.qy_name {
+    margin-left: 15px;
+}
+.item_flex {
+	display: flex;
+	color: #a0a0a0;
+	align-items: center;
+}
+.item_flex>.flex {
+    width: 55px;
+    height: 18px;
+	font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    margin: 0 3px;
+    border-right: 1px solid #ccc;
+}
+.item_flex>.flex:last-child {
+    border: none;
+}
+.qy_info {
+    margin-top: 5px;
+}
+.qy_info .zbxx i {
+    color: #f2504e;
+}
+.mui-table-view:before,.mui-table-view:after {
+    background-color: #fff;
+}

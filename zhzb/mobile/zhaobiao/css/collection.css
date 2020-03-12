@@ -1,0 +1,83 @@
+body {
+    /* background-color: #f7f7f7; */
+}
+/* 头部 */
+.zh_topBar {
+}
+.zh_topBar a {
+    color: #000;
+    font-size: 17px;
+}
+.zh_topBar a i {
+    color: #000;
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+.zh_topBar span {
+    color: #000;
+    font-size: 17px;
+}
+.zh_container {
+    padding-top: 35px;
+}
+.mui-table-view {
+    background-color: #f1f1fb;
+}
+.mui-table-view:before {
+    background-color: #fff;
+}
+.mui-table-view li {
+    margin-top: 10px;
+    background-color: #fff;
+}
+.mui-table-view li img {
+    width: 13px;
+	height: 13px;
+	margin-top: -4px;
+	margin-right: 5px;
+}
+.mui-media-body {
+	width: 100%;
+	white-space: normal;
+}
+.mui-media-body>span {
+    color: #202020;
+	font-size: 16px;
+}
+.item_flex {
+	display: flex;
+	align-items: center;
+	margin-top: 5px;
+}
+
+.item_flex>.flex {
+	line-height: 24px;
+	margin-right: 8px;
+	padding: 1px 6px;
+	background-color: #f6f6f6;
+    border-radius: 5px;
+    align-items: center;
+}
+.item_flex>.flex>span {
+    font-size: 13px;
+}
+.item_flex>.flex:first-child span {
+	color: #f16363;
+}
+.item_flex>.flex:nth-child(2) span {
+	color: #7384e2;
+}
+.item_flex>.flex:last-child span {
+	color: #38a721;
+}
+
+.mui-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,.3);
+}

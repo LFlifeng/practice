@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标----未登录</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link href="../res/mui/css/mui.min.css" rel="stylesheet" />
+    <link href="../res/mui/css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/base.css">
+</head>
+
+<body>
+    <div class="zh_layout">
+        <div class="mui-content">
+            <a id="test">点击此打开中间的弹出层</a>
+        </div>
+        <!-- 未登录弹出层 -->
+        <div class="mui-backdrop">
+            <div class="popover">
+                <div id="popover">
+                    <i class="fa fa-close r"></i>
+                    <h3>您还未登录</h3>
+                    <div class="word">请您登录或注册后在进行此操作</div>
+                    <img src="../img/loginbg.png" alt="">
+                    <div class="log">
+                        <a href="login.html">立即登录</a>
+                    </div>
+                    <div class="res">
+                        <a href="regist.html">注册</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../res/mui/js/mui.min.js"></script>
+    <script type="text/javascript">
+        mui.init()
+        $('#test').on('tap', function () {
+            $('.mui-backdrop').css({
+                "z-index": 'auto',
+                "display": 'block'
+            })
+        })
+        $('.popover i').on('tap', function () {
+            $('.mui-backdrop').css({
+                "z-index": '-1',
+                "display": 'none'
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="../res/mui/css/mui.min.css" rel="stylesheet" />
+    <link href="../res/mui/css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/qd.css">
+</head>
+
+<body>
+    <header class="zh_topBar mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="l"><i class="mui-icon iconfont icon-back"></i></a>
+        <span>签到</span>
+    </header>
+    <!-- 签到背景图 -->
+    <div class="qdbg">
+        <div class="gz r">签到规则</div>
+    </div>
+    <div class="zh_content">
+        <div class="qd">
+            <hr>
+            <div class="qd_info">
+                <div class="cir"><i class="mui-icon mui-icon-checkmarkempty"></i></div>
+                <div class="cir"><i class="mui-icon mui-icon-checkmarkempty"></i></div>
+                <div class="cir"><i class="mui-icon mui-icon-checkmarkempty"></i></div>
+                <div class="cir"><img src="../img/yhqicon.png" alt=""></div>
+                <div class="cir"><i class="mui-icon mui-icon-checkmarkempty"></i></div>
+                <div class="cir"><i class="mui-icon mui-icon-checkmarkempty"></i></div>
+                <div class="cir"><img src="../img/7thy.png" alt=""></div>
+            </div>
+            <div class="qd_ts">
+                <div class="ts">第1天</div>
+                <div class="ts">第2天</div>
+                <div class="ts">第3天</div>
+                <div class="ts">第4天</div>
+                <div class="ts">第5天</div>
+                <div class="ts">第6天</div>
+                <div class="ts">第7天</div>
+            </div>
+            <div class="qd_qd">
+                <div>签到</div>
+            </div>
+        </div>
+    </div>
+    <div class="mrrw">
+        <div class="mrrw_title">每日任务</div>
+        <div class="content">
+            <img class="" src="../img/fx.png" alt="">
+            <div class="">
+                <div>分享信息</div>
+                <div>分享到朋友圈<i>0</i>/1次，查看招标信息十次</div>
+                <div>分享给好友<i>0</i>/1次，查看招标信息一次</div>
+            </div>
+            <div class="">去完成</div>
+        </div>
+    </div>
+    <div class="mask">
+        <div class="m_content">
+            <div class="img"><img src="../img/qdbg.jpg" alt=""></div>
+            <div>签到成功</div>
+            <div>连续签到4天可免费领取优惠券，连续签到7天免费可领取7天会员</div>
+            <div onclick="window.open('./wdkq.html','_self')">使用优惠券</div>
+            <div>暂不</div>
+        </div>
+    </div>
+    <div class="mask1">
+        <div class="m_content1">
+            <i class="mui-icon mui-icon-closeempty"></i>
+            <div>1、登录用户每天可签到1次，并连续签到领取奖励。</div>
+            <div> 2、连续签到天数越长，获得的奖励越多。若连续签到中断，则续签前一天。</div>
+            <div>3、每连续签到4天和7天，将激活神秘礼盒，额外获得奖励。</div>
+            <div>4、如果出现用户违规行为，汇招标有权立即终止其签到。</div>
+        </div>
+    </div>
+    <div class="mask2">
+        <div class="content"></div>
+    </div>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../res/mui/js/mui.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript">
+        var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        $('.qd_qd>div').on('tap', function () {
+            $('.mask').css({
+                'height': h + 'px',
+                'display': 'block'
+            })
+            var cirs = $('.qd_info .cir');
+            var i = 0;
+            if (i < cirs.length - 1) {
+                $(cirs[i]).addClass('active');
+                i++;
+            }
+        });
+        $('.m_content>div:last-child').on('tap', function () {
+            $('.mask').css({
+                'display': 'none'
+            })
+        });
+        $(".qdbg .gz").on('tap', function () {
+            $('.mask1').css({
+                'height': h + 'px',
+                'display': 'block'
+            })
+        });
+        $('.m_content1 i').on('tap', function () {
+            $('.mask1').css({
+                'display': 'none'
+            });
+        });
+        $('.content>div:last-child').on('tap',function(){
+            $('.mask2').css({
+                'height': h + 'px',
+                'display': 'block'
+            })
+        });
+        $('.mask2 .content').on('tap',function(){
+            $('.mask2').css({
+                'display': 'none'
+            })
+        });
+    </script>
+</body>
+
+</html>

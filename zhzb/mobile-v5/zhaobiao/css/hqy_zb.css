@@ -1,0 +1,81 @@
+/* 选项 */
+
+.zh_container {
+    margin: 10px;
+}
+.zh_top {
+    text-align: center;
+    height: 40px;
+}
+.zh_top a {
+    color: #000;
+    font-size: 18px;
+}
+.zh_top a i {
+    color: #000;
+    font-size: 18px;
+}
+.zh_top span {
+    color: #000;
+    font-size: 17px;
+}
+
+
+
+.info {
+    /* margin-top: 15px; */
+}
+
+.mui-media-body {
+    width: 100%;
+    white-space: normal;
+}
+.mui-media-body>span {
+	color: #202020;
+	font-size: 16px;
+}
+.mui-table-view:after {
+    background-color: #fff;
+}
+.mui-table-view:before {
+    background-color: #fff;
+}
+.mui-table-view {
+    background-color: #f1f1fb;
+}
+.mui-table-view li {
+    margin-top: 10px;
+    background-color: #fff;
+}
+.mui-table-view li img {
+    width: 13px;
+	height: 13px;
+	margin-top: -4px;
+	margin-right: 5px;
+}
+.item_flex {
+	display: flex;
+	align-items: center;
+	margin-top: 5px;
+}
+
+.item_flex>.flex {
+	line-height: 24px;
+	margin-right: 8px;
+	padding: 1px 6px;
+	background-color: #f6f6f6;
+    border-radius: 5px;
+    align-items: center;
+}
+.item_flex>.flex>span {
+	font-size: 13px;
+}
+.item_flex>.flex:first-child span {
+	color: #f16363;
+}
+.item_flex>.flex:nth-child(2) span {
+	color: #7384e2;
+}
+.item_flex>.flex:last-child span {
+	color: #38a721;
+}

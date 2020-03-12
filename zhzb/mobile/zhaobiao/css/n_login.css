@@ -1,0 +1,57 @@
+.popover {
+    margin-top: 50%;
+}
+#popover {
+    text-align: center;
+    background-color: #fff;
+    width: 70%;
+    margin-left: 15%;
+    border: 1px solid #fff;
+    border-radius: 4px;
+}
+.popover i {
+    margin-right: 10px;
+    margin-top: 5px;
+    font-size: 18px;
+}
+.popover h3 {
+    font-size: 20px;
+    color: #505050;
+    font-weight: 400;
+    margin-top: 23px;
+    margin-bottom: 10px;
+}
+.popover .word {
+    color: #a6a6a6;
+}
+.popover img {
+    height: 75px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+}
+.popover .log a {
+    display: block;
+    width: 70%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #3faaf5;
+    color: #fff;
+    margin: 0 15%;
+    border-radius: 20px;
+    font-size: 15px;
+}
+.popover .res a {
+    display: block;
+    width: 70%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin: 0 15%;
+    letter-spacing: 5px;
+    font-size: 15px;
+}
+.mui-backdrop {
+    z-index: -1;
+    display: none;
+}

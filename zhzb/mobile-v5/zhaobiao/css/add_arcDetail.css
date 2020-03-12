@@ -1,0 +1,74 @@
+/* 头部 */
+.zh_topBar a {
+    color: #000;
+    font-size: 16px;
+}
+.zh_topBar a i {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 10px;
+}
+.company_info {
+    margin-top: 30px;
+    padding: 10px;
+}
+.company_info .address {
+    margin-top: 10px;
+}
+/* 选择地区 */
+.address .address_title {
+    color: #202020;
+    font-size: 16px;
+}
+.address_m {
+    margin-top: 5px;
+}
+.address_n {
+    width: 80%;
+}
+.address_n>span {
+    display: inline-block;
+    color: #505050;
+    width: 72px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.address_n>span>img {
+    width: 12px;
+    vertical-align: initial;
+}
+.address_b {
+    width: 20%;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    border: 1px solid #d93f3f;
+    border-radius: 5px;
+    color: #d93f3f;
+}
+.mui-backdrop {
+    z-index: 998;
+    display:block;
+}
+/* 产品图片展示 */ 
+.address .address_title i {
+    margin-left: 10px;
+    font-size: 12px;
+}
+/* 确认提交 */
+.confirm {
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    background-color: #d93f3f;
+    border-radius: 5px;
+    margin: 0 auto;
+}

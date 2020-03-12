@@ -1,0 +1,85 @@
+body {
+    background-color: #f7f7f7;
+}
+/* 头部 */
+.zh_topBar {
+    background-color:#d93f3f;
+}
+.zh_topBar a {
+    color: #fff;
+    font-size: 26px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.zh_topBar a i {
+    color: #fff;
+    font-size: 18px;
+    margin: 0 10px;
+}
+.zh_topBar span {
+    color: #fff;
+    font-size: 17px;
+}
+.login {
+    margin: 90px 50px;
+}
+.login h3 {
+    font-size: 22px;
+    color: #505050;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+.login>div {
+    width: 90%;
+    height: 45px;
+    line-height: 45px;
+    border: 1px solid #cbcbcb;
+    padding-left: 15px;
+    margin-bottom: 21px;
+    border-radius: 22px;
+}
+.login>div>span {
+    display: inline-block;
+    color: #9f9f9f;
+    font-size: 15px;
+}
+input[type=tel],
+input[type=password] {
+    margin-bottom: 2px;
+    width: 64%;
+    padding: 0 10px;
+    outline: none;
+    border: none;
+    background-color: #f7f7f7;
+    font-size: 16px;
+    color: #505050;
+}
+.login .pwd {
+    margin-bottom: 14px;
+}
+.pwd>span {
+    padding-left: 15px;
+}
+span.clearfix a.l {
+    color: #d93f3f;
+}
+span.clearfix a.r {
+    color: #9f9f9f;
+    font-size: 14px;
+    margin-right: 10%; 
+}
+.login .login_login {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    color: #fff;
+    background-color: #d93f3f;
+    box-decoration-break: none;
+    width: 90%;
+    height: 45px;
+    line-height: 45px;
+    border: 1px solid #cbcbcb;
+    padding-left: 15px;
+    margin-bottom: 21px;
+    border-radius: 22px;
+}

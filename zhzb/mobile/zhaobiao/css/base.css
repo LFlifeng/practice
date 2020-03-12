@@ -1,0 +1,133 @@
+			/*  base  */
+			body {
+				background-color: #fff;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+				font-size: 14px;
+				font-family: "microsoft yahei";
+				color: #787878;
+			}
+
+			.w {
+				/* width: 320px; */
+				margin: 0 auto;
+			}
+
+			ul, li {
+				list-style: none;
+			}
+
+			input, img {
+				border: none;
+				outline: none;
+				vertical-align: middle;
+			}
+
+			a {
+				display: inline-block;
+				text-decoration-line: none;
+				color: #868686;
+			}
+
+			a:hover {
+				text-decoration-line: none;
+			}
+
+			a:active, a:visited, a:link {
+				text-decoration: none;
+				color: #787878;
+			}
+
+			i {
+				font-style: normal;
+			}
+
+			.l {
+				float: left;
+			}
+
+			.r {
+				float: right;
+			}
+
+			/* 清除浮动 */
+
+			.clearfix::after {
+				content: "";
+				display: block;
+				width: 0;
+				height: 0;
+				clear: both;
+				overflow: hidden;
+			}
+
+			/* 兼容ie */
+
+			.clear {
+				zoom: 1;
+			}
+
+			[v-cloak] {
+				display: none !important;
+			}
+
+			/* .mui-pull-top-pocket {
+				top: 40px;
+			}
+
+			.mui-pull-bottom-pocket {
+				bottom: 40px;
+			} */
+
+			.zh_topBar {
+				position: fixed;
+				left: 0;
+				top: 0;
+				z-index: 1000000;
+				width: 100%;
+				height: 45px;
+				line-height: 45px;
+				text-align: center;
+				background-color: #fff;			
+			}
+
+			/* 底部工具栏 */
+
+			.zh_tabs {
+				height: 50px;
+				width: 100%;
+				background: #fff;
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				z-index: 999;
+			}
+
+			.zh_tabs a {
+				width: 33%;
+				float: left;
+				font-size: 24px;
+				text-align: center;
+				padding: 4px 0;
+			}
+			/* .zh_tabs a img {
+				width: 20px;
+				color: #d93f3f;
+				background-color: #d93f3f;
+			} */
+			.zh_tabs a.now {
+				color: #d93f3f;
+			}
+
+			.zh_tabs a span {
+				display: block;
+				font-size: 15px;
+				padding: 3px 0;
+			}
+
+			.zh_tabs a span.now {
+				color: #d93f3f;
+			}

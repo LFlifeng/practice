@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标----隐私声明</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link href="../res/mui/css/mui.min.css" rel="stylesheet" />
+    <link href="../res/mui/css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/privacy.css">
+</head>
+
+<body>
+    <div class="zh_layout">
+        <header class="zh_topBar clearfix">
+            <a href="javascript:history.back()" class="icon_back mui-icon iconfont icon-backl"></a>
+            <span>隐私声明</span>
+        </header>
+        <div class="zh_container">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <div class="about_content_arc">
+                        <p>若要访问和使用中汇招标网（zhonghuizb.com），您必须不加修改地完全接受本协议中所包含的条款、条件和中汇招标网即时刊登的通告，并且遵守有关互联网、万维网及/或本网站的相关法律、规定与规则。一旦您访问、使用了中汇招标网，即表示您同意并接受了所有该等条款、条件及通告。
+                        </p>
+                        <p>在建设过程中引用了因特网上的一些信息资源并对有明确来源的信息注明了出处，版权归原作者及原网站所有，如果您对本站信息资源版权的归属问题存有异议，请您联系我们，我们会立即做出答复并及时解决。如果您认为本站有侵犯您权益的行为，请通知我们，我们一定根据实际情况及时处理。
+                            本站中所提供的信息资源均按照原样提供，不附加任何形式的保证，包括适销性、适合于特定目的或不侵犯知识产权的保证。此外，不保证本站所提供信息材料的绝对准确性和完整性。可能在不通知注册用户的情况下随时变更本站的内容或在这些内容中介绍的产品和价格。
+                        </p>
+                        <p>本站可能（但在法律上不负任何责任）会监控或审查用户在本站上发送或邮寄的信息或相互之间单独交流的任何领域，包括但不限于交谈室、公告牌或其他用户论坛以及任何交流内容。中汇招标网（zhonghuizb.com）对有关任何这类交流的内容不承担任何责任，无论它们是否会因版权法引起诽谤、隐私、淫秽或其它方面的问题。保留删除包含被视为侮辱、诽谤、淫秽或其它不良内容的消息的权利。
+                        </p>
+                        <p>用户明确同意网站服务的使用由用户个人承担风险。中汇招标网（zhonghuizb.com）不作任何类型的担保，不担保服务一定能满足用户的要求，也不担保服务一定不会受中断，对服务的安全性，出错发生都不作担保。
+                        </p>
+                        <span>版权声明</span>
+                        <p>
+                            未经中汇招标网（zhonghuizb.com）的明确书面许可，任何人不得复制或在非中汇招标网（zhonghuizb.com）所属的服务器上做镜像。本站所有页面的版式、图片版权均为本站所有，未经授权，不得用于除中汇招标网（zhonghuizb.com）之外的任何站点。
+                        </p>
+                        <span>网站的使用</span>
+                        <p>
+                            中汇招标网（zhonghuizb.com)授权您观看和下载本网站上的内容，但仅供您个人而非商业使用，而且，对于原始内容中所含的版权和其他所有权声明，您必须在其副本中予以保留。您不得以任何方式修改、复制、公开展示、公布或分发这些材料或者以其他方式把它们用于任何公开或商业目的。禁止以任何目的把这些材料用于其他任何网站或网络计算机环境。本站上的内容受版权保护，任何未经授权的使用都可能构成对版权、商标和其他法律的破坏。如果您违反任何条款，您使用本站的授权将自动终止，同时您必须立即销毁任何已下载或打印好的材料。
+                        </p>
+                        <span>软件的使用</span>
+                        <p>
+                            如果您从本站下载软件，一切版权属于原作者，在使用软件时要遵守该软件携带的软件许可协议中的所有许可条款。在您阅读并接受软件许可协议的各项条款之前不得下载或安装这一软件。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../res/mui/js/mui.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript">
+        mui.init({
+            pullRefresh: {
+                container: ".mui-scroll-wrapper",//下拉刷新、上拉加载容器标识
+                
+                // 上拉加载
+                up: {
+                    contentrefresh: '正在加载...',
+                    callback: function () {
+                        setTimeout(function () {
+                            mui('.mui-scroll-wrapper').pullRefresh().disablePullupToRefresh();
+                        }, 0);
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

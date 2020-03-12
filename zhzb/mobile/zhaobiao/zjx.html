@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <link href="res/mui/css/mui.min.css" rel="stylesheet" />
+    <link href="res/mui/css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/zjx.css">
+</head>
+
+<body>
+    <header class="zh_top clearfix">
+        <a href="javascript:history.back()" class="l"><i class="mui-icon iconfont icon-back"></i></a>
+        <span>精选项目</span>
+    </header>
+    <!-- 条件筛选 -->
+    <div class="tabs">
+        <ul>
+            <li class="tab" id="1">
+                <span>全国</span>
+                <i class="fa fa-caret-down"></i>
+                <i class="fa fa-caret-up"></i>
+            </li>
+            <li class="tab" id="2">
+                <span>时间</span>
+                <i class="fa fa-caret-down"></i>
+                <i class="fa fa-caret-up"></i>
+            </li>
+        </ul>
+    </div>
+    <div class="ul">
+        <div class="li address" id="address">
+            <div class="province clearfix">
+                <ul class="pro_name l">
+                    <li v-for='item in address'>{{item.text}}</li>
+                </ul>
+                <ul class="city_name l" v-for='item in address'>
+                    <li v-for="item1 in item.children" class="mui-input-row mui-checkbox mui-left"><input
+                            type="checkbox"><span>{{item1.text}}</span></li>
+                </ul>
+            </div>
+            <div class="queding">确定</div>
+        </div>
+        <div class="li keys">
+            <div class="key_name_info">
+                <span>近一个周</span>
+                <span class="active">近一个月</span>
+                <span>近三个月</span>
+            </div>
+            <div class="queding">确定</div>
+        </div>
+    </div>
+    <!-- 相关信息 -->
+    <div class="info">
+        <ul class="mui-table-view">
+            <li class="mui-table-view-cell mui-media">
+                <a href="javascript:;">
+                    <div class="mui-media-body">
+                        <span>自动封点银胶机固化塔 国际招标公告(1)111111111</span>
+                        <div class="item_flex">
+                            <div class="flex">
+                                剩余时间:<i></i>天<i></i>小时<i></i>分<i></i>秒
+                            </div>
+                            <div class="flex">地区: 山东</div>
+                            <div class="flex">项目状态: 履行中</div>
+                            <div class="flex">发布日期: 2019-10-12</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="mui-table-view-cell mui-media">
+                <a href="javascript:;">
+                    <div class="mui-media-body">
+                        <span>自动封点银胶机固化塔 国际招标公告(1)111111111</span>
+                        <div class="item_flex">
+                            <div class="flex">
+                                剩余时间:<i>02</i>天<i>00</i>小时<i>00</i>分<i>00</i>秒
+                            </div>
+                            <div class="flex">地区: 山东</div>
+                            <div class="flex">项目状态: 履行中</div>
+                            <div class="flex">发布日期: 2019-10-12</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 弹出层 -->
+    <div class="mask">
+        <div class="m_content">
+            <i class="mui-icon mui-icon-closeempty"></i>
+            <div class="text">该项目为<span>高级VIP项目</span>需要联系客服进行开通</div>
+            <div class="botton"><a href="javascript:;">联系客服</a></div>
+        </div>
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="res/mui/js/mui.min.js"></script>
+    <script src="js/data.city.js"></script>
+    <script src="js/time.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: "#address",
+            data() {
+                return {
+                    address: [],
+                }
+            },
+            created() {
+                this.showAddress()
+            },
+            methods: {
+                showAddress() {
+                    this.address = init_city_picker;
+                }
+            }
+        });
+        $('.s_options .option').on('tap', function () {
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+        var tabs = $('.tabs>ul li.tab');
+        var keys = $('.ul .li');
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].index = i;
+            $(tabs[i]).on('tap', function () {
+                $('.ul').css({
+                    'z-index': '100000',
+                    'background': 'rgba(0, 0, 0, 0.3)'
+                })
+                $(this).children('i:nth-child(3)').css({
+                    'display': 'inline'
+                });
+                $(this).children('i:nth-child(2)').css({
+                    'display': 'none'
+                });
+                $(this).children('span,i:nth-child(3)').addClass('active');
+                for (var j = 0; j < tabs.length; j++) {
+                    var num = this.index;
+                    $(keys[num]).addClass('active');
+                    $(keys[num]).siblings().removeClass('active');
+                    //点击确定按钮关闭弹出层
+                    $('.queding').on('tap', function () {
+                        $('.ul').css({
+                            'z-index': '0 !important',
+                            'background': 'rgba(0, 0, 0, 0)'
+                        });
+                        $(keys[num]).removeClass('active');
+                        $('.tabs>ul li').children('i:nth-child(2)').css({
+                            'display': 'inline'
+                        });
+                        $('.tabs>ul li').children(' i:nth-child(3)').css({
+                            'display': 'none'
+                        });
+                        $('.tabs>ul li').children('span,i:nth-child(3)').removeClass('active');
+                    });
+                }
+                $(this).siblings().children('i:nth-child(2)').css({
+                    'display': 'inline'
+                });
+                $(this).siblings().children(' i:nth-child(3)').css({
+                    'display': 'none'
+                });
+                $(this).siblings().children('span,i:nth-child(3)').removeClass('active');
+            });
+        }
+
+        //省市区
+        var province = $('.address .province .pro_name li');
+        var city = $('.address .province .city_name');
+        for (var i = 0; i < province.length; i++) {
+            province[i].index = i;
+            $(province).on('tap', function () {
+                $(this).addClass('active');
+                $(this).siblings().removeClass('active');
+                for (var j = 0; j < province.length; j++) {
+                    var num = this.index;
+                    $(city[num]).addClass('active');
+                    $(city[num]).siblings().removeClass('active');
+                    //点击确定按钮关闭弹出层
+                    $('.queding').on('tap', function () {
+                        $('.ul').css({
+                            'z-index': '0 !important',
+                            'background': 'rgba(0, 0, 0, 0)'
+                        });
+                        $('.tabs>ul li').children('i:nth-child(2)').css({
+                            'display': 'inline'
+                        });
+                        $('.tabs>ul li').children(' i:nth-child(3)').css({
+                            'display': 'none'
+                        });
+                        $('.tabs>ul li').children('span,i:nth-child(3)').removeClass('active');
+                    });
+                }
+            })
+        }
+
+        // 弹出层
+        var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+        $('.mui-table-view li a').on('tap', function () {
+            $('.mask').css({
+                'height': h + 'px',
+                'display': 'block'
+            });
+        });
+        $('.m_content i').on('tap', function () {
+            $('.mask').css({
+                'display': 'none'
+            });
+        });
+    </script>
+</body>
+
+</html>

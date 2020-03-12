@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="res/mui/css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="res/mui/css/mui.picker.css">
+    <link rel="stylesheet" href="res/mui/css/mui.poppicker.css">
+    <link href="res/mui/css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/tracker.css">
+</head>
+
+<body>
+    <header class="zh_topBar">
+        <a href="javascript:history.back()" class="l"><i class="mui-icon iconfont icon-back"></i></a>
+        <span>编辑</span>
+    </header>
+    <div class="zh_content">
+        <div class="tracker">
+            <p>选择地区</p>
+            <div class="address_m clearfix">
+                <div class="address_n l" id="address_n">
+                    <span>内蒙古 <img src="./img/close.png" alt=""></span>
+                    <span>黑龙江 <img src="./img/close.png" alt=""></span>
+                    <span>吉林 <img src="./img/close.png" alt=""></span>
+                    <span>黑龙江 <img src="./img/close.png" alt=""></span>
+                    <span>辽宁 <img src="./img/close.png" alt=""></span>
+                </div>
+                <div class="address_b r" id="address_b">+添加</div>
+            </div>
+        </div>
+        <!-- <div class="tracker">
+            <p>信息类型</p>
+            <div class="address_m clearfix">
+                <div class="address_n l" id="info">
+                    <span>采购信息 <img src="./img/close.png" alt=""></span>
+                    <span>招标信息 <img src="./img/close.png" alt=""></span>
+                    <span>过期信息 <img src="./img/close.png" alt=""></span>
+                </div>
+                <div class="address_b r" id="info_b">+添加</div>
+            </div>
+        </div> -->
+        <div class="tracker">
+            <p class="">关键词设置<span>(<i>2</i>/5)</span><span style="font-size: 12px; color: #d93f3f; margin-left: 15px;">添加更多关键词，寻找更多机会！</span></p>
+            <div class="address_m">
+                <div class="address_n" id="info">
+                    <span>建筑材料 <img src="./img/close.png" alt=""></span>
+                    <span>涂料 <img src="./img/close.png" alt=""></span>
+                </div>
+            </div>
+            <div class="hy_word1">
+                <input type="text" placeholder="输入行业关键词"><button class="btn" type="button">添加</button>
+            </div>
+            <div class="cjgc clearfix">
+                <div class="l">常见关键词：</div>
+                <div class="l">
+                    <span>装饰</span>
+                    <span>装饰广告</span>
+                    <span>装饰</span>
+                    <span>装饰</span>
+                </div>
+            </div>
+        </div>
+        <div class="tracker clearfix">
+            <p class="l"><i></i> 推送设置</p>
+            <div class="mui-switch r">
+                <div class="mui-switch-handle"></div>
+            </div>
+        </div>
+        <div class="tracker">
+            <div class="confirm">保存</div>
+        </div>
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="res/mui/js/mui.min.js"></script>
+    <script src="res/mui/js/mui.picker.js"></script>
+    <script src="res/mui/js/mui.poppicker.js"></script>
+    <script src="js/data.city.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        $('#address_b').on('tap', function () {
+            var _this = this;
+            var picker = new mui.PopPicker({
+                layer: 2
+            });
+            picker.setData(init_city_picker);
+            picker.pickers[0].setSelectedIndex(1);
+            picker.pickers[1].setSelectedIndex(1);
+            //添加所在地区
+            picker.show(function (selectItems) {
+                $(_this).siblings('#address_n').append(" <span>" + selectItems[0].text + " <img src='./img/close.png'></span>");
+                mui.toast('添加成功');
+            });
+        });
+        //点击X删除地区
+        $('#address_n>span>i').on('tap', function (e) {
+            var _this = this;
+            mui.confirm('确认删除吗？', '删除', ['是', '否'], function (e) {
+                if (e.index === 0) {
+                    $(_this).parent().remove();
+                }
+            }, 'div');
+        });
+
+        $('#info_b').on('tap', function () {
+            var _this = this;
+            var picker = new mui.PopPicker();
+            picker.setData([
+                { value: 'cgxx', text: '采购信息' },
+                { value: 'fbxx', text: '废标信息' },
+            ]);
+            //添加信息类型
+            picker.show(function (selectItems) {
+                $(_this).siblings('#info').append(" <span>" + selectItems[0].text + " <img src='./img/close.png'></span>");
+                mui.toast('添加成功');
+            });
+        });
+        //点击X删除信息类型
+        $('#info>span>img').on('tap', function (e) {
+            var _this = this;
+            mui.confirm('确认删除吗？', '删除', ['是', '否'], function (e) {
+                if (e.index === 0) {
+                    $(_this).parent().remove();
+                }
+            }, 'div');
+        });
+
+        //点击按钮添加关键词
+        $('.hy_word .btn').on('tap', function () {
+            var value = $(this).siblings('input').val();
+            if (value === '') {
+                mui.toast('关键词不能为空');
+            } else {
+                $('.hy_word').siblings('.address_m').children('.address_n').append(" <span>" + value + " <img src='./img/close.png'></span>");
+                $(this).siblings('input').val('');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+body {
+    background-color: #f7f7f7;
+}
+/* 头部 */
+.zh_topBar {
+    background-color:#d93f3f;
+}
+.zh_topBar a {
+    color: #fff;
+    font-size: 17px;
+}
+.zh_topBar a i {
+    color: #fff;
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+.zh_topBar span {
+    color: #fff;
+    font-size: 17px;
+}
+.tips {
+    margin-top: 60px;
+    margin-left: 10px;
+}
+.tips p {
+    font-size: 14px;
+}
+.tips h4 {
+    color: #ba3f44;
+    font-size: 15px;
+}

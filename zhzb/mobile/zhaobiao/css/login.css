@@ -1,0 +1,126 @@
+.top_img {
+    width: 100%;
+    height: 115px;
+    background: url(../img/zcbg.png) no-repeat;
+    background-size: cover;
+}
+.bottom_img {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 85px;
+    background: url(../img/dlbg2.png) no-repeat;
+    background-size: cover;
+}
+.login_regist {
+    margin-top: 30px;
+}
+.title {
+    display: flex;
+    justify-content: space-around;
+}
+.title>div {
+    padding: 5px 20px;
+    letter-spacing: 5px;
+    font-size: 18px;
+}
+.title>div.active {
+    color: #f2504e;
+    border-bottom: 2px solid #f2504e;
+}
+.content {
+    margin-top: 30px;
+}
+input[type=tel],
+input[type=password] {
+    margin-left: 15px;
+    padding: 0;
+    margin-bottom: 0px;
+    outline: none;
+    border: none;
+    background-color: #fff;
+    font-size: 14px;
+    height: 40px;
+    width: 60%;
+}
+.con_login {
+    display: none;
+}
+.con_login.active {
+    display: block;
+}
+.con_login .pwd {
+    margin: 0 12px;
+    margin-bottom: 14px;
+    border: 1px solid #ccc;
+    border-radius: 22px;
+    display: flex;
+}
+.con_login .pwd>div {
+    margin: 0 15px;
+    color: #202020;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    width: 20%;
+}
+.con_login .dl {
+    margin: 0 12px;
+    margin-top: 95px;
+    border-radius: 22px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #f2504e;
+}
+.con_login .pwd:nth-child(3)>div {
+    text-align: right;
+    letter-spacing: 12px;
+}
+.con_login .dl.zc {
+    margin-top: 40px;
+}
+.con_login .yzm {
+    margin: 0 12px;
+    border-radius: 22px;
+    display: flex;
+    justify-content: space-between;
+}
+.yzm input[type=number] {
+    width: 60%;
+    border-radius: 22px;
+    font-size: 14px;
+    color: #202020;
+}
+.yzm .hq {
+    width: 35%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #f2504e;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: #ffeceb;
+    border-radius: 22px;
+}
+input::-webkit-input-placeholder {
+    color: #b4b4b4;
+}
+/*  Mozilla Firefox 4-18使用伪类 */
+input:-moz-placeholder {
+  color: #b4b4b4;
+}
+/* Mozilla Firefox 19+ 使用伪元素  */
+input::-moz-placeholder { 
+  color: #b4b4b4;
+}
+/* IE10使用伪类 */
+input:-ms-input-placeholder {
+  color: #b4b4b4;
+}
+.con_login .wjmm {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}

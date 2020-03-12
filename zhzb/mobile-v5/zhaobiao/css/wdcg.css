@@ -1,0 +1,79 @@
+
+/* 头部 */
+.zh_topBar {
+    background-color:#fff;
+}
+.zh_topBar a {
+    color: #000;
+    font-size: 18px;
+}
+.zh_topBar a i {
+    color: #000;
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+.zh_topBar span {
+    color: #000;
+    font-size: 17px;
+}
+/* 选项卡 */
+.tabs {
+    background-color: #fff;
+    text-align: center;
+}
+.tabs>ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6f4f2;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 50px;
+}
+.tabs>ul li {
+    width: 50%;
+}
+.tabs>ul li span {
+    font-size: 15px;
+    color: #646464;
+}
+.tabs>ul li i:nth-child(3) {
+    display: none;
+}
+.tabs>ul li span.active, .tabs>ul li i.active {
+    color: #f12727;
+}
+.tabs>ul li i:nth-child(2) {
+    display: inline;
+}
+
+/* 采购信息 */
+.cg_info {
+    background-color: #f1f1fb;
+}
+.info {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #fff;
+    display: flex;
+}
+.info>div.re img {
+    width: 20px;
+}
+.info .info_title {
+    font-size: 16px;
+    color: #202020;
+    font-weight: 600;
+}
+.info .info_one {
+    margin-top: 10px;
+}
+.info_one .info_pro {
+    font-size: 14px;
+    color: #828282;
+}
+.mui-backdrop {
+    z-index: 998;
+    display:block;
+}

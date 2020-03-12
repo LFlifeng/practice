@@ -1,0 +1,59 @@
+/* 头部 */
+body {
+    background-color: #f0f1fc;
+}
+.zh_topBar {
+    background-color: #fff;
+}
+
+.zh_topBar a {
+    color: #000;
+    font-size: 18px;
+}
+
+.zh_topBar a i {
+    color: #000;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.zh_topBar span {
+    color: #000;
+    font-size: 17px;
+}
+
+.zh_container {
+    margin-top: 45px;
+}
+
+
+/* 采购信息 */
+
+.cg_info {
+    /* background-color: #f1f1fb; */
+}
+
+.info {
+    padding: 10px;
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+.info .info_title {
+    font-size: 16px;
+    color: #202020;
+    font-weight: 500;
+}
+
+.info .info_one {
+    margin-top: 10px;
+}
+
+.info_one .info_pro {
+    color: #969696;
+    margin-top: 5px;
+}
+.info_one .info_pro span {
+    margin-left: 5px;
+    color: #404040;
+}

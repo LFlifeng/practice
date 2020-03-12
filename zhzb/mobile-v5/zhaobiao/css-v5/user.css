@@ -1,0 +1,149 @@
+body {
+    background-color: #f4f4f4;
+}
+
+/* 个人信息 */
+.user {
+    width: 100%;
+    height: 90px;
+    background-color: #fff;
+}
+.user>a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.user i {
+    margin-top: 30px;
+    margin-right: 10px;
+}
+.user .user_info {
+    margin-top: 24px;
+    margin-left: 17px;
+}
+.user .user_info p {
+    color: #303030;
+    font-size: 17px;
+    font-weight: 700;
+    width: 150px;
+    height: 30px;
+    margin: 0;
+    text-overflow:ellipsis;
+    white-space: nowrap; 
+    overflow: hidden;
+}
+.user .user_info span {
+    display: inline-block;
+    padding: 0 10px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background-color: #fa6866;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 10px;
+}
+.user .user_info span i {
+    color: #fff;
+}
+.user .img {
+    width: 50px;
+    border-radius: 30px;
+    margin-top: 21px;
+    margin-left: 35px;
+}
+.zh_container {
+    margin-bottom: 55px;
+}
+
+.index_menu {
+	justify-content: space-around;
+	display: flex;
+	background: #fff;
+	height: 80px;
+}
+
+.index_menu li img {
+	width: 24px;
+	height: 24px;
+}
+
+.index_menu li {
+	font-size: 14px;
+	display: block;
+	padding: 10px 0;
+	text-align: center;
+}
+.index_menu li a p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #202020;
+}
+ul.mui-table-view {
+    margin-top: 10px;
+}
+.mui-table-view:before,
+.mui-table-view:after {
+    background-color: #fff;
+}
+.mui-table-view-cell>a:not(.mui-btn) {
+    height: 50px;
+    line-height: 30px;
+    font-size: 16px;
+    color: #646464;
+    width: 95%;
+    padding-left: 0;
+    border-bottom: 1px solid #eee;
+}
+.mui-table-view-cell>img {
+    width: 22px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.mui-btn {
+    margin-top: 20px;
+    height: 40px;
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    border-radius: 23px;
+    letter-spacing: 5px;
+    background-color: #d93f3f;
+    color: #fff;
+}
+.mui-switch.mui-active {
+    border: #d93f3f;
+    background-color: #d93f3f;
+}
+.mui-table-view li:last-child a {
+    border: none;
+}
+/* 弹出层 */
+.mask {
+    position: fixed;
+    top: 0;
+    background: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    z-index: 2000000;
+    display: none;
+}
+
+.m_content {
+    width: 60%;
+    margin: 200px auto;
+    border-radius: 6px;
+    position: relative;
+}
+
+.m_content img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.m_content i {
+    position: absolute;
+    top: -40px;
+    right: -20px;
+    color: #fff;
+    font-size: 36px;
+}

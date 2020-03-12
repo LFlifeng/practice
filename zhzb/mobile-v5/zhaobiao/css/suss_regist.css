@@ -1,0 +1,47 @@
+body {
+    background-color: #f7f7f7;
+}
+/* 头部 */
+.zh_topBar {
+    background-color:#d93f3f;
+}
+.zh_topBar a {
+    color: #fff;
+    font-size: 26px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.zh_topBar a i {
+    color: #fff;
+    font-size: 18px;
+    margin: 0 10px;
+}
+.zh_topBar span {
+    color: #fff;
+    font-size: 17px;
+}
+.login {
+    margin: 90px 50px;
+}
+.login .tip {
+    margin-top: 100px;
+    text-align: center;
+}
+.login .tip img {
+    width: 50px;
+    margin-bottom: 20px;
+}
+.login .login_login {
+    display: block;
+    margin-top: 100px;
+    text-align: center;
+    color: #fff;
+    background-color: #d93f3f;
+    box-decoration-break: none;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    border: 1px solid #cbcbcb;
+    margin-bottom: 21px;
+    border-radius: 22px;
+}

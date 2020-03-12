@@ -1,0 +1,159 @@
+body {
+    background-color: #fff;
+}
+.zh_topBar {
+    background-color:#d93f3f;
+}
+.zh_topBar a {
+    color: #fff;
+    font-size: 17px;
+}
+.zh_topBar a i {
+    color: #fff;
+    font-size: 18px;
+    margin: 0 10px;
+}
+.zh_topBar span {
+    color: #fff;
+    font-size: 17px;
+}
+
+.mui-bar-nav.mui-bar .mui-icon {
+    margin: 0;
+    padding: 0;
+    color: #000;
+}
+.mui-table-view {
+    margin-top: 50px;
+}
+.mui-table-view:before,
+.mui-table-view:after {
+    background-color: #fff;
+}
+.mui-media-body {
+    color: #505050;
+    font-size: 18px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.item_flex {
+	display: flex;
+    color: #c9c9c9;
+    justify-items: center;
+	align-items: center;
+}
+.item_flex>.flex {
+	height: 30px;
+	font-size: 12px;
+	line-height: 30px;
+	margin-right: 8px;
+}
+.item_flex img {
+	height: 14px;
+	width: 14px;
+	margin: 0px 3px;
+}
+/* 表格部分 */
+.zh_content {
+    margin: 0 10px;
+}
+table {
+    margin: 0 auto;
+}
+table td {
+    background-color: #f3f3f3;
+    border: 1px solid #e2e2e2;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    padding-left: 5px;
+    overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+table tr td:nth-of-type(even) {
+    color: #505050;
+}
+table:first-child tr td {
+    width: 11%;
+}
+table:nth-child(2) tr td:first-child {
+    width: 15%;
+}
+table:nth-child(2) tr td:last-child {
+    width: 66%;
+}
+table:nth-child(2) tr:first-child td {
+    border-top: none;
+}
+.arc_arc p {
+    line-height: 24px;
+    color: #323232;
+}
+/* 专盯、收藏 */
+.affirm {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.affirm>div {
+    width: 50%;
+    height: 41px;
+    text-align: center;
+    line-height: 41px;
+    color: #787878;
+    background-color: #fff;
+    border-top: 1px solid #dadada;
+}
+.affirm>div:last-child {
+    border-left: 1px solid #dadada;
+}
+.affirm>div p {
+    font-size: 16px;
+}
+.affirm>div p:last-child {
+    background-color: #ebebeb;
+}
+.affirm>div i {
+    color: #787878;
+}
+/* 非会员弹出层提示 */
+#popover {
+    border: none;
+    border-top: 1px solid #fff;
+    border-radius: 5px;
+}
+
+#popover .word {
+    color: #000;
+    font-size: 16px;
+}
+#popover .tip a {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    font-size: 17px;
+    background-color: #0090ec;
+    margin-top: 20px;
+    border-radius: 0 0 5px 5px;
+}
+/* 拨打电话 */
+.bodadianhua {
+    display: inline-block;
+    width: 80px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+    margin-right: 5px;
+    margin-top: 2px;
+    background-color: #d93f3f;
+}

@@ -1,0 +1,39 @@
+.zh_topBar {
+    height: 90px;
+    line-height: 90px;
+    background-color:#d93f3f;
+}
+.zh_topBar a i {
+    color: #fff;
+    font-size: 18px;
+    margin: 0 10px;
+}
+.zh_topBar span {
+    color: #fff;
+    font-size: 45px;
+}
+.agreement .agreement_content {
+    margin-left: 20px;
+    margin-top: 90px;
+}
+.agreement h1 {
+    font-size: 20px;
+    margin-top: 50px;
+    color: #ba3f44;
+}
+.agreement h3 {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #ba3f44;
+}
+.agreement p {
+    text-indent:35px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.agreement span {
+    display: block;
+    text-indent:70px;
+    margin-top: 5px;
+    font-size: 14px;
+}

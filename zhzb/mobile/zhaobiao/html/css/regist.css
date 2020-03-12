@@ -1,0 +1,115 @@
+body {
+    background-color: #f7f7f7;
+}
+/* 头部 */
+.zh_topBar {
+    background-color:#d93f3f;
+}
+.zh_topBar a {
+    color: #fff;
+    font-size: 26px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.zh_topBar a i {
+    color: #fff;
+    font-size: 18px;
+    margin: 0 10px;
+}
+.zh_topBar span {
+    color: #fff;
+    font-size: 17px;
+}
+.login {
+    margin: 90px 50px;
+}
+.login h3 {
+    font-size: 22px;
+    color: #505050;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+.login>div {
+    width: 90%;
+    height: 45px;
+    line-height: 45px;
+    border: 1px solid #cbcbcb;
+    padding-left: 15px;
+    margin-bottom: 21px;
+    border-radius: 22px;
+}
+.login>div>span {
+    display: inline-block;
+    color: #9f9f9f;
+    font-size: 15px;
+}
+input[type=tel],
+input[type=number],
+input[type=password] {
+    margin-bottom: 2px;
+    width: 64%;
+    padding: 0 0;
+    outline: none;
+    border: none;
+    background-color: #f7f7f7;
+    font-size: 16px;
+    color: #505050;
+}
+.login .pwd {
+    margin-bottom: 14px;
+}
+.pwd>a {
+    display: inline-block;
+    height: 20px;
+    margin-left: -13%;
+    padding-left: 5%;
+    color: #d93f3f;
+}
+.login .login_login {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    color: #fff;
+    background-color: #d93f3f;
+    box-decoration-break: none;
+    width: 90%;
+    height: 45px;
+    line-height: 45px;
+    border: 1px solid #cbcbcb;
+    padding-left: 15px;
+    margin-bottom: 21px;
+    border-radius: 22px;
+    letter-spacing: 4px;
+}
+.login p {
+    text-align: center;
+    margin-right: 10%;
+    margin-bottom: 0;
+}
+.login p a {
+    color: #d93f3f;
+}
+.login p span {
+    display: inline-block;
+    height: 1px;
+    background-color: #c5c5c5;
+    width: 20%;
+    margin: 0px 10px;
+    margin-top: 40px;
+}
+.login p i {
+    display: inline-block;
+}
+.login .img {
+    display: block;
+    text-align: center;
+    width: 70%;
+    margin-bottom: 35px;
+}
+.login .img img {
+    display: inline-block;
+    margin-top: 6px;
+    margin-left: 27%;
+    width: 50px;
+    height: 50px;
+}

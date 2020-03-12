@@ -1,0 +1,81 @@
+body {
+    background-color: #f7f7f7;
+}
+/* 头部 */
+
+.login {
+    margin: 90px 50px;
+}
+.login img {
+    width: 200px;
+    margin-bottom: 50px;
+    margin-left: 10%;
+}
+.login h3 {
+    font-size: 22px;
+    color: #505050;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+.login>div {
+    width: 90%;
+    height: 45px;
+    line-height: 45px;
+    border: 1px solid #cbcbcb;
+    padding-left: 15px;
+    margin-bottom: 21px;
+    border-radius: 22px;
+    margin-left: 5%;
+}
+.login>div>span {
+    display: inline-block;
+    color: #9f9f9f;
+    font-size: 15px;
+}
+input[type=tel],
+input[type=number],
+input[type=password],
+input[type=text] {
+    margin-bottom: 2px;
+    width: 64%;
+    padding: 0 0;
+    outline: none;
+    border: none;
+    background-color: #f7f7f7;
+    font-size: 16px;
+    color: #505050;
+}
+.login .pwd {
+    margin-bottom: 14px;
+}
+.pwd>a {
+    display: inline-block;
+    height: 20px;
+    margin-left: -13%;
+    padding-left: 5%;
+    color: #0090ec;
+}
+.login .login_login {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    color: #fff;
+    background-color: #0090ec;
+    box-decoration-break: none;
+    width: 90%;
+    height: 45px;
+    line-height: 45px;
+    border: 1px solid #cbcbcb;
+    padding-left: 15px;
+    margin-left: 5%;
+    margin-bottom: 21px;
+    border-radius: 22px;
+    letter-spacing: 4px;
+}
+.login p {
+    text-align: center;
+}
+.login p a {
+    font-size: 13px;
+    color: #c6c6c6;
+}

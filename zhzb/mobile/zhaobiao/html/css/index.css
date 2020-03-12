@@ -1,0 +1,103 @@
+/* 头部搜索 */
+.flex_content {
+	display: flex;
+	margin-top: 5px;
+	position: relative;
+}
+
+.flex_content .search_icon {
+	position: absolute;
+	left: 15px;
+	top: 5px;
+}
+
+.flex_content .search_icon img {
+	width: 20px;
+	height: 20px;
+}
+
+.flex_content .search_input {
+	height: 33px;
+	width: 100%;
+	font-size: 14px;
+	border: none;
+	outline: none;
+	border-radius: 4px;
+	padding-left: 45px;
+}
+
+/* 轮播图 */
+.mui-content {
+	padding: 10px;
+	background-color: #fff;
+}
+/* 服务分类 */
+
+.index_menu {
+	justify-content: space-around;
+	display: flex;
+	background: #ffffff;
+	height: 80px;
+}
+
+.index_menu li img {
+	width: 40px;
+	height: 40px;
+}
+
+.index_menu li {
+	font-size: 14px;
+	display: block;
+	padding: 10px 0;
+	text-align: center;
+}
+
+/* 热门推荐 */
+.index_title {
+	padding: 14px 10px;
+	height: 50px;
+	color: #323232;
+	background-color: #fff;
+	font-size: 17px;
+	text-align: left;
+	font-weight: 600;
+	border-bottom: 1px solid #f3f3f3;
+	margin-top: 10px;
+}
+
+.mui-media-body {
+	color: #505050;
+	width: 100%;
+	text-overflow:ellipsis;
+	white-space: nowrap; 
+	overflow: hidden;
+}  
+.item_flex {
+	display: flex;
+	color: #a0a0a0;
+	align-items: center;
+}
+
+.item_flex>.flex {
+	font-size: 13px;
+	line-height: 24px;
+	margin-right: 8px;
+}
+
+.item_flex img {
+	height: 14px;
+	width: 14px;
+	margin: 0px 3px;
+}
+
+.mui-table-view-cell:after {
+	background-color: #e1e1e1;
+	width: 90%;
+}
+.mui-table-view {
+	margin-bottom: 40px;
+}
+
+.mui-scroll {
+	top: 45px;
+}

@@ -1,0 +1,104 @@
+body {
+    background-color: #fff;
+}
+/* 头部 */
+.zh_topBar {
+    background-color:#fff;
+}
+.zh_topBar a {
+    color: #000;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+.zh_topBar a i {
+    color: #000;
+    font-size: 20px;
+}
+.zh_topBar span {
+    color: #000;
+    font-size: 17px;
+}
+
+.content {
+    margin-top: 60px;
+}
+input[type=tel],
+input[type=password] {
+    margin-left: 15px;
+    padding: 0;
+    margin-bottom: 0px;
+    outline: none;
+    border: none;
+    background-color: #fff;
+    font-size: 14px;
+    height: 40px;
+    width: 60%;
+}
+.content .pwd {
+    margin: 0 12px;
+    margin-bottom: 14px;
+    border: 1px solid #ccc;
+    border-radius: 22px;
+    display: flex;
+}
+.content .pwd>div {
+    margin: 0 15px;
+    color: #202020;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    width: 20%;
+}
+.content .dl {
+    margin: 0 12px;
+    margin-top: 95px;
+    border-radius: 22px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #f2504e;
+}
+
+.content .yzm {
+    margin: 0 12px;
+    border-radius: 22px;
+    display: flex;
+    justify-content: space-between;
+}
+.yzm input[type=number] {
+    width: 60%;
+    border-radius: 22px;
+    font-size: 14px;
+}
+.yzm .hq {
+    width: 35%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #f2504e;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: #ffeceb;
+    border-radius: 22px;
+}
+input::-webkit-input-placeholder {
+    color: #b4b4b4;
+}
+/*  Mozilla Firefox 4-18使用伪类 */
+input:-moz-placeholder {
+  color: #b4b4b4;
+}
+/* Mozilla Firefox 19+ 使用伪元素  */
+input::-moz-placeholder { 
+  color: #b4b4b4;
+}
+/* IE10使用伪类 */
+input:-ms-input-placeholder {
+  color: #b4b4b4;
+}
+.con_login .wjmm {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}

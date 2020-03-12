@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>砸金蛋</title>
+	<meta http-equiv="X-UA-Compatible" content="edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link href="res/mui/css/mui.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/main_response.css">
+</head>
+<body>
+	<!-- <div class="loadingDiv" id="loadingDiv">
+		<p class="wiatTitle">请稍等...</p>
+		<img src="img/logo.png" alt="砸金蛋">
+	</div> -->
+
+	<div class="goldContent">
+		<div class="headPage">
+			<img class="headPage_Img" src="img/indexPageImg.jpg" alt="砸金蛋" title="砸金蛋">
+		</div>
+
+		<div class="goldEggsDiv">
+			<img class="centerPage_Img" src="img/indexPageImg2.jpg" alt="砸金蛋" title="砸金蛋">
+			<div class="list_EggsDiv"  id="carousel">
+				<div>
+					<ul class="jinDanUl" id="jinDanUl1">
+						<li><img src="img/egg.png" alt="egg1" title="快来砸我呀！"/></li>
+						<li><img src="img/egg.png" alt="egg2" title="快来砸我呀！"/></li>
+						<li><img src="img/egg.png" alt="egg3" title="快来砸我呀！"/></li>
+					</ul>	
+				</div>
+	
+				<div>
+					<ul class="jinDanUl1" id="jinDanUl2">
+						<li><img src="img/egg.png" alt="egg4" title="快来砸我呀！"/></li>
+						<li><img src="img/egg.png" alt="egg5" title="快来砸我呀！"/></li>
+						<li><img src="img/egg.png" alt="egg6" title="快来砸我呀！"/></li>
+					</ul>	
+				</div>
+			</div>
+		</div>
+
+		<div class="paiMingAllDiv list_Content">
+			<div class="titleDiv">
+				<div class="title_Div">
+					<h3>金蛋榜单</h3>
+				</div>
+				<span class="line_1px"></span>
+			</div>
+			<div class="contentDiv">
+				<div class="insert_Span"></div>
+				<div class="list_PaiMing">
+					<div class="list_Div">
+						<div class="list_Title">
+							<span class="list_Time">时间</span>
+							<span class="list_Name">用户名</span>
+							<span class="list_Things">金蛋大奖</span>
+						</div>
+						<div class="bg_Dashed"></div>
+						<div class="all_List_Div">
+							<ul class="ul_List1">
+							</ul>
+							<ul class="ul_List2">
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="rulesActivity list_Content">
+			<div class="titleDiv">
+				<div class="title_Div">
+					<h3>活动细则</h3>
+				</div>
+				<span class="line_1px"></span>
+			</div>
+
+			<div class="list_Rules">
+				<i class="right_img"></i>
+				<i class="left_img"></i>
+				<ul>
+					<li>活动期限：2020年1月10日————2020年2月10日</li>
+					<li>活动对象：凡是关注“汇招标”公众号的新老用户。</li>
+					<li>活动参与：每个用户每天只有一次抽奖机会。</li>
+					<li>活动领取：中奖后请在规定有效时间内领取。</li>
+					<li>本活动最终解释权归我司所有。</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="footerImg">
+			<img src="img/bottom.png" alt="砸金蛋活动">
+		</div>
+	</div>
+</body>
+
+<script  data-main="js/do_main.js" src="js/jquery-2.1.0.min.js"></script>
+<script src="res/mui/js/mui.min.js"></script>
+<script src="js/require.js"></script>
+<script>
+	var dis = 0;
+	function autoWinsList(){
+		dis++;
+		$('.all_List_Div').scrollTop(dis);
+		if ($('.all_List_Div').scrollTop()>=$('.ul_List1').height()) {
+			dis = 0;
+			$('.all_List_Div').scrollTop(dis);
+		}
+	}
+	var myset=setInterval("autoWinsList()",50);
+</script>
+<script type="text/javascript">
+//加载loading效果
+// document.onreadystatechange=function completeLoading(){
+// 	var tishi = document.getElementById('loadingDiv');
+//   	if (document.readyState=='complete') {
+//   		tishi.hide();
+// 	}
+// }
+</script>
+</html>

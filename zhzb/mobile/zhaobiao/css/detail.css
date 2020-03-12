@@ -1,0 +1,344 @@
+body {
+    background-color: #fff;
+}
+.zh_topBar {
+    /* background-color:#d93f3f; */
+}
+.zh_topBar a {
+    color: #000;
+    font-size: 17px;
+}
+.zh_topBar a i {
+    color: #000;
+    font-size: 18px;
+    margin: 0 10px;
+}
+.zh_topBar span {
+    color: #000;
+    font-size: 17px;
+}
+
+.mui-bar-nav.mui-bar .mui-icon {
+    margin: 0;
+    padding: 0;
+    color: #000;
+}
+.mui-table-view {
+    margin-top: 50px;
+}
+.mui-table-view:before,
+.mui-table-view:after {
+    background-color: #fff;
+}
+.mui-media-body {
+	width: 100%;
+	/* text-overflow: ellipsis; */
+	white-space: normal;
+	/* overflow: hidden; */
+}
+.mui-media-body>span {
+	color: #202020;
+	font-size: 16px;
+}
+.mui-table-view li img {
+    width: 13px;
+	height: 13px;
+	margin-top: -4px;
+	margin-right: 5px;
+}
+.item_flex {
+	display: flex;
+	align-items: center;
+	margin-top: 5px;
+}
+.item_flex>.flex {
+	line-height: 24px;
+	margin-right: 8px;
+	padding: 1px 6px;
+	background-color: #f6f6f6;
+	border-radius: 5px;
+	align-items: center;
+}
+.item_flex>.flex>span {
+	font-size: 13px;
+}
+.item_flex>.flex:first-child span {
+	color: #f16363;
+}
+.item_flex>.flex:nth-child(2) span {
+	color: #6b82ff;
+}
+.item_flex>.flex:last-child span {
+	color: #56d43c;
+}
+
+.mui-table-view:before {
+	background-color: #fff;
+}
+
+.mui-table-view-cell:after {
+	width: 90%;
+}
+
+/* 表格部分 */
+.zh_content {
+    margin: 0 10px;
+}
+table {
+    margin: 0 auto;
+}
+table td {
+    background-color: #f3f3f3;
+    border: 1px solid #e2e2e2;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    padding-left: 5px;
+    overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+table tr td:nth-of-type(even) {
+    color: #505050;
+}
+table:first-child tr td {
+    width: 11%;
+}
+table:nth-child(2) tr td:first-child {
+    width: 15%;
+}
+table:nth-child(2) tr td:last-child {
+    width: 66%;
+}
+table:nth-child(2) tr:first-child td {
+    border-top: none;
+}
+.arc_arc {
+    margin-bottom: 10px;
+}
+.arc_arc p {
+    line-height: 24px;
+    color: #323232;
+}
+/* 专盯、收藏 */
+.affirm {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.affirm>div {
+    width: 50%;
+    height: 41px;
+    text-align: center;
+    line-height: 41px;
+    background-color: #fff;
+    border-top: 1px solid #dadada;
+}
+.affirm>div:last-child {
+    border-left: 1px solid #dadada;
+}
+.affirm>div i {
+    color: #d93f3f;
+}
+.affirm>div p {
+    font-size: 16px;
+    color: #d93f3f;
+}
+.affirm>div p:last-child {
+    background-color: #ebebeb;
+}
+/* 非会员弹出层提示 */
+#popover {
+    border: none;
+    border-top: 1px solid #fff;
+    border-radius: 5px;
+}
+
+#popover .word {
+    color: #000;
+    font-size: 16px;
+}
+#popover .tip a {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    font-size: 17px;
+    background-color: #0090ec;
+    margin-top: 20px;
+    border-radius: 0 0 5px 5px;
+}
+/* 拨打电话 */
+.bodadianhua {
+    display: inline-block;
+    width: 80px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+    margin-right: 5px;
+    margin-top: 2px;
+    background-color: #d93f3f;
+}
+.zbfx {
+    margin-bottom: 40px;
+    background-color: #f1f1fb;
+    border-top: 1px solid #fff;
+    position: fixed;
+    bottom: 0px;
+    z-index: 600;
+}
+.zbfx>p {
+    margin: 0;
+    background-color: #fff;
+    margin-top: 10px;
+    padding: 10px;
+}
+.zbfx>p>i {
+    display: inline-block;
+    vertical-align: middle;
+    width: 4px;
+    height: 4px;
+    background-color: #d93f3f;
+    margin-top: -3px;
+}
+.zbfx>p>span {
+    color: #202020;
+    font-size: 18px;
+}
+.zbfx>p>span:last-child {
+    color: #d93f3f;
+    float: right;
+    font-size: 14px;
+}
+.zbfx>p>span:last-child i {
+    color: #d93f3f;
+    font-size: 16px;
+}
+.zbfx .jianjie {
+    width: 100%;
+    text-overflow: ellipsis;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    color: #505050;
+    font-size: 16px;
+    background-color: #fff;
+    border-top: 1px solid #dedede;
+    padding: 10px;
+}
+.mask2 {
+    width: 100%;
+    background-color: transparent;
+    position: fixed;
+    z-index: 500;
+}
+.mask3 {
+    width: 100%;
+    height: 300px;
+    background: url(../img/transparent.png) repeat-x;
+    /* background: -webkit-linear-gradient(to bottom,transparent, #fff 25% 100%);
+    background: -moz-linear-gradient(to bottom,transparent, #fff 25% 100%);
+    background: -o-linear-gradient(to bottom,transparent, #fff 25% 100%);
+    background: -ms-linear-gradient(to bottom,transparent, #fff 25% 100%);
+    background: linear-gradient(to bottom,transparent, #fff 25% 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='transparent', endColorstr='#fff',GradientType=1); */
+    z-index: 100;
+    position: absolute;
+}
+.mask3 .m_text {
+    margin-top: 75px;
+    text-align: center;
+}
+.mask3 .m_text img {
+    width: 16px;
+    height: 16px;
+}
+.mask3 .m_text .text {
+    font-size: 16px;
+    color: #969696;
+    margin-top: 5px;
+}
+.mask {
+	position: fixed;
+	top: 0;
+	background: rgba(0, 0, 0, 0.3);
+	width: 100%;
+	z-index: 20000;
+	display: none;
+}
+
+.m_content1 {
+	width: 70%;
+	height: 400px;
+	margin: 150px auto;
+	border-radius: 6px;
+	position: relative;
+}
+.m_content1 img {
+	width: 100%;
+}
+.m_content1 i {
+	position: absolute;
+	top: -26px;
+	right: -26px;
+	color: #fff;
+	font-size: 36px;
+}
+.m_content1 .kthy {
+	position: absolute;
+	top: 46%;
+	left: 22%;
+	text-align: center;
+}
+.m_content1 .kthy span {
+	display: inline-block;
+	padding: 5px 40px;
+	color: #fff;
+	border-radius: 15px;
+	background-color: #f64b4b;
+}
+.mask4 {
+	position: fixed;
+	top: 0;
+	background: rgba(0, 0, 0, 0.3);
+	width: 100%;
+	z-index: 20000;
+	display: none;
+}
+
+.m_content4 {
+	width: 85%;
+	height: 400x;
+	margin: 150px auto;
+	border-radius: 6px;
+	position: relative;
+}
+.m_content4 img {
+	width: 100%;
+}
+.m_content4 i {
+	position: absolute;
+	top: -26px;
+	right: -26px;
+	color: #fff;
+	font-size: 36px;
+}
+.m_content4 .kthy {
+	position: absolute;
+	top: 90%;
+	left: 24%;
+	text-align: center;
+}
+.m_content4 .kthy span {
+	display: inline-block;
+	padding: 5px 40px;
+	color: #fff8b0;
+	border-radius: 15px;
+	background-color: #f2504e;
+}

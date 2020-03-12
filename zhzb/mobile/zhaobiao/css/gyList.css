@@ -1,0 +1,36 @@
+body {
+    background-color: #f1f1fb;
+}
+.zh_topBar a i {
+    color: #000;
+    font-size: 18px !important;
+}
+.zh_topBar span {
+    color: #000;
+    font-size: 17px;
+}
+/*  */
+.qy {
+    
+}
+.qy_title {
+    background-color: #f1f1fb;
+    margin-top: 44px;
+    border-top: 1px solid #ccc;
+}
+
+.qy_title .qyt_name {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #fff;
+}
+.qy_title .qyt_name img {
+    width: 46px;
+    vertical-align: middle;
+}
+.qy_title .qyt_name .qyt {
+    margin-left: 8px;
+    color: #202020;
+    font-size: 16px;
+    line-height: 40px;
+}

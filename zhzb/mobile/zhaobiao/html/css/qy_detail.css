@@ -1,0 +1,122 @@
+body {
+    background-color: #f1f1f1;
+}
+.zh_topBar a i {
+    color: #000;
+    font-size: 18px;
+    margin: 0 10px;
+}
+/*  */
+.qy {
+    
+}
+.qy_title {
+    background-color: #fff;
+    margin-top: 44px !important;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+}
+.qy_info {
+    background-color: #fff;
+}
+.qy_title .qyt_name {
+    height: 50px;
+    padding: 10px;
+}
+.qy_title .qyt_name img {
+    width: 46px;
+}
+.qy_title .qyt_name .qyt {
+    margin-left: 8px;
+}
+.qy_title .qyt_name .qyt div:first-child {
+    color: #202020;
+    font-size: 16px;
+}
+.qy_title .qyt_name .qyt div:last-child {
+    color: #f12727;
+    font-size: 14px;
+    width: 36px;
+    height: 20px;
+    text-align: center;
+    line-height: 18px;
+    border: 1px solid #f12727;
+    border-radius: 5px;
+}
+.gz {
+    width: 50px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    background-color: #f12727;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+.company {
+    padding: 10px;
+}
+.company .c_name {
+    width: 100%;
+    border-bottom: 1px solid #f1f1f1;
+}
+.company .c_name span {
+    color: #202020;
+    font-size: 16px;
+}
+.company .c_address {
+    margin-top: 10px;
+}
+.c_address span {
+    color: #202020;
+    margin-right: 8px;
+}
+.c_product {
+    position: relative;
+}
+.backMask {
+    /* position: absolute;
+    top: 45px;
+    background-color: #fff;
+    width: 100%;
+    height: 100px; */
+}
+.index_title {
+    padding: 15px 10px;
+    margin-top: 10px;
+	height: 50px;
+	color: #202020;
+	background-color: #fff;
+	font-size: 16px;
+	border-bottom: 1px solid #f3f3f3;
+    /* position: relative;
+    z-index: 100000; */
+}
+.mui-media-body {
+	color: #505050;
+	width: 100%;
+	text-overflow:ellipsis;
+	white-space: nowrap; 
+	overflow: hidden;
+}  
+.item_flex {
+	display: flex;
+	color: #a0a0a0;
+	align-items: center;
+}
+
+.item_flex>.flex {
+	font-size: 13px;
+	line-height: 24px;
+	margin-right: 8px;
+}
+
+.item_flex img {
+	height: 14px;
+	width: 14px;
+	margin: 0px 3px;
+}
+.mui-table-view:before {
+    background-color: #fff;
+}

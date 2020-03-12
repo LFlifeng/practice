@@ -1,0 +1,196 @@
+			/*  base  */
+			body {
+				background-color: #fff;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+				font-size: 14px;
+				font-family: "microsoft yahei";
+				color: #787878;
+			}
+
+			.w {
+				/* width: 320px; */
+				margin: 0 auto;
+			}
+
+			ul, li {
+				list-style: none;
+			}
+
+			input, img {
+				border: none;
+				outline: none;
+				vertical-align: middle;
+			}
+
+			a {
+				display: inline-block;
+				text-decoration-line: none;
+				color: #868686;
+			}
+
+			a:hover {
+				text-decoration-line: none;
+			}
+
+			a:active, a:visited, a:link {
+				text-decoration: none;
+			}
+
+			i {
+				font-style: normal;
+			}
+
+			.l {
+				float: left;
+			}
+
+			.r {
+				float: right;
+			}
+
+			/* 清除浮动 */
+
+			.clearfix::after {
+				content: "";
+				display: block;
+				width: 0;
+				height: 0;
+				clear: both;
+				overflow: hidden;
+			}
+
+			/* 兼容ie */
+
+			.clear {
+				zoom: 1;
+			}
+
+			[v-cloak] {
+				display: none !important;
+			}
+
+			.mui-pull-top-pocket {
+				top: 40px;
+			}
+
+			.mui-pull-bottom-pocket {
+				bottom: 40px;
+			}
+
+			.zh_topBar {
+				position: fixed;
+				left: 0;
+				top: 0;
+				z-index: 999;
+				width: 100%;
+				height: 45px;
+				line-height: 45px;
+				text-align: center;
+				background-color: #fff;
+			}
+
+			/* 底部工具栏 */
+
+			.zh_tabs {
+				height: 50px;
+				width: 100%;
+				background: #fff;
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				z-index: 999;
+			}
+
+			.zh_tabs a {
+				width: 25%;
+				float: left;
+				font-size: 24px;
+				text-align: center;
+				padding: 6px 0;
+			}
+
+			.zh_tabs a.now {
+				color: #d93f3f;
+			}
+
+			.zh_tabs a span {
+				display: block;
+				font-size: 15px;
+				padding: 3px 0;
+			}
+
+			.zh_tabs a span.now {
+				color: #d93f3f;
+			}
+
+			/* 未登录样式 */
+
+			.popover {
+				margin-top: 50%;
+			}
+
+			#popover {
+				text-align: center;
+				background-color: #fff;
+				width: 70%;
+				margin-left: 15%;
+				border: 1px solid #fff;
+				border-radius: 4px;
+			}
+
+			.popover i {
+				margin-right: 10px;
+				margin-top: 5px;
+				font-size: 18px;
+			}
+
+			.popover h3 {
+				font-size: 20px;
+				color: #505050;
+				font-weight: 400;
+				margin-top: 23px;
+				margin-bottom: 10px;
+			}
+
+			.popover .word {
+				color: #a6a6a6;
+			}
+
+			.popover img {
+				height: 75px;
+				margin-top: 16px;
+				margin-bottom: 10px;
+			}
+
+			.popover .log a {
+				display: block;
+				width: 70%;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				background-color: #3faaf5;
+				color: #fff;
+				margin: 0 15%;
+				border-radius: 20px;
+				font-size: 15px;
+			}
+
+			.popover .res a {
+				display: block;
+				width: 70%;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				margin: 0 15%;
+				letter-spacing: 5px;
+				font-size: 15px;
+			}
+
+			.mui-backdrop {
+				z-index: -1;
+				display: none;
+			}

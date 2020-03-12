@@ -1,0 +1,115 @@
+/* 头部 */
+
+.zh_topBar a {
+    color: #000;
+    font-size: 16px;
+}
+
+.zh_topBar a i {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+.zh_topBar span {
+    color: #000;
+    font-size: 17px;
+}
+
+/* 选项卡 */
+
+.tabs {
+    background-color: #fff;
+    text-align: center;
+}
+
+.tabs>ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f6f4f2;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 50px;
+}
+
+.tabs>ul li {
+    width: 50%;
+}
+
+.tabs>ul li span {
+    font-size: 15px;
+    color: #646464;
+}
+
+.tabs>ul li i:nth-child(3) {
+    display: none;
+}
+
+.tabs>ul li span.active, .tabs>ul li i.active {
+    color: #f12727;
+}
+
+.tabs>ul li i:nth-child(2) {
+    display: inline;
+}
+
+/* 公司产品信息 */
+
+.company {
+    padding: 10px;
+}
+
+.company .c_name span {
+    color: #202020;
+    font-size: 16px;
+}
+
+.company .c_name i {
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #f9d643;
+}
+
+.c_address span {
+    margin-right: 8px;
+}
+
+.c_img {
+    margin-top: 10px;
+}
+
+.c_img img {
+    width: 32%;
+    height: 100px;
+}
+
+.create {
+    position: fixed;
+    z-index: 100;
+    bottom: 100px;
+    right: 40px;
+    width: 62px;
+    height: 62px;
+    line-height: 62px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #f2504e;
+    box-shadow: 1px 2px 8px #c0c0c0;
+}
+
+.create a {
+    color: #fff;
+    font-size: 16px;
+}
+
+.mui-backdrop {
+    z-index: 998;
+    display: block;
+}

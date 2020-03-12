@@ -1,0 +1,149 @@
+body {
+    background-color: #f1f1f1;
+}
+
+.zh_topBar a {
+    color: #ba3f44;
+    height: 50px;
+    line-height: 50px;
+    font-size: 15px;
+    margin: 0 10px;
+}
+
+.zh_topBar img {
+    width: 15px;
+}
+
+.zh_topBar span {
+    color: #505050;
+    font-size: 17px;
+}
+
+/* 会员等级 */
+
+.m_member {
+    margin-top: 45px;
+    height: 130px;
+    background-color: #515151;
+    position: relative;
+    border-top: 1px solid #fff;
+}
+
+.m_member .m_title {
+    margin-left: 20px;
+    color: #cdcdcd;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.m_member .m_content {
+    position: relative;
+    top: 30px;
+    width: 600px;
+}
+
+.m_content img {
+    width: 124px;
+}
+
+.m_content .img {
+    margin-left: 20px;
+}
+
+.m_content .img.active {
+    border: 3px solid #d0d0d0;
+    border-radius: 11px;
+    box-shadow: 0 4px 30px #000;
+}
+
+/* 会员购买 */
+
+.pay {
+    text-align: center;
+    background-color: #fff;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.b_pay {
+    width: 200px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    background-color: #348aea;
+    border-radius: 18px;
+    margin-left: 25%;
+    margin-top: 150px;
+}
+
+.o_pay {
+    font-size: 16px;
+    color: #cfa56b;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* 七大权益 */
+
+.rights {
+    height: 420px;
+    margin-top: 10px;
+    background-color: #fff;
+    border-top: 1px solid #fff;
+}
+
+.rights .r_title {
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #cfa669;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.rights .right {
+    margin-top: 10px;
+    margin-left: 11%;
+    text-align: center;
+}
+
+.rights .right img {
+    width: 48px;
+}
+
+.rights .right div {
+    color: #787878;
+    font-size: 15px;
+    margin: 10px 0;
+}
+
+/* 其他付费途径 */
+.o_payWay {
+    display: none;
+}
+.o_payWay .o_payTitle {
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #cfa669;
+    font-size: 16px;
+    font-weight: 700;
+}
+.o_payWay .fanhui {
+    margin-top: 10px;
+    margin-right: 10px;
+    /* color: #cfa669; */
+    font-size: 15px;
+    font-weight: 700;
+}
+.o_payWay form {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.o_payWay form label {
+    font-size: 16px;
+}
+.o_payWay form input {
+    border: none;
+    background-color: #f1f1f1;
+}

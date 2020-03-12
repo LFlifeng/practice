@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="../res/mui/css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../res/mui/css/mui.picker.css">
+    <link rel="stylesheet" href="../res/mui/css/mui.poppicker.css">
+    <link href="../res/mui/css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/wdcg.css">
+</head>
+
+<body>
+    <header class="zh_topBar clearfix">
+        <a href="javascript:history.back()" class="l"><i class="mui-icon iconfont icon-back"></i></a>
+        <span>我的采购</span>
+    </header>
+    <div class="zh_container">
+        <!-- 选项卡 -->
+        <div class="tabs">
+            <ul>
+                <li id="2">
+                    <span href="#" class="">产品</span>
+                    <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-caret-up"></i>
+                </li>
+                <li id="3">
+                    <span href="#">地区</span>
+                    <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-caret-up"></i>
+                </li>
+            </ul>
+        </div>
+        <!-- 采购信息 -->
+        <div class="cg_info">
+            <div class="info">
+                <div class="le">
+                    <div class="info_title">江苏省南通市南通德聚新能源电力有限公司达旗水泥矿粉采购预告</div>
+                    <div class="info_one clearfix">
+                        <div class="info_pro l">采购产品: <span>二手器械设备</span></div>
+                        <div class="info_pro r">采购日期: <span>2019-12-12</span></div>
+                    </div>
+                    <div class="info_one clearfix">
+                        <div class="info_pro l">采购数量: <span>2台</span></div>
+                        <div class="info_pro r">采购预算: <span>20万元</span></div>
+                    </div>
+                </div>
+                <div class="re">
+                    <img src="../img/gd.png" alt="">
+                </div>
+            </div>
+            <div class="info">
+                <div class="le">
+                    <div class="info_title">江苏省南通市南通德聚新能源电力有限公司达旗水泥矿粉采购预告</div>
+                    <div class="info_one clearfix">
+                        <div class="info_pro l">采购产品: <span>二手器械设备</span></div>
+                        <div class="info_pro r">采购日期: <span>2019-12-12</span></div>
+                    </div>
+                    <div class="info_one clearfix">
+                        <div class="info_pro l">采购数量: <span>2台</span></div>
+                        <div class="info_pro r">采购预算: <span>20万元</span></div>
+                    </div>
+                </div>
+                <div class="re">
+                    <img src="../img/gd.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../res/mui/js/mui.min.js"></script>
+    <script src="../res/mui/js/mui.picker.js"></script>
+    <script src="../res/mui/js/mui.poppicker.js"></script>
+    <script src="../js/data.city.js"></script>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript">
+        // 地区
+        $('li#3').on('tap', function () {
+            var _this = this;
+            var picker = new mui.PopPicker({
+                layer: 2
+            });
+            picker.setData(init_city_picker);
+            picker.pickers[0].setSelectedIndex(1);
+            picker.pickers[1].setSelectedIndex(1);
+            //添加所在地区
+            picker.show(function (selectItems) {
+                $(_this).children('.tabs>ul li i:nth-child(2)').css({
+                    'display': 'inline'
+                });
+                $(_this).children('.tabs>ul li i:nth-child(3)').css({
+                    'display': 'none'
+                });
+                $(_this).children('span,.tabs>ul li i:nth-child(3)').removeClass('active');
+            });
+
+            $('.mui-poppicker-header .mui-btn').on('tap', function () {
+                $(_this).children('.tabs>ul li i:nth-child(2)').css({
+                    'display': 'inline'
+                });
+                $(_this).children('.tabs>ul li i:nth-child(3)').css({
+                    'display': 'none'
+                });
+                $(_this).children('span,.tabs>ul li i:nth-child(3)').removeClass('active');
+            });
+
+            $(this).children('.tabs>ul li i:nth-child(3)').css({
+                'display': 'inline'
+            });
+            $(this).children('.tabs>ul li i:nth-child(2)').css({
+                'display': 'none'
+            });
+            $(this).children('span,.tabs>ul li i:nth-child(3)').addClass('active');
+        });
+        // 产品
+        $('li#2').on('tap', function () {
+            var _this = this;
+            var picker = new mui.PopPicker();
+            picker.setData([
+                { value: '1', text: '默认' },
+                { value: '2', text: '优质' },
+                { value: '3', text: '最新' },
+            ]);
+            picker.show(function (selectItems) {
+                $(_this).children('.tabs>ul li i:nth-child(2)').css({
+                    'display': 'inline'
+                });
+                $(_this).children('.tabs>ul li i:nth-child(3)').css({
+                    'display': 'none'
+                });
+                $(_this).children('span,.tabs>ul li i:nth-child(3)').removeClass('active');
+            });
+
+            $('.mui-poppicker-header .mui-btn').on('tap', function () {
+                $(_this).children('.tabs>ul li i:nth-child(2)').css({
+                    'display': 'inline'
+                });
+                $(_this).children('.tabs>ul li i:nth-child(3)').css({
+                    'display': 'none'
+                });
+                $(_this).children('span,.tabs>ul li i:nth-child(3)').removeClass('active');
+            });
+
+            $(this).children('.tabs>ul li i:nth-child(3)').css({
+                'display': 'inline'
+            });
+            $(this).children('.tabs>ul li i:nth-child(2)').css({
+                'display': 'none'
+            });
+            $(this).children('span,.tabs>ul li i:nth-child(3)').addClass('active');
+        });
+        $('.info>div.re img').on('tap', function () {
+            var _this = this;
+            var picker = new mui.PopPicker();
+            picker.setData([
+                { value: '1', text: '编辑' },
+                { value: '2', text: '删除' },
+            ]);
+            picker.show(function (selectItems) {
+                if(selectItems[0].value ==='1'){
+                    window.location.href = '../fbcg.html';
+                } else if (selectItems[0].value ==='2'){
+                    $(_this).parent().parent().remove()
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

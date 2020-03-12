@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>汇投标</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <link href="res/mui/css/mui.min.css" rel="stylesheet" />
+    <link href="res/mui/css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="res/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css-v5/base.css">
+    <link rel="stylesheet" href="css-v5/trackerList.css">
+</head>
+
+<body>
+    <!-- 头部切换栏 -->
+    <div class="tabs">
+        <ul>
+            <li class="tab" id="1">
+                <span>地区</span>
+                <i class="fa fa-caret-down"></i>
+                <i class="fa fa-caret-up"></i>
+            </li>
+            <li class="tab" id="2">
+                <span>关键词</span>
+                <i class="fa fa-caret-down"></i>
+                <i class="fa fa-caret-up"></i>
+            </li>
+            <li class="tab" id="3">
+                <span>信息类型</span>
+                <i class="fa fa-caret-down"></i>
+                <i class="fa fa-caret-up"></i>
+            </li>
+            <li id="4">
+                <span onclick="window.open('./tracker-v5.html','_self')">
+                    <img src="./img-v5/edit.png" alt="">
+                    编辑
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="ul">
+        <div class="li address" id="address">
+            <div class="province clearfix">
+                <ul class="pro_name l">
+                    <li v-for='item in address' :data-p='item.text'>{{item.text}}</li>
+                </ul>
+                <ul class="city_name l" v-for='item in address'>
+                    <li v-for="item1 in item.children" class="mui-input-row mui-checkbox mui-left"><input
+                            type="checkbox" :data-p='item.text' :data-c='item1.text'><span>{{item1.text}}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="queding">确定</div>
+        </div>
+        <div class="li keys">
+            <div class="key_name" style="margin-left: 10px;">关键词</div>
+            <div class="key_name_info">
+                <span>空调</span>
+                <span class="active">中央空调</span>
+                <span>企业空调</span>
+                <span>企业空调</span>
+            </div>
+            <!-- <div class="queding">确定</div> -->
+        </div>
+        <div class="li keys">
+            <div class="key_name" style="margin-left: 10px;">信息类型</div>
+            <div class="key_name_info">
+                <span>中标信息</span>
+                <span class="active">招标信息</span>
+                <span>拟在建</span>
+            </div>
+            <!-- <div class="queding">确定</div> -->
+        </div>
+    </div>
+    <!-- 订阅信息部分 -->
+    <div class="ssjg">
+        <div class="mui-slider">
+            <div class="mui-slider-group mui-slider-loop">
+                <!--支持循环，需要重复图片节点-->
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                </div>
+                <div class="mui-slider-item">
+                    <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                </div>
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                </div>
+                <div class="mui-slider-item">
+                    <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                </div>
+            </div>
+        </div>
+        <div class="t_history">
+            <div class="t_txt">订阅结果</div>
+        </div>
+        <div class="mui-content">
+            <div class="mui-row">
+                <div class="mui-col-sm-12 mui-col-xs-12">
+                    <ul class="mui-table-view">
+                        <li class="mui-table-view-cell">
+                            <div class="mui-media-body">
+                                <a href="detail.html">
+                                    <span><i
+                                            class="c1">招标</i>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告公告公告公告公告管养项目招标公告公告公告公告公告管养项目招标公告公告公告公告公告</span>
+                                    <span>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告公告公告公告公告管养项目招标公告公告公告公告公告管养项目招标公告公告公告公告公告</span>
+                                </a>
+                                <div class="item_flex">
+                                    <div class="flex"><img src="./img/wz.png" alt=""><span>北京</span>
+                                    </div>
+                                    <div class="flex"><img src="./img/fl.png" alt=""><span>招标信息</span>
+                                    </div>
+                                    <div class="flex"><img src="./img/sj.png" alt=""><span>2018-05-12</span>
+                                    </div>
+                                    <div class="flex"><img src="./img-v5/sc_off.png" alt=""></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            <div class="mui-media-body">
+                                <a href="javascript:;">
+                                    <span><i class="c2">中标</i>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告</span>
+                                    <span>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告公告公告公告公告管养项目招标公告公告公告公告公告管养项目招标公告公告公告公告公告</span>
+                                </a>
+                                <div class="item_flex">
+                                    <div class="flex"><img src="./img/wz.png" alt=""><span>北京</span>
+                                    </div>
+                                    <div class="flex"><img src="./img/fl.png" alt=""><span>招标信息</span>
+                                    </div>
+                                    <div class="flex"><img src="./img/sj.png" alt=""><span>2018-05-12</span>
+                                    </div>
+                                    <div class="flex"><img src="./img-v5/sc_off.png" alt=""></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            <div class="mui-media-body">
+                                <a href="javascript:;">
+                                    <span><i class="c3">采购</i>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告</span>
+                                    <span>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告公告公告公告公告管养项目招标公告公告公告公告公告管养项目招标公告公告公告公告公告</span>
+                                </a>
+                                <div class="item_flex">
+                                    <div class="flex"><img src="./img/wz.png" alt=""><span>北京</span>
+                                    </div>
+                                    <div class="flex"><img src="./img/fl.png" alt=""><span>招标信息</span>
+                                    </div>
+                                    <div class="flex"><img src="./img/sj.png" alt=""><span>2018-05-12</span>
+                                    </div>
+                                    <div class="flex"><img src="./img-v5/sc_off.png" alt=""></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            <div class="mui-media-body">
+                                <a href="javascript:;">
+                                    <span><i class="c4">拟建</i>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告</span>
+                                    <span>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告公告公告公告公告管养项目招标公告公告公告公告公告管养项目招标公告公告公告公告公告</span>
+                                </a>
+                                <div class="item_flex">
+                                    <div class="flex"><img src="./img/wz.png" alt=""><span>北京</span>
+                                    </div>
+                                    <div class="flex"><img src="./img/fl.png" alt=""><span>招标信息</span>
+                                    </div>
+                                    <div class="flex"><img src="./img/sj.png" alt=""><span>2018-05-12</span>
+                                    </div>
+                                    <div class="flex"><img src="./img-v5/sc_off.png" alt=""></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            <div class="mui-media-body">
+                                <a href="javascript:;">
+                                    <span><i class="c5">其他</i>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告</span>
+                                    <span>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告公告公告公告公告管养项目招标公告公告公告公告公告管养项目招标公告公告公告公告公告</span>
+                                </a>
+                                <div class="item_flex">
+                                    <div class="flex"><img src="./img/wz.png" alt=""><span>北京</span>
+                                    </div>
+                                    <div class="flex"><img src="./img/fl.png" alt=""><span>招标信息</span>
+                                    </div>
+                                    <div class="flex"><img src="./img/sj.png" alt=""><span>2018-05-12</span>
+                                    </div>
+                                    <div class="flex"><img src="./img-v5/sc_off.png" alt=""></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部工具栏 -->
+    <footer class="zh_tabs">
+        <a href="index-v5.html" class="tab_home mui-icon iconfont icon-home"><span>搜索</span></a>
+        <a href="trackerList-v5.html" class="tab_bookmark mui-icon iconfont icon-rss now"><span
+                class="now">订阅</span></a>
+        <a href="cqy-v5.html" class="tab_bookmark mui-icon iconfont icon-rss"><span>搜企业</span></a>
+        <a href="user/user-v5.html" class="tab_user mui-icon iconfont icon-me"><span>我的</span></a>
+    </footer>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js-v5/jquery.toggle.js"></script>
+    <script src="res/mui/js/mui.min.js"></script>
+    <script src="js/data.city.js"></script>
+    <script src="js-v5/common.js"></script>
+    <script src="js-v5/trackerList.js"></script>
+    <script type="text/javascript">
+
+    </script>
+</body>
+
+</html>

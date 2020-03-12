@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标----订阅</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="res/mui/css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="res/mui/css/mui.picker.css">
+    <link rel="stylesheet" href="res/mui/css/mui.poppicker.css">
+    <link rel="stylesheet" href="res/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/trackerList.css">
+</head>
+
+<body>
+    <div class="zh_container">
+        <div class="tishi"> 您还可以创建3个哦~</div>
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <ul class="mui-table-view">
+                    <li class="mui-table-view-cell clearfix">
+                        <div class="r more"><img src="./img/gd.png" alt=""></div>
+                        <a href="subscribe.html" class="mui-navigate l">
+                            <div class="trackerTitle">北京医疗器械设备</div>
+                            <div class="trackerContent">
+                                <span>关键词:</span>
+                                <span>北京</span>
+                                <span>医疗器械</span>
+                                <span>医院</span>
+                                <span>医药器械</span>
+                                <span>药物分类</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="mui-table-view-cell clearfix">
+                        <div class="r more"><img src="./img/gd.png" alt=""></div>
+                        <a href="subscribe.html" class="mui-navigate l">
+                            <div class="trackerTitle">北京医疗器械设备</div>
+                            <div class="trackerContent">
+                                <span>关键词:</span>
+                                <span>北京</span>
+                                <span>医疗器械</span>
+                                <span>医院</span>
+                                <span>医药器械</span>
+                                <span>药物分类</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="create"><a href="tracker.html">创建</a></div>
+        <!-- 底部工具栏 -->
+        <footer class="zh_tabs">
+            <a href="index.html" class="tab_home fa fa-search"><span>搜索</span></a>
+            <a href="classify.html" class="tab_classify fa fa-th-large"><span>分类</span></a>
+            <a href="trackerList.html" class="tab_bookmark fa fa-bookmark now"><span class="now">订阅</span></a>
+            <a href="user/user.html" class="tab_user fa fa-user-circle-o"><span>我的</span></a>
+        </footer>
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="res/mui/js/mui.min.js"></script>
+    <script src="res/mui/js/mui.picker.js"></script>
+    <script src="res/mui/js/mui.poppicker.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        $('.more').on('tap', function () {
+            var _this = this;
+            var picker = new mui.PopPicker();
+            picker.setData([
+                { value: 'zz', text: '删除' },
+                { value: 'll', text: '修改' },
+            ]);
+            picker.show(function (selectItems) {
+                if (selectItems[0].text === '删除') {
+                    mui.confirm('确认删除吗？', '删除', ['是', '否'], function (e) {
+                        if(e.index === 0) {
+                            $(_this).parent().remove();
+                        }
+                    }, 'div')
+                } else if(selectItems[0].text === '修改') {
+                    mui.openWindow({
+                        url: './edit_tracker.html',
+                        id: ''
+                    })
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

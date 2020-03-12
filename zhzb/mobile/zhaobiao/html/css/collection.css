@@ -1,0 +1,67 @@
+body {
+    background-color: #f7f7f7;
+}
+/* 头部 */
+.zh_topBar {
+    background-color:#d93f3f;
+}
+.zh_topBar a {
+    color: #fff;
+    font-size: 17px;
+}
+.zh_topBar a i {
+    color: #fff;
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+.zh_topBar span {
+    color: #fff;
+    font-size: 17px;
+}
+.tips {
+    margin-top: 60px;
+    margin-left: 10px;
+}
+.tips>div {
+    font-size: 15px;
+}
+.tips>div>a {
+    color: #ba3f44;
+    font-size: 15px;
+}
+.mui-table-view {
+    margin-top: 45px;
+}
+.mui-media-body {
+    color: #505050;
+    font-size: 16px;
+	width: 100%;
+	text-overflow:ellipsis;
+	white-space: nowrap; 
+	overflow: hidden;
+}
+.item_flex {
+	display: flex;
+	color: #a0a0a0;
+	align-items: center;
+}
+.item_flex>.flex {
+	font-size: 13px;
+	line-height: 24px;
+	margin-right: 8px;
+}
+.item_flex img {
+	height: 14px;
+	width: 14px;
+	margin: 0px 3px;
+}
+.mui-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,.3);
+}

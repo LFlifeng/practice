@@ -1,0 +1,51 @@
+
+
+.zh_topBar a {
+    color: #000;
+    font-size: 17px;
+}
+.zh_topBar a i {
+    color: #000;
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+.zh_topBar span {
+    color: #000;
+    font-size: 17px;
+}
+
+.mui-table-view {
+    margin-top: 45px;
+}
+.mui-media-body {
+	color: #505050;
+	width: 100%;
+	text-overflow:ellipsis;
+	white-space: nowrap; 
+	overflow: hidden;
+} 
+.item_flex {
+	display: flex;
+	color: #a0a0a0;
+	align-items: center;
+}
+.item_flex>.flex {
+	font-size: 13px;
+	line-height: 24px;
+	margin-right: 8px;
+}
+.item_flex img {
+	height: 14px;
+	width: 14px;
+	margin: 0px 3px;
+}
+.mui-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,.3);
+}

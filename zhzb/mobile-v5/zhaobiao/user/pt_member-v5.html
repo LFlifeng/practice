@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="../res/mui/css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../res/mui/css/mui.picker.css">
+    <link rel="stylesheet" href="../res/mui/css/mui.poppicker.css">
+    <link href="../res/mui/css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css-v5/base.css">
+    <link rel="stylesheet" href="../css-v5/pt_member.css">
+</head>
+<style>
+    .mask {
+        position: fixed;
+        top: 0;
+        background: rgba(0, 0, 0, 0.3);
+        width: 100%;
+        z-index: 20000;
+        /* display: none; */
+    }
+
+    .m_content {
+        width: 80%;
+        height: 400px;
+        margin: 200px auto;
+        border-radius: 6px;
+        position: relative;
+        background-color: #fff;
+        text-align: center;
+    }
+
+    .m_content i {
+        position: absolute;
+        top: -30px;
+        right: -20px;
+        font-size: 30px;
+        color: #fff;
+    }
+
+    .m_content p {
+        color: #f2504e;
+        padding-top: 5px;
+        font-size: 16px;
+        margin: 0;
+    }
+
+    .m_content .info {
+        margin-top: 20px;
+    }
+
+    .name>span {
+        margin-right: 20px;
+        color: black;
+        font-size: 16px;
+        vertical-align: top;
+    }
+
+    .name input {
+        width: 60%;
+        border-color: antiquewhite;
+    }
+
+    .name textarea {
+        width: 60%;
+        border-color: antiquewhite;
+    }
+
+    .tip {
+        width: 70%;
+        margin-top: -15px;
+        color: #c6c6c6;
+        margin-left: 20%;
+    }
+
+    .kthy {
+        margin-top: 20px;
+    }
+
+    .kthy span {
+        padding: 10px 80px;
+        color: #fff;
+        background-color: #f2504e;
+        border-radius: 20px;
+    }
+</style>
+
+<body>
+    <header class="zh_topBar mui-bar mui-bar-nav">
+        <a href="javascript:history.back()" class="l"><i class="mui-icon iconfont icon-back"></i></a>
+        <span>会员</span>
+    </header>
+    <div class="zh_content">
+        <div class="mui-slider">
+            <div class="mui-slider-group mui-slider-loop">
+                <!--支持循环，需要重复图片节点-->
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="user/pt_member.html"><img src="../img/banner001.jpg" /></a>
+                </div>
+                <div class="mui-slider-item">
+                    <a href="user/pt_member.html"><img src="../img/banner001.jpg" /></a>
+                </div>
+                <div class="mui-slider-item mui-slider-item-duplicate">
+                    <a href="user/pt_member.html"><img src="../img/banner001.jpg" /></a>
+                </div>
+                <div class="mui-slider-item">
+                    <a href="user/pt_member.html"><img src="../img/banner001.jpg" /></a>
+                </div>
+            </div>
+        </div>
+        <div class="tracker">
+            <p><i></i> 选择地区<span style="color: #f2504e;font-size: 12px;margin-left: 5px;">购买7省以上默认全国</span></p>
+            <div class="address_m clearfix">
+                <div class="address_n l" id="address_n">
+                    <span>内蒙古<i class="mui-icon mui-icon-closeempty"></i></span>
+                    <span>黑龙江<i class="mui-icon mui-icon-closeempty"></i></span>
+                    <span>吉林<i class="mui-icon mui-icon-closeempty"></i></span>
+                </div>
+                <div class="address_b r" id="address_b">+添加</div>
+            </div>
+        </div>
+        <div class="tracker">
+            <p><i></i> 选择开通会员 <span style="color: #f2504e;font-size: 12px;">《福鼠迎春》5折再送一年（限购买全年）</span></p>
+            <div class="member_cl">
+                <div class="cl_lb active">
+                    <div>一个月</div>
+                    <div>￥<i>29</i></div>
+                    <div>原价 <i>39</i> 元</div>
+                    <div class="zk">首次独享</div>
+                </div>
+                <div class="cl_lb">
+                    <div>三个月</div>
+                    <div>￥<i>499</i></div>
+                    <div>原价 <i>699</i> 元</div>
+                    <div class="zk">8折</div>
+                </div>
+                <div class="cl_lb">
+                    <div>十二个月</div>
+                    <div>￥<i>1299</i></div>
+                    <div>原价 <i>1499</i> 元</div>
+                    <div class="zk">6折</div>
+                </div>
+            </div>
+            <div class="yyh">已为您节省<i>30</i>元</div>
+        </div>
+        <div class="tracker clearfix">
+            <p class="l"><i></i> 使用优惠券</p>
+            <a href="./wdkq.html" class="r"><i class="mui-icon mui-icon-arrowright"></i></a>
+        </div>
+        <div class="tracker">
+            <p><i></i> 汇招标会员服务列表</p>
+            <div class="zh_layout">
+                <img src="../img/hyqy-1.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="zf clearfix">
+        <div class="hj l">合计:<i>29</i>元</div>
+        <div class="hj_yyh l">已优惠:<i>10元<span></span></i></div>
+        <div class="hj_qd r">支付</div>
+    </div>
+    <div class="mask" style="display: none;">
+        <div class="m_content">
+            <i class="mui-icon mui-icon-closeempty"></i>
+            <p>赠送小爱智能音箱一个</p>
+            <p>请您填写好邮寄地址</p>
+            <div class="info">
+                <div class="name">
+                    <span>姓名</span><input type="text">
+                </div>
+                <div class="name">
+                    <span>电话</span><input type="text">
+                </div>
+                <div class="name">
+                    <span>地址</span><textarea name="" id="" cols="3" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="tip">注：我们会尽快邮寄给您，如需帮助请拨打客服电话010-57287075</div>
+            <div class="kthy"><span onclick="window.open('','_self')">确认提交</span></div>
+        </div>
+    </div>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../res/mui/js/mui.min.js"></script>
+    <script src="../res/mui/js/mui.picker.js"></script>
+    <script src="../res/mui/js/mui.poppicker.js"></script>
+    <script src="../js/data.city.js"></script>
+    <script src="../js-v5/common.js"></script>
+    <script src="../js-v5/pt_member.js"></script>
+    <script type="text/javascript">
+
+    </script>
+</body>
+
+</html>

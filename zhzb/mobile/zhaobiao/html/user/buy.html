@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>中汇招标----会员管理</title>
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link href="../res/mui/css/mui.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../res/mui/css/mui.picker.css">
+	<link rel="stylesheet" href="../res/mui/css/mui.poppicker.css">
+	<link href="../res/mui/css/iconfont.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/buy.css">
+</head>
+
+<body>
+	<div class="zh_layout">
+		<header class="zh_topBar mui-bar mui-bar-nav ">
+			<a href="javascript:history.back()" class="l"><i class="mui-icon iconfont icon-back"></i></a>
+			<span>开通会员</span>
+		</header>
+		<div class="zh_container">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<div class="zh_content">
+						<div class="m_member">
+							<div class="m_title"></div>
+							<div class="m_content">
+								<div class="c_title">选择服务</div>
+								<div class="c_content clearfix">
+									<div class="c_box l active">
+										<div class="b_box">普通会员</div>
+										<div class="b_content">
+											<div class="grade">
+												<img src="../assets/icon/User_Member_ord@2x.png" alt="">
+												<span>3998 <i>元/年</i></span>
+											</div>
+										</div>
+									</div>
+									<div class="c_box l">
+										<div class="b_box">高级会员</div>
+										<div class="b_content">
+											<div class="grade">
+												<img src="../assets/icon/User_Member_Senior@2x.png" alt="">
+												<span>5998 <i>元/年</i></span>
+											</div>
+										</div>
+									</div>
+									<div class="c_box l">
+										<div class="b_box">VIP会员</div>
+										<div class="b_content">
+											<div class="grade">
+												<img src="../assets/icon/User_Member_Vip@2x.png" alt="">
+												<span>7998 <i>元/年</i></span>
+											</div>
+										</div>
+									</div>
+									<div class="c_box l">
+										<div class="b_box">钻石会员</div>
+										<div class="b_content">
+											<div class="grade">
+												<img src="../assets/icon/User_Member_Diamonds@2x.png" alt="">
+												<span>16998 <i>元/年</i></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="pay">
+                            <!-- <div class="b_pay">点击购买</div> -->
+                            <div class="o_pay">其他付费途径</div>
+                        </div>
+						<!-- 七大权益 -->
+						<div class="rights clearfix">
+							<div class="r_title">会员权益</div>
+							<div class="right l">
+								<img src="../img/equity1.png" alt="">
+								<div>专属客服</div>
+							</div>
+							<div class="right l">
+								<img src="../img/equity2.png" alt="">
+								<div>私人订制</div>
+							</div>
+							<div class="right l">
+								<img src="../img/equity3.png" alt="">
+								<div>精选项目</div>
+							</div>
+							<div class="right l">
+								<img src="../img/equity4.png" alt="">
+								<div>VIP项目</div>
+							</div>
+							<div class="right l">
+								<img src="../img/equity5.png" alt="">
+								<div>项目专盯</div>
+							</div>
+							<div class="right l">
+								<img src="../img/equity6.png" alt="">
+								<div>供应商认证</div>
+							</div>
+							<div class="right l">
+								<img src="../img/equity7.png" alt="">
+								<div>续费提醒</div>
+							</div>
+						</div>
+						<div class="o_payWay">
+                            <div class="clearfix">
+                                <div class="o_payTitle l">其他付费途径：银行转账</div>
+                                <div class="fanhui r">返回</div>
+                            </div>
+                            <form class="layui-form" action="">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">对公账号:</label>
+                                    <input type="text" name="tel" lay-verify="tel" autocomplete="off" placeholder="银行电汇汇款方式"
+                                        class="layui-input" readonly>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">账户名称:</label>
+                                    <input type="text" name="title" lay-verify="title" autocomplete="off"
+                                        placeholder="中汇恒升（北京）信息咨询有限公司" class="layui-input" readonly>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">银行账户:</label>
+                                    <input type="text" name="title" lay-verify="title" autocomplete="off"
+                                        placeholder="321030100101505944" class="layui-input" readonly>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">开户银行:</label>
+                                    <input type="text" name="title" lay-verify="title" autocomplete="off"
+                                        placeholder="兴业银行北京分行朝外支行" class="layui-input" readonly>
+                                </div>
+                            </form>
+                        </div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<script src="../js/jquery-3.3.1.min.js"></script>
+		<script src="../res/mui/js/mui.min.js"></script>
+		<script src="../js/common.js"></script>
+		<script type="text/javascript">
+			$('.m_content .c_content .c_box').on('tap', function () {
+				$(this).addClass('active').siblings().removeClass('active');
+			})
+			$('.o_pay').on('tap', function () {
+				$('.o_payWay').show();
+				$('.rights').hide();
+			})
+			$('.fanhui').on('tap', function () {
+				$('.o_payWay').hide();
+				$('.rights').show();
+			})
+		</script>
+</body>
+
+</html>

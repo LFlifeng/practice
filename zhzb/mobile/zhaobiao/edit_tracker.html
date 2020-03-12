@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="res/mui/css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="res/mui/css/mui.picker.css">
+    <link rel="stylesheet" href="res/mui/css/mui.poppicker.css">
+    <link href="res/mui/css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/tracker.css">
+</head>
+
+<body>
+    <header class="zh_topBar mui-bar mui-bar-nav ">
+        <a href="javascript:history.back()" class="l"><i class="mui-icon iconfont icon-back"></i></a>
+        <span>修改订阅</span>
+    </header>
+    <div class="zh_content">
+        <!-- <div class="tracker">
+            <p>跟踪器名称</p>
+            <div class="clearfix">
+                <div class="w_word l" id="word">北京医疗器械设备</div>
+                <div class="edit r">编辑</div>
+            </div>
+        </div> -->
+        <div class="tracker">
+            <p>选择地区</p>
+            <div class="address_m clearfix">
+                <div class="address_n l">
+                    <span>内蒙古 <img src="./img/close.png" class="111" alt=""></span>
+                    <span>黑龙江 <img src="./img/close.png" alt=""></span></span>
+                    <span>吉林 <img src="./img/close.png" alt=""></span></span>
+                    <span>黑龙江 <img src="./img/close.png" alt=""></span></span>
+                    <span>辽宁 <img src="./img/close.png" alt=""></span></span>
+                </div>
+                <div class="address_b r">+添加</div>
+            </div>
+        </div>
+        <div class="tracker">
+            <p>关键词设置（最多6组）</p>
+            <input class="word" placeholder="关键词一"></input>
+            <input class="word" placeholder="关键词二"></input>
+            <input class="word" placeholder="关键词三"></input>
+            <input class="word" placeholder="关键词四"></input>
+            <input class="word" placeholder="关键词五"></input>
+            <input class="word" placeholder="关键词六"></input>
+        </div>
+        <div class="confirm">确认创建</div>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="res/mui/js/mui.min.js"></script>
+    <script src="res/mui/js/mui.picker.js"></script>
+	<script src="res/mui/js/mui.poppicker.js"></script>
+	<script src="js/data.city.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        $('.address_b').on('tap', function () {
+            var _this = this;
+			var picker = new mui.PopPicker({
+				layer: 2
+			});
+			picker.setData(init_city_picker);
+			picker.pickers[0].setSelectedIndex(1);
+			picker.pickers[1].setSelectedIndex(1);
+            //添加所在地区
+            picker.show(function (selectItems) {
+                $(_this).siblings('.address_n').append(" <span>" + selectItems[0].text + " <img src='./img/close.png'></span>");
+                mui.toast('添加成功');
+            });
+        });
+        //点击X删除地区
+        $('.address_n>span>img').on('tap', function (e) {
+            var _this = this;
+            mui.confirm('确认删除吗？', '删除', ['是', '否'], function (e) {
+                if (e.index === 0) {
+                    $(_this).parent().remove();
+                }
+            }, 'div');
+        });
+        //编辑功能 
+        $('.edit').on('tap', function (evevt) {
+            var word = $(this).siblings('#word');
+            mui.prompt(' ', ' ', '编辑', ['取消', '确定'], function (e) {
+                if (e.index == 1) {
+                    word.text(e.value);
+                    mui.toast('编辑成功');
+                } else {
+                    mui.toast('编辑失败');
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

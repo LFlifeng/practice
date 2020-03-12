@@ -1,0 +1,77 @@
+body {
+    background-color: #f4f4f4;
+}
+/* 头部搜索 */
+.flex_content {
+	display: flex;
+	margin-top: 5px;
+	position: relative;
+}
+.flex_content .search_icon {
+	position: absolute;
+	left: 70px;
+	top: 5px;
+}
+.flex_content .search_icon img {
+	width: 20px;
+	height: 20px;
+}
+.flex_content .search_input {
+	height: 33px;
+	width: 90%;
+	border: none;
+	outline: none;
+	border-radius: 4px;
+    padding-left: 85px;
+    margin-left: 18px;
+}
+/* 服务类型 */
+.zh_container {
+    margin-top: 44px;
+}
+.servise {
+    height: 90px;
+    background-color: #fff;
+    margin-bottom: 15px;
+}
+.s_left {
+    width: 26%;
+    height: 90px;
+    padding-top: 20px;
+    padding-left: 14px;
+    padding-right: 14px;
+    border-right: 1px #dbdbdb solid;
+}
+.s_left  .l_icon {
+    text-align: center;
+}
+.s_left  .l_icon img {
+    width: 30px;
+}
+.s_left .l_text {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #505050;
+}
+.s_right {
+    width: 74%;
+}
+.s_right .s_one {
+    border-bottom: 1px #dbdbdb solid;
+}
+.s_right .s_one:last-child {
+    border: none;
+}
+.s_right .s_one>div.l {
+    width: 33.3%;
+    text-align: center;
+    height: 45px;
+    line-height: 40px;
+    color: #505050;
+    font-size: 16px;
+    padding-top: 5px;
+    border-right: 1px #dbdbdb solid;
+}
+.s_right .s_one>div.l:last-child {
+    border: none;
+}

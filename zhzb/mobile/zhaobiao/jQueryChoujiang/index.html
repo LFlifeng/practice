@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<title>抽奖</title>
+	<style type="text/css">
+		.qimo8 {
+			overflow: hidden;
+		}
+
+		.qimo8 .qimo {
+			width: 8000%;
+		}
+
+		.qimo8 .qimo div {
+			float: left;
+		}
+
+		.qimo8 .qimo ul {
+			float: left;
+			overflow: hidden;
+			zoom: 1;
+		}
+
+		.qimo8 .qimo ul li {
+			float: left;
+			list-style: none;
+			font-size: 24px;
+			margin: 0 1rem;
+		}
+
+		.l {
+			float: left;
+		}
+
+		.r {
+			float: right;
+		}
+
+		/* 清除浮动 */
+
+		.clearfix::after {
+			content: "";
+			display: block;
+			width: 0;
+			height: 0;
+			clear: both;
+			overflow: hidden;
+		}
+
+		/* 兼容ie */
+
+		.clear {
+			zoom: 1;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="./css/styleCJ.css" />
+	<script src="JS/common.js"></script>
+</head>
+
+<body>
+	<div class="shanDeng" id="deng">
+		<div id="luck">
+			<!-- luck -->
+			<table style="border-spacing:.08rem .03rem;">
+				<tr>
+					<td class="luck-unit luck-unit-0"><img src="./img/1.png"></td>
+					<td class="luck-unit luck-unit-1"><img src="./img/2.png"></td>
+					<td class="luck-unit luck-unit-2"><img src="./img/3.png"></td>
+				</tr>
+				<tr>
+					<td class="luck-unit luck-unit-7"><img src="./img/4.png"></td>
+					<td class="cjBtn" id="btn"><span>点击抽奖</span></td>
+					<td class="luck-unit luck-unit-3"><img src="./img/5.png"></td>
+				</tr>
+				<tr>
+					<td class="luck-unit luck-unit-6"><img src="./img/7.png"></td>
+					<td class="luck-unit luck-unit-5"><img src="./img/6.png"></td>
+					<td class="luck-unit luck-unit-4"><img src="./img/8.png"></td>
+				</tr>
+			</table>
+		</div><!-- luckEnd -->
+	</div>
+	<div class="rule">
+		<p><img src="./img/hd.png" alt=""></p>
+		<p>活动期限：2020年1月20日——2020年1月31日</p>
+		<p>活动对象：凡是购买“汇投标”会员的新老用户。</p>
+		<p>活动参与：每个用户支付完后有三次抽奖机会,购买全国一年用户送小爱智能音箱一个。</p>
+		<p>活动领取：中奖后请在规定有效时间与客服联系领取。</p>
+		<p>本活动最终解释权归我司所有。</p>
+	</div>
+	<!-- <div class="play">
+		<span></span>
+		<div class="div">
+			<div id="demo" class="qimo8">
+				<div class="qimo">
+					<div id="demo1">
+						<ul>
+							<li>某某某获得一等奖</li>
+							<li>某某某获得四等奖</li>
+							<li>某某某获得三等奖</li>
+							<li>某某某获得二等奖</li>
+							<li>某某某获得四等奖</li>
+							<li>某某某获得三等奖</li>
+							<li>某某某获得二等奖</li>
+							<li>某某某获得三等奖</li>
+						</ul>
+					</div>
+					<div id="demo2"></div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<div class="mask">
+		<div class="m_content2">
+			<p>恭喜您获得</p>
+			<div class="one">
+				<div class="info clearfix">
+					<div class="left l">
+						<div>￥<i data-v="1">10</i></div>
+						<div data-v="1">满100可用</div>
+					</div>
+					<div class="right l">
+						<div>现金券</div>
+						<div data-t="time">有效期：2019-12-01至2020-01-01</div>
+					</div>
+				</div>
+				<div class="info clearfix">
+					<div class="left l">
+						<div>￥<i data-v="2">10</i></div>
+						<div data-v="2">满100可用</div>
+					</div>
+					<div class="right l">
+						<div>现金券</div>
+						<div data-t="time">有效期：2019-12-01至2020-01-01</div>
+					</div>
+				</div>
+				<div class="info clearfix">
+					<div class="left l">
+						<div>￥<i data-v="3">10</i></div>
+						<div data-v="3">满100可用</div>
+					</div>
+					<div class="right l">
+						<div>现金券</div>
+						<div data-t="time">有效期：2019-12-01至2020-01-01</div>
+					</div>
+				</div>
+			</div>
+			<div class="kthy"><span>立即使用</span></div>
+		</div>
+	</div>
+	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+
+	<script>
+		var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+		var h1 = h / 4;
+		$('.box').css({
+			'height': h1 + 'px'
+		});
+		$('.box img').css({
+			'height': h1 + 'px'
+		});
+		$('.mask').css({
+			'height': h + 'px'
+		});
+		
+		var jiang = [1, 3, 7];
+		var lipin = [];
+		var luck = {
+			index: 1,	//当前转动到哪个位置，起点位置
+			count: 0,	//总共有多少个位置
+			timer: 0,	//setTimeout的ID，用clearTimeout清除
+			speed: 20,	//初始转动速度
+			times: 0,	//转动次数
+			cycle: 50,	//转动基本次数：即至少需要转动多少次再进入抽奖环节
+			prize: -1,	//中奖位置
+			init(id) {
+				if ($("#" + id).find(".luck-unit").length > 0) {
+					$luck = $("#" + id);
+					$units = $luck.find(".luck-unit");
+					this.obj = $luck;
+					this.count = $units.length;
+					$luck.find(".luck-unit-" + this.index).addClass("active");
+				};
+			},
+			roll() {
+				var index = this.index;
+				var count = this.count;
+				var luck = this.obj;
+				$(luck).find(".luck-unit-" + index).removeClass("active");
+				index += 1;
+				if (index > count - 1) {
+					index = 0;
+				};
+				$(luck).find(".luck-unit-" + index).addClass("active");
+				this.index = index;
+				return false;
+			},
+			stop(index) {
+				this.prize = index;
+				return false;
+			}
+		};
+		function roll() {
+			luck.times += 1;
+			luck.roll();
+			if (luck.times > luck.cycle + 10 && luck.prize == luck.index) {
+				clearTimeout(luck.timer);
+				luck.prize = -1;
+				luck.times = 0;
+				click = false;
+				flag = false;
+				//控制抽奖次数
+				if (num > 0) {
+					setInterval(function () {
+						$("#btn").click();
+					}, 1500)
+				} else {
+					// console.log(lipin)
+					lipin.forEach(function (e, i) {
+						var qian = 2000;
+						var man = 3000;
+						if (e == 3) {
+							qian = 200;
+							man = 400;
+						} else if (e == 7) {
+							qian = 500;
+							man = 800;
+						}
+						$("i[data-v='" + (i + 1) + "']").text(qian);
+						$("div[data-v='" + (i + 1) + "']").text("满" + man + "可用");
+
+					})
+					var curDate = new Date();
+					var sevenDayAfter = dateFtt("yyyy-MM-dd", new Date(curDate.getTime() + 7 * 24 * 60 * 60 * 1000));//七天后时间
+					$('div[data-t="time"]').text("有效期："+dateFtt("yyyy-MM-dd", curDate)+"至"+sevenDayAfter);
+					$('.mask').show();
+
+				}
+			} else {
+				if (luck.times < luck.cycle) {
+					luck.speed -= 10;
+				} else if (luck.times == luck.cycle) {
+					var index = Math.random() * (luck.count) | 0; //或运算0 ？？？
+					if (index > 5) {
+						index = 7;
+					} else {
+						index = 3;
+					}
+					luck.prize = jiang[Math.floor(Math.random() * 10 % jiang.length)];//最终中奖位置
+					lipin.push(luck.prize);
+				} else {
+					if (luck.times > luck.cycle + 10 && ((luck.prize == 0 && luck.index == 7) || luck.prize == luck.index + 1)) {
+						luck.speed += 110;
+					} else {
+						luck.speed += 20;
+					}
+				}
+
+				if (luck.speed < 40) {
+					luck.speed = 40;
+				};
+				luck.timer = setTimeout(roll, luck.speed);
+			}
+
+			return false;
+		}
+		var num = 3;
+		var click = false;
+		var flag = false;
+		window.onload = function () {
+			luck.init('luck');
+			$("#btn").click(function () {
+				/*//按下弹起效果
+				$("#btn").addClass("cjBtnDom");
+				setTimeout(function(){	
+					$("#btn").removeClass("cjBtnDom");
+				},200);*/
+				if (flag) {
+					return;
+				}
+				num--;
+				if (num < 0) {
+
+					$("#btn span").text('抽奖结束');
+					return;
+				}
+				if (click) {
+
+					return false;
+				} else {
+					luck.speed = 100;
+					flag = true;
+					roll();
+					click = true;
+					return false;
+				}
+
+			});
+		};
+		// //播报
+		// var demo = document.getElementById("demo");
+		// var demo1 = document.getElementById("demo1");
+		// var demo2 = document.getElementById("demo2");
+		// demo2.innerHTML = document.getElementById("demo1").innerHTML;
+		// function Marquee() {
+		// 	if (demo.scrollLeft - demo2.offsetWidth >= 0) {
+		// 		demo.scrollLeft -= demo1.offsetWidth;
+		// 	}
+		// 	else {
+		// 		demo.scrollLeft++;
+		// 	}
+		// }
+		// setInterval(Marquee, 10);
+		// 时间
+		function dateFtt(fmt, date) {
+			var o = {
+				"M+": date.getMonth() + 1,     //月份
+				"d+": date.getDate(),     //日
+				"h+": date.getHours(),     //小时
+				"m+": date.getMinutes(),     //分
+				"s+": date.getSeconds(),     //秒
+				"q+": Math.floor((date.getMonth() + 3) / 3), //季度
+				"S": date.getMilliseconds()    //毫秒
+			};
+			if (/(y+)/.test(fmt))
+				fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+			for (var k in o)
+				if (new RegExp("(" + k + ")").test(fmt))
+					fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+			return fmt;
+		}
+
+	</script>
+</body>
+
+</html>

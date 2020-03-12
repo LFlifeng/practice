@@ -1,0 +1,160 @@
+
+.zh_topBar {
+    display: flex;
+    height: 54px;
+    position: relative;
+    z-index: 10000;
+}
+.zh_topBar a {
+    color: #000;
+    width: 18px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    margin: 0 10px;
+}
+.zh_topBar a.sousuo {
+    width: 50px;
+}
+.zh_topBar a i{
+    color: #000;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+}
+.zh_topBar input {
+    font-size: 14px;
+    margin-top: 6px;
+}
+/* 历史搜索 */
+.history {
+    position: relative;
+    z-index: 12000;
+    background-color: #f1f1f1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.h_one,.h_two {
+    background-color: #fff;
+}
+.h_one .o_title {
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 15px;
+}
+.h_one .o_title span {
+    font-size: 17px;
+    color: #505050;
+    margin-left: 5px;
+}
+.h_one img {
+    width: 15px;
+    margin-top: -6px;
+}
+.h_two {
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 20px;
+}
+.h_two .t_text {
+    padding: 0 15px;
+    border: 1px #a0a0a0 solid;
+    height: 30px;
+    border-radius: 15px;
+    font-size: 14px;
+    color: #646464;
+    line-height: 30px;
+    margin-right: 14px;
+}
+
+/* 相关信息 */
+.info_titl {
+    padding-left: 10px;
+    color: #adadad;
+    font-size: 13px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #f0f0f0;
+    position: relative;
+    z-index: 120000;
+}
+.info_titl span {
+    color: #f12727;
+    margin: 0 5px;
+}
+/* 热门搜索*/
+.info_title {
+    position: relative;
+    z-index: 120000;
+    background-color: #fff;
+    height: 100px;
+    line-height: 50px;
+}
+.info_title .recommend {
+    margin-left: 15px;
+}
+.info_title .recommend span {
+    font-size: 17px;
+    color: #505050;
+    margin-left: 5px;
+}
+.info_title .huan {
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border: 1px #a0a0a0 solid;
+    border-radius: 4px;
+    margin-right: 15px;
+    margin-top: 10px;
+}
+.info_title .huan span {
+    font-size: 17px;
+    color: #505050;
+    margin-left: 5px;
+}
+.info_title img {
+    width: 15px;
+    margin-top: -6px;
+}
+.mui-scroll-wrapper {
+    position: relative;
+    height: 100%;
+    overflow: initial;
+}
+.mui-pull-top-pocket {
+    top: 0;
+}
+.mui-media-body {
+	font-size: 16px;
+	color: #505050;
+	width: 100%;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.item_flex {
+	display: flex;
+	color: #a0a0a0;
+	align-items: center;
+}
+.item_flex>.flex {
+	font-size: 13px;
+	line-height: 24px;
+	margin-right: 8px;
+}
+.item_flex img {
+	height: 14px;
+	width: 14px;
+	margin: 0px 3px;
+}
+.mui-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,.3);
+}

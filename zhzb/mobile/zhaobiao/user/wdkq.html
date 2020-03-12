@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link href="../res/mui/css/mui.min.css" rel="stylesheet" />
+    <link href="../res/mui/css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/wdkq.css">
+</head>
+
+<body>
+    <header class="zh_topBar clearfix">
+        <a href="javascript:history.back()" class="l"><i class="mui-icon iconfont icon-back"></i></a>
+        <span>优惠券</span>
+        <div class="r">使用规则</div>
+    </header>
+    <div class="person_info">
+        <div class="info clearfix">
+            <div class="left l">
+                <div>￥<i>20</i></div>
+                <div>满100可用</div>
+            </div>
+            <div class="right l">
+                <div>优惠券</div>
+                <div>仅限本站使用</div>
+                <div>有效期：2019-12-01至2020-01-01</div>
+            </div>
+        </div>
+        <div class="info clearfix">
+            <div class="left l">
+                <div>￥<i>50</i></div>
+                <div>满300可用</div>
+            </div>
+            <div class="right l">
+                <div>优惠券</div>
+                <div>仅限本站使用</div>
+                <div>有效期：2019-12-01至2020-01-01</div>
+            </div>
+            <img src="../img/ysy.png" alt="">
+        </div>
+        <div class="info clearfix info_gq">
+            <div class="left l">
+                <div>￥<i>5</i></div>
+                <div>满50可用</div>
+            </div>
+            <div class="right l">
+                <div>优惠券</div>
+                <div>仅限本站使用</div>
+                <div>有效期：2019-12-01至2020-01-01</div>
+            </div>
+            <img src="../img/ygq.png" alt="">
+        </div>
+    </div>
+    <div class="mask1">
+        <i class="mui-icon mui-icon-closeempty"></i>
+        <div class="m_content1">
+            <div>优惠券有使用期限限制，过了有效期不能使用； 订单中包含特价商品时不能使用优惠券，优惠券不能与其他优惠（如促销活动）同时使用； 优惠券只能抵扣订单金额，优惠金额超出订单金额部分不能再次使用，不能兑换现金；
+                每个订单只能使用一张优惠券；
+                使用优惠券支付的订单，如果退货，优惠券抵扣金额不能退还，只能退还实际支付商品金额；如果部分退货，将按照订单实际成交商品的金额进行结算；退货后订单金额不满足优惠券使用条件时，优惠券失效。退款金额＝退货商品价格-优惠金额；
+                优惠券等抵扣金额不能开具发票； 汇招标在法律范围内保留对优惠券使用细则的最终解释权。</div>
+        </div>
+    </div>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../res/mui/js/mui.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript">
+        var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        $(".zh_topBar div").on('tap', function () {
+            $('.mask1').css({
+                'height': h + 'px',
+                'display': 'block'
+            });
+        });
+        $('.mask1 i').on('tap', function () {
+            $('.mask1').css({
+                'display': 'none'
+            });
+        });
+        $(".info").on('tap', function () {
+            $(this).css({
+                'background': 'url(../img/yhqbgwsy.png) no-repeat #f1f1f1',
+                'background-size': 'cover'
+            })
+        })
+    </script>
+</body>
+
+</html>

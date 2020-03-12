@@ -1,0 +1,2267 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+
+<head>
+    <meta charset="UTF-8">
+    <title>数据分析</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+        content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/xadmin.css">
+    <script src="./lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/xadmin.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+          <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+          <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+<style>
+    .three_time span:hover {
+        padding: 5px;
+        background-color: bisque;
+        cursor: pointer;
+    }
+
+    .layui-col-space10 {
+        margin: 0;
+    }
+
+    .layui-card-body {
+        padding: 0;
+    }
+
+    .tian h3 {
+        padding-bottom: 0;
+    }
+
+    .layui-table td,
+    .layui-table th {
+        width: 14% !important;
+        min-width: 0;
+    }
+
+    .zero {
+        background-color: #33d775;
+    }
+
+    .layui-col-md12 {
+        margin-top: 10px;
+    }
+
+    .x-admin-backlog-body p cite:nth-child(2) {
+        float: right;
+        clear: both;
+        font-size: 18px;
+    }
+
+    .x-admin-backlog-body p cite:nth-child(2) img {
+        width: 10px;
+        height: 10px;
+    }
+
+    @media screen and (max-width: 414px) {
+        #main4 {
+            height: 500px;
+        }
+    }
+</style>
+
+<body>
+    <div class="layui-fluid">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-header">数据统计</div>
+                    <div class="layui-card-body ">
+                        <ul class="layui-row layui-col-space10 layui-this x-admin-carousel x-admin-backlog">
+                            <li class="layui-col-md3 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>访问量</h3>
+                                    <p>
+                                        <cite>66</cite>
+                                        <cite style="color: red;"> <img src="./images/up.png" alt=""> 5</cite>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md3 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>用户总量</h3>
+                                    <p>
+                                        <cite>12</cite>
+                                        <cite style="color: green;"> <img src="./images/down.png" alt=""> 1</cite>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md3 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>会员总量</h3>
+                                    <p>
+                                        <cite>99</cite>
+                                        <cite style="color: red;"> <img src="./images/up.png" alt=""> 15</cite>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md3 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>领取优惠券数</h3>
+                                    <p>
+                                        <cite>67</cite>
+                                        <cite style="color: red;"> <img src="./images/up.png" alt=""> 5</cite>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md3 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>二次购买数</h3>
+                                    <p>
+                                        <cite>67</cite>
+                                        <cite style="color: red;"> <img src="./images/up.png" alt=""> 5</cite>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md3 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>成功支付订单数</h3>
+                                    <p>
+                                        <cite>67</cite>
+                                        <cite style="color: green;"> <img src="./images/down.png" alt=""> 8</cite>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md3 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>过去一周全站日均pv</h3>
+                                    <p>
+                                        <cite>67</cite>
+                                        <cite style="color: green;"> <img src="./images/down.png" alt=""> 1</cite>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md3 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>过去一周全站日均uv</h3>
+                                    <p>
+                                        <cite>67</cite>
+                                        <cite style="color: green;"> <img src="./images/down.png" alt=""> 1</cite>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md3 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>过去一周日均注册用户数</h3>
+                                    <p>
+                                        <cite>67</cite>
+                                        <cite style="color: red;"> <img src="./images/up.png" alt=""> 1</cite>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="layui-col-md3 layui-col-xs6">
+                                <a href="javascript:;" class="x-admin-backlog-body">
+                                    <h3>过去一周日均登录用户数</h3>
+                                    <p>
+                                        <cite>67</cite>
+                                        <cite style="color: green;"> <img src="./images/down.png" alt=""> 1</cite>
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 留存率 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">留存率(%)</div>
+                <div class="layui-card-body ">
+                    <table class="layui-table">
+                        <thead>
+                            <th>日期</th>
+                            <th>新增</th>
+                            <th>1日留存</th>
+                            <th>2日留存</th>
+                            <th>3日留存</th>
+                            <th>4日留存</th>
+                            <th>5日留存</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2-10</td>
+                                <td>3</td>
+                                <td>33%</td>
+                                <td class="zero">0%</td>
+                                <td>33%</td>
+                                <td>33%</td>
+                                <td>33%</td>
+                            </tr>
+                            <tr>
+                                <td>2-11</td>
+                                <td>3</td>
+                                <td>33%</td>
+                                <td class="zero">0%</td>
+                                <td class="zero">0%</td>
+                                <td>33</td>
+                                <td class="zero">0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- 网站转化率 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">网站转化率</div>
+                <div class="layui-card-body ">
+                    <div id="main11" class="layui-col-sm12" style="min-height: 552px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 过去一周每日注册用户数 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">过去一周每日注册用户数</div>
+                <div class="layui-card-body ">
+                    <div id="main1" class="layui-col-sm12" style="min-height: 362px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 一天内用户登录峰值分析 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">一天内用户登录峰值分析</div>
+                <div class="layui-card-body ">
+                    <div id="main18" class="layui-col-sm12" style="min-height: 362px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 过去一周每日活跃用户数 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">过去一周每日活跃用户数</div>
+                <div class="layui-card-body ">
+                    <div id="main9" class="layui-col-sm12" style="min-height: 362px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 过去一周用户平均访问时长 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">过去一周用户平均访问时长（以秒为单位）</div>
+                <div class="layui-card-body ">
+                    <div id="main8" class="layui-col-sm12" style="min-height: 362px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 过去一周每日全站pv\uv情况 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">过去一周每日全站pv\uv情况</div>
+                <div class="layui-card-body ">
+                    <div id="main14" class="layui-col-sm12" style="min-height: 362px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 一天内每个模块平均访问时长 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">一天内每个模块平均访问时长（以秒为单位）</div>
+                <div class="layui-card-body ">
+                    <div id="main17" class="layui-col-sm12" style="min-height: 662px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 过去一周详情页平均访问时长 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">过去一周详情页平均访问时长（以秒为单位）</div>
+                <div class="layui-card-body ">
+                    <div id="main16" class="layui-col-sm12" style="min-height: 362px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 近一周内访问购买会员页的用户数 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">近一周内访问购买会员页的用户数</div>
+                <div class="layui-card-body ">
+                    <div id="main15" class="layui-col-sm12" style="min-height: 362px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 一天内访问购买会员页的用户数峰值分析 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">一天内访问购买会员页的用户数峰值分析</div>
+                <div class="layui-card-body ">
+                    <div id="main10" class="layui-col-sm12" style="min-height: 362px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 搜索关键词分析 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">搜索关键词分析</div>
+                <div class="layui-card-body ">
+                    <div id="main2" class="layui-col-sm12" style="min-height: 462px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 设置关键词分析 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">设置关键词分析</div>
+                <div class="layui-card-body ">
+                    <div id="main12" class="layui-col-sm12" style="min-height: 562px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 订单分析 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">订单分析</div>
+                <div class="layui-card-body ">
+                    <div class="main3 active" id="main3" class="layui-col-sm12"
+                        style="min-height: 362px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 区域招标分析 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">区域招标数据分析</div>
+                <div class="layui-card-body ">
+                    <div id="main13" class="layui-col-sm12" style="min-height: 362px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 模块点击 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">模块点击</div>
+                <div class="layui-card-body ">
+                    <div id="main6" class="layui-col-sm12" style="min-height: 362px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 会员等级 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">会员等级分析</div>
+                <div class="layui-card-body ">
+                    <div id="main7" class="layui-col-sm12" style="min-height: 362px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 访客区域分析 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">访客区域分析</div>
+                <div class="layui-card-body ">
+                    <div id="main5" class="layui-col-sm12" style="min-height: 362px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 地域成交单分析 -->
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">地域成交单分析</div>
+                <div class="layui-card-body ">
+                    <div id="main4" class="layui-col-sm12" style="height:1050px;background-color: #fff;"></div>
+                </div>
+            </div>
+        </div>
+        <style id="welcome_style"></style>
+        <!-- <div class="layui-col-md12">
+                <blockquote class="layui-elem-quote layui-quote-nm">感谢layui,百度Echarts,jquery,本系统由x-admin提供技术支持。
+                </blockquote>
+            </div> -->
+    </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <!-- <script src="./js/echarts.js.map"></script> -->
+    <script src="./js/echarts.min.js"></script>
+    <script src='./js/china.js'></script>
+    <script>
+        //过去一周每日注册用户数
+        var myChart1 = echarts.init(document.getElementById('main1'));
+        var xData = ['2-10', '2-11', '2-12', '2-13', '2-14', '2-15', '2-16'];;
+        var y1Data = [10758, 3975, 2980, 1831, 2122, 1452, 4445];
+        var y2Data = [0, 28, 4.4, 5.9, 0.9, 2, 14];
+        option1 = {
+            grid: {
+                left: '7%',
+                right: '5%',
+                top: '25%',
+                bottom: '19%',
+            },
+            title: {
+                show: false
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            legend: {
+                data: ['注册用户', '注册用户(环比%)'],
+                right: '3%',
+                top: '10%',
+                itemWidth: 11,
+                itemHeight: 11,
+                textStyle: {
+                    color: '#000',
+                    fontSize: 13
+                }
+            },
+            toolbox: {
+                show: false,
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    boundaryGap: true,
+                    show: true,
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        fontSize: 15,
+                        color: '#d0d0d0',
+                        margin: 8,
+                        interval: 0,
+                        formatter: function (val) {
+                            return val.split("").join("");
+                        }
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            type: 'solid',
+                            color: '#4e608b',//左边线的颜色
+                            width: '1'//坐标线的宽度
+                        }
+                    },
+                    data: xData
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    scale: false,
+                    name: '',
+                    axisLine: {
+                        show: false
+                    },
+                    splitNumber: 4,
+                    axisTick: {
+                        show: false
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            // 使用深浅的间隔色
+                            color: '#4e608b'
+                        }
+                    },
+                    axisLabel: {
+                        fontSize: 13,
+                        color: '#d0d0d0',
+                        margin: 12,
+                    },
+                    max: 12000,
+                    min: 0,
+                    boundaryGap: [0.2, 0.2]
+                },
+                {
+                    type: 'value',
+                    scale: true,
+                    axisLine: {
+                        show: false
+                    },
+                    splitNumber: 3,
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        fontSize: 13,
+                        color: '#d0d0d0',
+                        margin: 12,
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            // 使用深浅的间隔色
+                            color: '#4e608b'
+                        }
+                    },
+                    name: '',
+                    max: 30,
+                    min: 0,
+                    boundaryGap: [0.2, 0.2]
+                },
+
+            ],
+            series: [
+                {
+                    name: '注册用户',
+                    type: 'bar',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'top',
+                            textStyle: {
+                                color: '#1dacfe'
+                            }
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
+                                offset: 0,
+                                color: "#4889fb" // 0% 处的颜色
+                            }, {
+                                offset: 1,
+                                color: "#15b3ff" // 100% 处的颜色
+                            }], false)
+                        }
+                    },
+                    barWidth: '40%',
+                    yAxisIndex: 0,
+                    data: y1Data
+                },
+                {
+                    name: '注册用户(环比%)',
+                    yAxisIndex: 1,
+                    color: '#ffd300',
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'top',
+                            textStyle: {
+                                color: '#ffd300'
+                            }
+                        }
+                    },
+                    lineStyle: {
+                        color: '#ffd300'
+                    },
+                    type: 'line',
+                    data: y2Data
+                }
+            ]
+        };
+        myChart1.setOption(option1);
+        //搜索关键词分析
+        var myChart2 = echarts.init(document.getElementById('main2'));
+        var xData2 = ['IDS', 'VPN', '交换机', '防火墙', 'WAF', '堡垒机'];
+        var yData2 = [{
+            value: 10,
+            name: 'IDS'
+        },
+        {
+            value: 5,
+            name: 'VPN'
+        },
+        {
+            value: 15,
+            name: '交换机'
+        },
+        {
+            value: 25,
+            name: '防火墙'
+        },
+        {
+            value: 20,
+            name: 'WAF'
+        },
+        {
+            value: 35,
+            name: '堡垒机'
+        }];
+        option2 = {
+            color: ["#EAEA26", "#906BF9", "#FE5656", "#01E17E", "#3DD1F9", "#FFAD05"],
+            grid: {
+                left: -100,
+                top: 50,
+                bottom: 10,
+                right: 10,
+                containLabel: false
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{b} : {c} ({d}%)"
+            },
+            legend: {
+                type: "scroll",
+                orient: "vartical",
+                // x: "right",
+                top: "center",
+                right: "15",
+                // bottom: "0%",
+                itemWidth: 16,
+                itemHeight: 8,
+                itemGap: 16,
+                textStyle: {
+                    color: '#A3E2F4',
+                    fontSize: 12,
+                    fontWeight: 0
+                },
+                data: xData2,
+            },
+            polar: {},
+            angleAxis: {
+                interval: 1,
+                type: 'category',
+                data: [],
+                z: 10,
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: "#0B4A6B",
+                        width: 1,
+                        type: "solid"
+                    },
+                },
+                axisLabel: {
+                    interval: 0,
+                    show: true,
+                    color: "#0B4A6B",
+                    margin: 8,
+                    fontSize: 16
+                },
+            },
+            radiusAxis: {
+                min: 40,
+                max: 80,
+                interval: 20,
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: "#0B3E5E",
+                        width: 1,
+                        type: "solid"
+                    },
+                },
+                axisLabel: {
+                    formatter: '{value} %',
+                    show: false,
+                    padding: [0, 0, 20, 0],
+                    color: "#0B3E5E",
+                    fontSize: 16
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: "#0B3E5E",
+                        width: 2,
+                        type: "solid"
+                    }
+                }
+            },
+            calculable: true,
+            series: [{
+                type: 'pie',
+                radius: ["5%", "10%"],
+                hoverAnimation: false,
+                labelLine: {
+                    normal: {
+                        show: false,
+                        length: 30,
+                        length2: 55
+                    },
+                    emphasis: {
+                        show: false
+                    }
+                },
+                data: [{
+                    name: '',
+                    value: 0,
+                    itemStyle: {
+                        normal: {
+                            color: "#0B406B"
+                        }
+                    }
+                }]
+            }, {
+                type: 'pie',
+                radius: ["10%", "20%"],
+                hoverAnimation: false,
+                labelLine: {
+                    normal: {
+                        show: false,
+                        length: 30,
+                        length2: 55
+                    },
+                    emphasis: {
+                        show: false
+                    }
+                },
+                name: "",
+                data: [{
+                    name: '',
+                    value: 0,
+                    itemStyle: {
+                        normal: {
+                            color: "#0B4A6B"
+                        }
+                    }
+                }]
+            }, {
+                stack: 'a',
+                type: 'pie',
+                radius: ['20%', '50%'],
+                roseType: 'area',
+                zlevel: 10,
+                label: {
+                    normal: {
+                        show: true,
+                        formatter: "{c}",
+                        textStyle: {
+                            fontSize: 12,
+                        },
+                        position: 'outside'
+                    },
+                    emphasis: {
+                        show: true
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: true,
+                        length: 20,
+                        length2: 55
+                    },
+                    emphasis: {
+                        show: false
+                    }
+                },
+                data: yData2,
+            },]
+        }
+        myChart2.setOption(option2);
+        // 订单分析（日/月）
+        var myChart3 = echarts.init(document.getElementById('main3'));
+        var xAxisData = ['2018-01', '2018-02', '2018-03', '2018-04', '2018-05', '2018-06', '2018-07', '2018-08', '2018-09', '2018-10', '2018-11', '2018-12'];
+        var legendData = ['总订单量', '支付成功量', '未支付量'];
+        var title = "订单总量";
+        var serieData = [];
+        var metaDate = [
+            [120, 140, 100, 120, 300, 230, 130, 170, 140, 120, 300, 230],
+            [200, 120, 300, 200, 170, 300, 200, 180, 200, 190, 300, 200],
+            [100, 200, 140, 300, 200, 180, 100, 300, 230, 130, 100, 300,]
+        ]
+        for (var v = 0; v < legendData.length; v++) {
+            var serie = {
+                name: legendData[v],
+                type: 'line',
+                symbol: "circle",
+                symbolSize: 10,
+                data: metaDate[v]
+            };
+            serieData.push(serie)
+        }
+        var colors = ["#EAEA26", "#906BF9", "#FE5656", "#2EF7F3", "#FFFFFF"];
+        var option3 = {
+            backgroundColor: '#fff',
+            title: { text: title, textAlign: 'left', textStyle: { color: "#000", fontSize: "14", fontWeight: "normal" } },
+            legend: {
+                show: true, left: "right", data: legendData, y: "5%",
+                itemWidth: 18, itemHeight: 12, textStyle: { color: "#000", fontSize: 14 },
+            },
+            color: colors,
+            grid: { left: '2%', top: "12%", bottom: "5%", right: "5%", containLabel: true },
+            tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+            xAxis: [
+                {
+                    type: 'category',
+                    axisLine: { show: true, lineStyle: { color: '#6173A3' } },
+                    axisLabel: { interval: 0, textStyle: { color: '#9ea7c4', fontSize: 14 } },
+                    axisTick: { show: false },
+                    data: xAxisData,
+                },
+            ],
+            yAxis: [
+                {
+                    axisTick: { show: false },
+                    splitLine: { show: false },
+                    axisLabel: { textStyle: { color: '#9ea7c4', fontSize: 14 } },
+                    axisLine: { show: true, lineStyle: { color: '#6173A3' } },
+                },
+            ],
+            series: serieData
+        };
+        myChart3.setOption(option3);
+        // 地域成交单
+        var myChart4 = echarts.init(document.getElementById('main4'));
+        window.dataList = [{
+            name: "南海诸岛",
+            value: 0
+        },
+        {
+            name: '北京',
+            value: 54
+        },
+        {
+            name: '天津',
+            value: 13
+        },
+        {
+            name: '上海',
+            value: 40
+        },
+        {
+            name: '重庆',
+            value: 75
+        },
+        {
+            name: '河北',
+            value: 13
+        },
+        {
+            name: '河南',
+            value: 83
+        },
+        {
+            name: '云南',
+            value: 11
+        },
+        {
+            name: '辽宁',
+            value: 19
+        },
+        {
+            name: '黑龙江',
+            value: 15
+        },
+        {
+            name: '湖南',
+            value: 69
+        },
+        {
+            name: '安徽',
+            value: 60
+        },
+        {
+            name: '山东',
+            value: 39
+        },
+        {
+            name: '新疆',
+            value: 4
+        },
+        {
+            name: '江苏',
+            value: 31
+        },
+        {
+            name: '浙江',
+            value: 104
+        },
+        {
+            name: '江西',
+            value: 36
+        },
+        {
+            name: '湖北',
+            value: 1052
+        },
+        {
+            name: '广西',
+            value: 33
+        },
+        {
+            name: '甘肃',
+            value: 7
+        },
+        {
+            name: '山西',
+            value: 9
+        },
+        {
+            name: '内蒙古',
+            value: 7
+        },
+        {
+            name: '陕西',
+            value: 22
+        },
+        {
+            name: '吉林',
+            value: 4
+        },
+        {
+            name: '福建',
+            value: 18
+        },
+        {
+            name: '贵州',
+            value: 505
+        },
+        {
+            name: '广东',
+            value: 98
+        },
+        {
+            name: '青海',
+            value: 1
+        },
+        {
+            name: '西藏',
+            value: 0
+        },
+        {
+            name: '四川',
+            value: 44
+        },
+        {
+            name: '宁夏',
+            value: 4
+        },
+        {
+            name: '海南',
+            value: 22
+        },
+        {
+            name: '台湾',
+            value: 3
+        },
+        {
+            name: '香港',
+            value: 5
+        },
+        {
+            name: '澳门',
+            value: 5
+        }
+        ];
+        option4 = {
+            tooltip: {
+                triggerOn: "click",
+                formatter: function (e, t, n) {
+                    return .5 == e.value ? e.name + "：成交单" : e.seriesName + "<br />" + e.name + "：" + e.value
+                }
+            },
+            visualMap: {
+                min: 0,
+                max: 1000,
+                left: 26,
+                top: 20,
+                showLabel: !0,
+                text: ["高", "低"],
+                pieces: [{
+                    gt: 100,
+                    label: "> 100 单",
+                    color: "orangered"
+                }, {
+                    gte: 10,
+                    lte: 100,
+                    label: "10 - 100 单",
+                    color: "lightskyblue"
+                }, {
+                    gte: 1,
+                    lt: 10,
+                    label: "1 - 9 单",
+                    color: "#bb5421"
+                }, {
+                    value: 0,
+                    color: "#ffffff"
+                }],
+                show: !0
+            },
+            geo: {
+                map: "china",
+                roam: !1,
+                scaleLimit: {
+                    min: 1,
+                    max: 2
+                },
+                zoom: 1.23,
+                top: 120,
+                label: {
+                    normal: {
+                        show: !0,
+                        fontSize: "14",
+                        color: "rgba(0,0,0,0.7)"
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        //shadowBlur: 50,
+                        //shadowColor: 'rgba(0, 0, 0, 0.2)',
+                        borderColor: "rgba(0, 0, 0, 0.2)"
+                    },
+                    emphasis: {
+                        areaColor: "#f2d5ad",
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        borderWidth: 0
+                    }
+                }
+            },
+            series: [{
+                name: "成交单",
+                type: "map",
+                geoIndex: 0,
+                data: window.dataList
+            }]
+        };
+        myChart4.setOption(option4);
+        // 访客区域
+        var myChart5 = echarts.init(document.getElementById('main5'));
+        var yData5 = [1223, 60, 25, 18, 12, 9, 2, 1];
+        var xData5 = ['北京', '山东', '江苏', '浙江', '广西', '广东', '陕西', '河北'];
+        option5 = {
+            backgroundColor: "#fff",
+            grid: {
+                left: '12%',
+                top: '5%',
+                bottom: '12%',
+                right: '8%'
+            },
+            xAxis: {
+                data: xData5,
+                axisTick: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#eb3600',
+                        width: 1 //这里是为了突出显示加上的
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#999',
+                        fontSize: 12
+                    }
+                }
+            },
+            yAxis: [{
+                splitNumber: 2,
+                axisTick: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#eb3600',
+                        width: 1 //这里是为了突出显示加上的
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#999'
+                    }
+                },
+                splitArea: {
+                    areaStyle: {
+                        color: '#eb3600'
+                    }
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: 'rgba(255, 129, 109, 0.1)',
+                        width: 0.5,
+                        type: 'dashed'
+                    }
+                }
+            }
+            ],
+            series: [{
+                name: 'hill',
+                type: 'pictorialBar',
+                barCategoryGap: '0%',
+                symbol: 'path://M0,10 L10,10 C5.5,10 5.5,5 5,0 C4.5,5 4.5,10 0,10 z',
+                label: {
+                    show: true,
+                    position: 'top',
+                    distance: 15,
+                    color: '#DB5E6A',
+                    fontWeight: 'bolder',
+                    fontSize: 14,
+                },
+                itemStyle: {
+                    normal: {
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0,
+                                color: 'rgba(232, 94, 166, .8)' //  0%  处的颜色
+                            },
+                            {
+                                offset: 1,
+                                color: 'rgba(232, 94, 166, .1)' //  100%  处的颜色
+                            }
+                            ],
+                            global: false //  缺省为  false
+                        }
+                    },
+                    emphasis: {
+                        opacity: 1
+                    }
+                },
+                data: yData5,
+                z: 10
+            }]
+        };
+        myChart5.setOption(option5);
+        // 模块点击
+        var myChart6 = echarts.init(document.getElementById('main6'));
+        var xAxisData6 = ['招标信息', '中标信息', '采购信息', '企业信息', '开标信息', '其他信息'];
+        var legendData6 = ['总点击量', '优质客户点击量', '普通客户点击量'];
+        var title6 = "点击量";
+        var serieData6 = [];
+        var metaDate6 = [
+            [120, 140, 100, 120, 300, 230, 130, 170, 140, 120, 300, 230],
+            [200, 120, 300, 200, 170, 300, 200, 180, 200, 190, 300, 200],
+            [100, 200, 140, 300, 200, 180, 100, 300, 230, 130, 100, 300,]
+        ]
+        for (var v = 0; v < legendData6.length; v++) {
+            var serie6 = {
+                name: legendData6[v],
+                type: 'line',
+                symbol: "circle",
+                symbolSize: 10,
+                data: metaDate6[v]
+            };
+            serieData6.push(serie6)
+        }
+        var colors = ["#01E17E", "#3DD1F9", "#FFAD05", "#2EF7F3", "#FFFFFF"];
+        var option6 = {
+            backgroundColor: '#fff',
+            title6: { text: title, textAlign: 'left', textStyle: { color: "#000", fontSize: "14", fontWeight: "normal" } },
+            legend: {
+                show: true, left: "right", data: legendData6, y: "5%",
+                itemWidth: 18, itemHeight: 12, textStyle: { color: "#000", fontSize: 14 },
+            },
+            color: colors,
+            grid: { left: '2%', top: "12%", bottom: "5%", right: "5%", containLabel: true },
+            tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+            xAxis: [
+                {
+                    type: 'category',
+                    axisLine: { show: true, lineStyle: { color: '#6173A3' } },
+                    axisLabel: { interval: 0, textStyle: { color: '#9ea7c4', fontSize: 14 } },
+                    axisTick: { show: false },
+                    data: xAxisData6,
+                },
+            ],
+            yAxis: [
+                {
+                    axisTick: { show: false },
+                    splitLine: { show: false },
+                    axisLabel: { textStyle: { color: '#9ea7c4', fontSize: 14 } },
+                    axisLine: { show: true, lineStyle: { color: '#6173A3' } },
+                },
+            ],
+            series: serieData6
+        };
+        myChart6.setOption(option6);
+        //会员等级分析
+        var myChart7 = echarts.init(document.getElementById('main7'));
+        var Xdata7 = ['普通用户', '普通会员', '高级会员', 'VIP会员', '钻石会员'];
+        var Ydata7 = [320, 260, 350, 159, 150];
+        option7 = {
+            color: ['#f2504e'],
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                    type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    data: Xdata7,
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value'
+                }
+            ],
+            series: [
+                {
+                    name: '',
+                    type: 'bar',
+                    barWidth: '60%',
+                    data: Ydata7
+                }
+            ]
+        };
+        myChart7.setOption(option7);
+        // 过去一周用户平均访问时长
+        var myChart8 = echarts.init(document.getElementById('main8'));
+        var xData8 = [19, 23, 31, 12, 13, 68, 31];
+        var yData8 = ['2-10', '2-11', '2-12', '2-13', '2-14', '2-15', '2-16'];
+        var myColor8 = ['#7c5efd', '#99eeee', '#f7bc23', '#ff4848', '#E25B45', '#ff8357', '#00c0e9'];
+        option8 = {
+            title: {
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value',
+                boundaryGap: [0, 0.05]
+            },
+            yAxis: {
+                type: 'category',
+                data: yData8
+            },
+            series: [
+                {
+                    type: 'bar',
+                    color: '#f88d48',
+                    data: xData8,
+                    itemStyle: {
+                        normal: {
+                            color: function (params) {
+                                var num = myColor8.length;
+                                return myColor8[params.dataIndex % num]
+                            },
+                        }
+                    },
+                }
+            ]
+        };
+        myChart8.setOption(option8);
+        // 过去一周每日活跃用户数
+        var myChart9 = echarts.init(document.getElementById('main9'));
+        var xData9 = ['2-10', '2-11', '2-12', '2-13', '2-14', '2-15', '2-16'];
+        var yData9 = [30, 47, 23, 13, 28, 20, 16];
+        option9 = {
+            backgroundColor: '#fff',
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['登录用户数'],
+            },
+            toolbox: {
+                show: false,
+                feature: {
+                    dataZoom: {},
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                axisLabel: {
+                    color: 'rgba(0,0,0,0.8)',
+                    fontSize: 14
+                },
+                data: xData9
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value}',
+                    color: 'rgba(0,0,0,0.8)',
+                    fontSize: 14
+                }
+            },
+            series: [
+                {
+                    name: '登录用户数',
+                    type: 'line',
+                    lineStyle: { width: 4 },
+                    color: '#f2504e',
+                    data: yData9,
+                    markLine: {
+                        lineStyle: { width: 4 },
+                        label: {
+                            fontSize: 16
+                        },
+                        data: [
+                            { type: 'average', name: '平均值', symbolSize: 5 }
+                        ]
+                    }
+                }
+            ]
+        }
+        myChart9.setOption(option9);
+        //网站转化率
+        var myChart11 = echarts.init(document.getElementById('main11'));
+        var xData11 = ['访问', '注册', '订单', '支付成功', '二次购买'];
+        var yData11 = [
+            { value: 100, name: '访问' },
+            { value: 80, name: '注册' },
+            { value: 60, name: '订单' },
+            { value: 40, name: '支付成功' },
+            { value: 20, name: '二次购买' }
+        ];
+        var yData11_1 = [
+            { value: 100, name: '访问' },
+            { value: 70, name: '注册' },
+            { value: 50, name: '订单' },
+            { value: 40, name: '支付成功' },
+            { value: 20, name: '二次购买' }
+        ];
+        option11 = {
+            title: {
+                // text: '漏斗图',
+                // subtext: '纯属虚构'
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{b} : {c}{a}"
+            },
+            toolbox: {
+                feature: {
+                    dataView: { readOnly: false },
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            legend: {
+                data: xData11
+            },
+            series: [
+                {
+                    name: '次',
+                    type: 'funnel',
+                    left: '10%',
+                    width: '80%',
+                    label: {
+                        formatter: '{b}'
+                    },
+                    labelLine: {
+                        show: true
+                    },
+                    itemStyle: {
+                        opacity: 0.7
+                    },
+                    emphasis: {
+                        label: {
+                            position: 'inside',
+                            formatter: '{b}: {c}次'
+                        }
+                    },
+                    data: yData11
+                },
+                {
+                    name: '%',
+                    type: 'funnel',
+                    left: '10%',
+                    width: '80%',
+                    maxSize: '80%',
+                    label: {
+                        position: 'left',
+                        formatter: '{c}%',
+                    },
+                    itemStyle: {
+                        opacity: 0.5,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    emphasis: {
+                        label: {
+                            position: 'inside',
+                            formatter: '{b}占比: {c}%'
+                        }
+                    },
+                    data: yData11_1
+                }
+            ]
+        };
+        myChart11.setOption(option11);
+        // 设置关键词分析
+        var myChart12 = echarts.init(document.getElementById('main12'));
+        var scale = 1;
+        var echartData = [{
+            value: 2154,
+            name: '医药制造'
+        }, {
+            value: 3854,
+            name: '绿化'
+        }, {
+            value: 3515,
+            name: '园艺'
+        }, {
+            value: 3515,
+            name: '道路规划'
+        }, {
+            value: 3854,
+            name: '机器机械'
+        }, {
+            value: 2154,
+            name: '宿舍管理'
+        }]
+        var rich = {
+            yellow: {
+                color: "#ffc72b",
+                fontSize: 20 * scale,
+                padding: [5, 4],
+                align: 'center'
+            },
+            total: {
+                color: "#ffc72b",
+                fontSize: 40 * scale,
+                align: 'center'
+            },
+            white: {
+                color: "#000",
+                align: 'center',
+                fontSize: 14 * scale,
+                padding: [21, 0]
+            },
+            blue: {
+                color: '#49dff0',
+                fontSize: 16 * scale,
+                align: 'center'
+            },
+            hr: {
+                borderColor: '#0b5263',
+                width: '100%',
+                borderWidth: 1,
+                height: 0,
+            }
+        }
+        option12 = {
+            title: {
+                text: '总关键词数',
+                left: 'center',
+                top: '53%',
+                padding: [24, 0],
+                textStyle: {
+                    color: '#000',
+                    fontSize: 18 * scale,
+                    align: 'center'
+                }
+            },
+            legend: {
+                selectedMode: false,
+                formatter: function (name) {
+                    var total = 0; //各科正确率总和
+                    var averagePercent; //综合正确率
+                    echartData.forEach(function (value, index, array) {
+                        total += value.value;
+                    });
+                    return '{total|' + total + '}';
+                },
+                data: [echartData[0].name],
+                left: 'center',
+                top: 'center',
+                icon: 'none',
+                align: 'center',
+                textStyle: {
+                    color: "#000",
+                    fontSize: 16 * scale,
+                    rich: rich
+                },
+            },
+            series: [{
+                name: '总关键词数',
+                type: 'pie',
+                radius: ['42%', '50%'],
+                hoverAnimation: false,
+                color: ['#c487ee', '#deb140', '#49dff0', '#034079', '#6f81da', '#00ffb4'],
+                label: {
+                    normal: {
+                        formatter: function (params, ticket, callback) {
+                            var total = 0; //总关键词数
+                            var percent = 0; //关键词占比
+                            echartData.forEach(function (value, index, array) {
+                                total += value.value;
+                            });
+                            percent = ((params.value / total) * 100).toFixed(1);
+                            return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                        },
+                        rich: rich
+                    },
+                },
+                labelLine: {
+                    normal: {
+                        length: 55 * scale,
+                        length2: 0,
+                        lineStyle: {
+                            color: '#0b5263'
+                        }
+                    }
+                },
+                data: echartData
+            }]
+        };
+        myChart12.setOption(option12);
+        // 区域招标分析
+        var myChart13 = echarts.init(document.getElementById('main13'));
+        var xData13 = ['北京', '山东', '江苏', '浙江', '广西', '广东', '陕西', '河北'];
+        var yData13 = [282035, 212203, 176425, 166318, 160912, 160909, 153412, 143411];
+        option13 = {
+            backgroundColor: "#fff",
+            grid: {
+                left: '12%',
+                top: '5%',
+                bottom: '12%',
+                right: '8%'
+            },
+            xAxis: {
+                data: xData13,
+                axisTick: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: 'rgba(255, 129, 109, 0.1)',
+                        width: 1 //这里是为了突出显示加上的
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#999',
+                        fontSize: 12
+                    }
+                }
+            },
+            yAxis: [{
+                splitNumber: 2,
+                axisTick: {
+                    show: false
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: 'rgba(255, 129, 109, 0.1)',
+                        width: 1 //这里是为了突出显示加上的
+                    }
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#999'
+                    }
+                },
+                splitArea: {
+                    areaStyle: {
+                        color: 'rgba(255,255,255,.5)'
+                    }
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: 'rgba(255, 129, 109, 0.1)',
+                        width: 0.5,
+                        type: 'dashed'
+                    }
+                }
+            }
+            ],
+            series: [{
+                name: 'hill',
+                type: 'pictorialBar',
+                barCategoryGap: '0%',
+                symbol: 'path://M0,10 L10,10 C5.5,10 5.5,5 5,0 C4.5,5 4.5,10 0,10 z',
+                label: {
+                    show: true,
+                    position: 'top',
+                    distance: 15,
+                    color: '#DB5E6A',
+                    fontWeight: 'bolder',
+                    fontSize: 12,
+                },
+                itemStyle: {
+                    normal: {
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0,
+                                color: 'rgba(232, 94, 106, .8)' //  0%  处的颜色
+                            },
+                            {
+                                offset: 1,
+                                color: 'rgba(232, 94, 106, .1)' //  100%  处的颜色
+                            }
+                            ],
+                            global: false //  缺省为  false
+                        }
+                    },
+                    emphasis: {
+                        opacity: 1
+                    }
+                },
+                data: yData13,
+                z: 10
+            }]
+        };
+        myChart13.setOption(option13);
+        // 过去一周每日全站pu\uv情况
+        var myChart14 = echarts.init(document.getElementById('main14'));
+        var data14 = {
+            id: 'multipleBarsLines',
+            title: '',
+            subTitle: '',
+            legendBar: ['全站pv', '全站uv'],
+            symbol: '%', //数值是否带百分号
+            legendLine: ['PV环比', 'UV环比'],
+            xAxis: ['12-10', '2-11', '2-12', '2-13', '2-14',
+                '2-15', '2-16'],
+            yAxis: [
+                [8, 10, 10, 11, 4, 13, 6],
+                [10, 7, 8, 8, 7, 9, 8]
+            ],
+            lines: [
+                [10, 10, 9, 11, 7, 4, 13],
+                [6, 12, 12, 2, 4, 4, 10]
+            ],
+            barColor: ['#3FA7DC', '#7091C4'], //柱子颜色 必填参数
+            lineColor: ['#638862', '#DA8084'], // 折线颜色
+
+        }
+        var myData14 = (function test() {
+            let yAxis = data14.yAxis || []
+            let lines = data14.lines || []
+            let legendBar = data14.legendBar || []
+            let legendLine = data14.legendLine || []
+            var symbol = data14.symbol || ' '
+            let seriesArr = []
+            let legendArr = []
+            yAxis && yAxis.forEach((item, index) => {
+                legendArr.push({
+                    name: legendBar && legendBar.length > 0 && legendBar[index]
+                })
+                seriesArr.push({
+                    name: legendBar && legendBar.length > 0 && legendBar[index],
+                    type: 'bar',
+                    barGap: '0.5px',
+                    data: item,
+                    barWidth: data14.barWidth || 12,
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: '{c}',
+                            position: 'top',
+                            textStyle: {
+                                color: '#414957',
+                                fontStyle: 'normal',
+                                fontFamily: '微软雅黑',
+                                textAlign: 'left',
+                                fontSize: 11,
+                            },
+                        },
+                    },
+                    itemStyle: { //图形样式
+                        normal: {
+                            barBorderRadius: 4,
+                            color: data14.barColor[index]
+                        },
+                    }
+                })
+            })
+
+            lines && lines.forEach((item, index) => {
+                legendArr.push({
+                    name: legendLine && legendLine.length > 0 && legendLine[index]
+                })
+                seriesArr.push({
+                    name: legendLine && legendLine.length > 0 && legendLine[index],
+                    type: 'line',
+                    data: item,
+                    itemStyle: {
+                        normal: {
+                            color: data14.lineColor[index],
+                            lineStyle: {
+                                width: 3,
+                                type: 'solid',
+                            }
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: false, //折线上方label控制显示隐藏
+                            position: 'top',
+                        }
+                    },
+                    symbol: 'circle',
+                    symbolSize: 10
+                })
+            })
+
+            return {
+                seriesArr,
+                legendArr
+            }
+        })()
+        option14 = {
+            backgroundColor: '#fff',
+            title: {
+                show: true,
+                text: data14.title,
+                subtext: data14.subTitle,
+                link: 'http://gallery.echartsjs.com/editor.html?c=xB1j9UgsXQ'
+            },
+            tooltip: {
+                trigger: 'axis',
+                formatter: function (params) {
+                    var time = '';
+                    var str = '';
+                    for (var i of params.slice(0, 2)) {
+                        time = i.name.replace(/\n/g, '') + '<br/>';
+                        if (i.data == 'null' || i.data == null) {
+                            str += i.seriesName + '：无数据' + '<br/>'
+                        } else {
+                            str += i.seriesName + '：' + i.data + '<br/>'
+                        }
+
+                    }
+                    for (var i of params.slice(2, 4)) {
+                        time = i.name.replace(/\n/g, '') + '<br/>';
+                        if (i.data == 'null' || i.data == null) {
+                            str += i.seriesName + '：无数据' + '<br/>'
+                        } else {
+                            str += i.seriesName + '：' + i.data + '%<br/>'
+                        }
+
+                    }
+                    return time + str;
+                },
+                axisPointer: {
+                    type: 'none'
+                },
+            },
+            legend: {
+                right: data14.legendRight || '30%',
+                top: 12,
+                itemGap: 16,
+                itemWidth: 10,
+                itemHeight: 10,
+                data: myData14.legendArr,
+                textStyle: {
+                    color: '#414957',
+                    fontStyle: 'normal',
+                    fontFamily: '微软雅黑',
+                    fontSize: 10,
+                }
+            },
+            grid: {
+                x: 30,
+                y: 80,
+                x2: 30,
+                y2: 60,
+            },
+            xAxis: {
+                type: 'category',
+                data: data14.xAxis,
+                axisTick: {
+                    show: false,
+                },
+
+                axisLine: {
+                    show: false
+                },
+                axisLabel: {
+                    show: true,
+                    interval: '0',
+                    textStyle: {
+                        lineHeight: 16,
+                        padding: [2, 2, 0, 2],
+                        // margin: 10,
+                        height: 50,
+                        fontSize: 12,
+                    },
+                    rich: {
+                        Sunny: {
+                            height: 50,
+                            // width: 60,
+                            padding: [0, 5, 0, 5],
+                            align: 'center',
+                        },
+                    },
+                    // formatter: function (params, index) {
+                    //     var newParamsName = "";
+                    //     var splitNumber = 5;
+                    //     var paramsNameNumber = params && params.length;
+                    //     if (paramsNameNumber && paramsNameNumber <= 4) {
+                    //         splitNumber = 4;
+                    //     } else if (paramsNameNumber >= 5 && paramsNameNumber <= 7) {
+                    //         splitNumber = 4;
+                    //     } else if (paramsNameNumber >= 8 && paramsNameNumber <= 9) {
+                    //         splitNumber = 5;
+                    //     } else if (paramsNameNumber >= 10 && paramsNameNumber <= 14) {
+                    //         splitNumber = 5;
+                    //     } else {
+                    //         params = params && params.slice(0, 15);
+                    //     }
+
+                    //     var provideNumber = splitNumber; //一行显示几个字
+                    //     var rowNumber = Math.ceil(paramsNameNumber / provideNumber) || 0;
+                    //     if (paramsNameNumber > provideNumber) {
+                    //         for (var p = 0; p < rowNumber; p++) {
+                    //             var tempStr = "";
+                    //             var start = p * provideNumber;
+                    //             var end = start + provideNumber;
+                    //             if (p == rowNumber - 1) {
+                    //                 tempStr = params.substring(start, paramsNameNumber);
+                    //             } else {
+                    //                 tempStr = params.substring(start, end) + "\n";
+                    //             }
+                    //             newParamsName += tempStr;
+                    //         }
+
+                    //     } else {
+                    //         newParamsName = params;
+                    //     }
+                    //     params = newParamsName
+                    //     return '{Sunny|' + params + '}';
+                    // },
+                    color: '#687284',
+                },
+
+            },
+            yAxis: {
+                axisLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: false
+                },
+                axisLabel: {
+                    show: false
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#F1F3F5',
+                        type: 'solid'
+                    },
+                    interval: 2
+                },
+                splitNumber: 4,
+            },
+            series: myData14.seriesArr
+        }
+        myChart14.setOption(option14);
+        // 过去一周详情页平均访问时长
+        var myChart16 = echarts.init(document.getElementById('main16'));
+        var xData16 = [19, 23, 31, 12, 13, 68, 31];
+        var yData16 = ['2-10', '2-11', '2-12', '2-13', '2-14', '2-15', '2-16'];
+        var myColor16 = ['#eb2100', '#eb3600', '#d0570e', '#d0a00e', '#34da62', '#00e9db'];
+        option16 = {
+            title: {
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value',
+                boundaryGap: [0, 0.05]
+            },
+            yAxis: {
+                type: 'category',
+                data: yData16
+            },
+            series: [
+                {
+                    type: 'bar',
+                    color: '#f88d48',
+                    data: xData16,
+                    itemStyle: {
+                        normal: {
+                            color: function (params) {
+                                var num = myColor16.length;
+                                return myColor16[params.dataIndex % num]
+                            },
+                        }
+                    },
+                }
+            ]
+        };
+        myChart16.setOption(option16);
+        // 一天内每个模块平均访问时长
+        var myChart17 = echarts.init(document.getElementById('main17'));
+        var xData17 = [19, 23, 31, 12, 13, 68, 23, 31, 12, 13, 68];
+        var yData17 = ['招标信息', '中标信息', '采购信息', '企业信息', '开标信息', '其他信息', '中标信息', '采购信息', '企业信息', '开标信息', '其他信息'];
+        var myColor17 = ['#9fdded', '#2a90ab', '#fada95', '#ffba52', '#8fdcf1', '#ffe17e'];
+        option17 = {
+            title: {
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'value',
+                boundaryGap: [0, 0.05]
+            },
+            yAxis: {
+                type: 'category',
+                data: yData17
+            },
+            series: [
+                {
+                    type: 'bar',
+                    color: '#f88d48',
+                    data: xData17,
+                    itemStyle: {
+                        normal: {
+                            color: function (params) {
+                                var num = myColor17.length;
+                                return myColor17[params.dataIndex % num]
+                            },
+                        }
+                    },
+                }
+            ]
+        };
+        myChart17.setOption(option17);
+        // 一天内用户登录峰值
+        var myChart18 = echarts.init(document.getElementById('main18'));
+        var xData18 = ['0时', '1时', '2时', '3时', '4时', '5时', '6时', '7时', '8时', '9时', '10时', '11时', '12时', '13时', '14时', '15时', '16时', '17时', '18时', '19时', '20时', '21时', '22时', '23时'];
+        var yData18 = [689, 824, 987, 1000, 393, 438, 485, 631, 689, 824, 987, 1000, 1100, 1200, 393, 438, 485, 631, 689, 824, 987, 1000, 1100, 1200];
+        option18 = {
+            backgroundColor: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                offset: 0,
+                color: '#c86589'
+            },
+            {
+                offset: 1,
+                color: '#06a7ff'
+            }
+            ], false),
+            title: {
+                text: "实时登录峰值",
+                left: "center",
+                bottom: "5%",
+                textStyle: {
+                    color: "#fff",
+                    fontSize: 16
+                }
+            },
+            grid: {
+                top: '20%',
+                left: '10%',
+                right: '10%',
+                bottom: '15%',
+                containLabel: true,
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: xData18,
+                axisLabel: {
+                    margin: 30,
+                    color: '#ffffff63'
+                },
+                axisLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: true,
+                    length: 25,
+                    lineStyle: {
+                        color: "#ffffff1f"
+                    }
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#ffffff1f'
+                    }
+                }
+            },
+            yAxis: [{
+                type: 'value',
+                position: 'right',
+                axisLabel: {
+                    margin: 20,
+                    color: '#ffffff63'
+                },
+
+                axisTick: {
+                    show: true,
+                    length: 15,
+                    lineStyle: {
+                        color: "#ffffff1f",
+                    }
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#ffffff1f'
+                    }
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#fff',
+                        width: 2
+                    }
+                }
+            }],
+            series: [{
+                name: '登录数',
+                type: 'line',
+                smooth: true, //是否平滑曲线显示
+                showAllSymbol: true,
+                symbol: 'circle',
+                symbolSize: 6,
+                lineStyle: {
+                    normal: {
+                        color: "#fff", // 线条颜色
+                    },
+                },
+                label: {
+                    show: true,
+                    position: 'top',
+                    textStyle: {
+                        color: '#fff',
+                    }
+                },
+                itemStyle: {
+                    color: "red",
+                    borderColor: "#fff",
+                    borderWidth: 3
+                },
+                tooltip: {
+                    show: false
+                },
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: '#eb64fb'
+                        },
+                        {
+                            offset: 1,
+                            color: '#3fbbff0d'
+                        }
+                        ], false),
+                    }
+                },
+                data: yData18,
+            }]
+        };
+        myChart18.setOption(option18);
+        // 一天内访问购买会员页的用户数峰值分析 
+        var myChart10 = echarts.init(document.getElementById('main10'));
+        var xData10 = ['0时', '1时', '2时', '3时', '4时', '5时', '6时', '7时', '8时', '9时', '10时', '11时', '12时', '13时', '14时', '15时', '16时', '17时', '18时', '19时', '20时', '21时', '22时', '23时'];
+        var yData10 = [689, 824, 987, 1000, 393, 438, 485, 631, 689, 824, 987, 1000, 1100, 1200, 393, 438, 485, 631, 689, 824, 987, 1000, 1100, 1200];
+        option10 = {
+            backgroundColor: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                offset: 0,
+                color: '#c86589'
+            },
+            {
+                offset: 1,
+                color: '#06a7ff'
+            }
+            ], false),
+            title: {
+                text: "访问会员页用户数峰值",
+                left: "center",
+                bottom: "5%",
+                textStyle: {
+                    color: "#fff",
+                    fontSize: 16
+                }
+            },
+            grid: {
+                top: '20%',
+                left: '10%',
+                right: '10%',
+                bottom: '15%',
+                containLabel: true,
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: xData10,
+                axisLabel: {
+                    margin: 30,
+                    color: '#ffffff63'
+                },
+                axisLine: {
+                    show: false
+                },
+                axisTick: {
+                    show: true,
+                    length: 25,
+                    lineStyle: {
+                        color: "#ffffff1f"
+                    }
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#ffffff1f'
+                    }
+                }
+            },
+            yAxis: [{
+                type: 'value',
+                position: 'right',
+                axisLabel: {
+                    margin: 20,
+                    color: '#ffffff63'
+                },
+
+                axisTick: {
+                    show: true,
+                    length: 15,
+                    lineStyle: {
+                        color: "#ffffff1f",
+                    }
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#ffffff1f'
+                    }
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#fff',
+                        width: 2
+                    }
+                }
+            }],
+            series: [{
+                name: '访问会员页用户数',
+                type: 'line',
+                smooth: true, //是否平滑曲线显示
+                showAllSymbol: true,
+                symbol: 'circle',
+                symbolSize: 6,
+                lineStyle: {
+                    normal: {
+                        color: "#fff", // 线条颜色
+                    },
+                },
+                label: {
+                    show: true,
+                    position: 'top',
+                    textStyle: {
+                        color: '#fff',
+                    }
+                },
+                itemStyle: {
+                    color: "red",
+                    borderColor: "#fff",
+                    borderWidth: 3
+                },
+                tooltip: {
+                    show: false
+                },
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                            offset: 0,
+                            color: '#eb64fb'
+                        },
+                        {
+                            offset: 1,
+                            color: '#3fbbff0d'
+                        }
+                        ], false),
+                    }
+                },
+                data: yData10,
+            }]
+        };
+        myChart10.setOption(option10);
+        // 近一周内访问购买会员页的用户数
+        var myChart15 = echarts.init(document.getElementById('main15'));
+        var xData15 = ['2-10', '2-11', '2-12', '2-13', '2-14', '2-15', '2-16'];
+        var yData15 = [30, 47, 23, 13, 28, 20, 16];
+        option15 = {
+            backgroundColor: '#fff',
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['访问会员页用户数'],
+            },
+            toolbox: {
+                show: false,
+                feature: {
+                    dataZoom: {},
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                axisLabel: {
+                    color: 'rgba(0,0,0,0.8)',
+                    fontSize: 14
+                },
+                data: xData15
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value}',
+                    color: 'rgba(0,0,0,0.8)',
+                    fontSize: 14
+                }
+            },
+            series: [
+                {
+                    name: '访问会员页用户数',
+                    type: 'line',
+                    lineStyle: { width: 4 },
+                    color: '#f2504e',
+                    data: yData15,
+                    markLine: {
+                        lineStyle: { width: 4 },
+                        label: {
+                            fontSize: 16
+                        },
+                        data: [
+                            { type: 'average', name: '平均值', symbolSize: 5 }
+                        ]
+                    }
+                }
+            ]
+        }
+        myChart15.setOption(option15);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,399 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标----采购列表</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="res/mui/css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="res/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/cgList.css">
+</head>
+
+<body>
+    <header class="zh_topBar clearfix">
+        <a href="javascript:history.back()" class="l"><i class="mui-icon iconfont icon-back"></i></a>
+        <span>采购列表</span>
+    </header>
+    <div class="zh_container">
+        <div class="mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <!-- 选项卡 -->
+                <div class="tabs">
+                    <ul>
+                        <li class="active" id="2">
+                            <a href="#">产品</a>
+                            <i class="fa fa-caret-down"></i>
+                            <i class="fa fa-caret-up"></i>
+                        </li>
+                        <li id="3">
+                            <a href="#">地区</a>
+                            <i class="fa fa-caret-down"></i>
+                            <i class="fa fa-caret-up"></i>
+                        </li>
+                    </ul>
+                    <div class="tab active">
+                        <div class="type">
+                            <p class="active">默认</p>
+                            <p>最新</p>
+                            <p>优质</p>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <div class="address_slide clearfix">
+                            <div id="wrapper">
+                                <ul class="province l" onclick="loaded()" style="height:100%">
+                                    <p>全国</p>
+                                    <li class="active">北京</li>
+                                    <li>天津</li>
+                                    <li>河北</li>
+                                    <li>山西</li>
+                                    <li>内蒙古</li>
+                                </ul>
+                            </div>
+                            <div id="wrapper1">
+                                <ul class="city l" onclick="loaded()">
+                                    <li class="c_city active">
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">全选</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_cbAll r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                    </li>
+                                    <li class="c_city">
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">全选</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_cbAll r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                    </li>
+                                    <li class="c_city">
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">全选</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_cbAll r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                    </li>
+                                    <li class="c_city">
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">全选</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_cbAll r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                    </li>
+                                    <li class="c_city">
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">全选</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_cbAll r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                        <div class="mui-input-row mui-checkbox">
+                                            <span class="l">太原</span>
+                                            <input name="checkbox1" value="Item 1" type="checkbox" class="j_tb r">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="affirm">
+                            <div>重置</div>
+                            <div>确定</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 采购信息 -->
+                <div class="cg_info">
+                    <div class="info">
+                        <div class="info_title">江苏省南通市南通德聚新能源电力有限公司达旗水泥矿粉采购预告</div>
+                        <div class="info_one clearfix">
+                            <div class="info_pro l">采购产品: <span>二手器械设备</span></div>
+                            <div class="info_pro r">采购日期: <span>2019-12-12</span></div>
+                        </div>
+                        <div class="info_one clearfix">
+                            <div class="info_pro l">采购数量: <span>2台</span></div>
+                            <div class="info_pro r">采购预算: <span>20万元</span></div>
+                        </div>
+                    </div>
+                    <div class="info">
+                        <div class="info_title">张家界花卉大棚集中供暖设备采购项目</div>
+                        <div class="info_one clearfix">
+                            <div class="info_pro l">采购产品: <span>二手器械设备</span></div>
+                            <div class="info_pro r">采购日期: <span>2019-12-12</span></div>
+                        </div>
+                        <div class="info_one clearfix">
+                            <div class="info_pro l">采购数量: <span>2台</span></div>
+                            <div class="info_pro r">采购预算: <span>20万元</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="create"><a href="./fbcg.html">发布</a></div>
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="res/mui/js/mui.min.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        // console.log(h)
+        $(".affirm").css({
+            'top': h - 40 + 'px'
+        })
+        $('.address_slide .province,.address_slide .city').css({
+            'height': h - 118 + 'px !important'
+        })
+        $('.address_slide .city li>div').css({
+            'width': w - 110 + 'px'
+        })
+        $('.tabs .tab:nth-child(4) .affirm>div:nth-child(2)').on('tap', function () {
+            $(this).parent().parent().removeClass('active');
+            $(this).parent().parent().siblings('ul').children('li').removeClass('active');
+            $('.info').show();
+        })
+        $('.tabs>ul #3').on('tap', function () {
+            $('.info').hide();
+        })
+        $(".tabs>ul>li:not('#3')").on('tap', function () {
+            $('.info').show();
+        })
+        // 条件筛选
+        // 1. 获取一组li
+        var lis = document.querySelectorAll('.zh_container .tabs>ul>li');
+        // 2. 获取一组div显示项
+        var divs = document.querySelectorAll('.tab');
+        // 3. for循环遍历给每一个li注册一个点击事件，给每一个li添加一个index属性，表示li的下标
+        for (var i = 0; i < lis.length; i++) {
+            // 3.1 给每一个li添加一个index属性
+            lis[i].index = i;
+            // 3.2 注册事件
+            lis[i].addEventListener('tap', function () {
+                // 4. 在事件处理程序中，① 切换li  ② 切换div
+                // 4.1 循环遍历去掉所有li 和 所有div的类名active
+                for (var j = 0; j < lis.length; j++) {
+                    lis[j].className = '';
+                    divs[j].className = 'tab';
+                }
+                // 4.2 给当前点击的li添加类名active
+                this.className = 'active';
+                // 4.3 获取当前点击的li的下标
+                var num = this.index;
+                // 找到对应的div项，显示
+                divs[num].className = 'tab active';
+            });
+        }
+        // 地区tab
+        var d = 1;
+        var li = document.querySelectorAll('.province>li');
+        var div = document.querySelectorAll('.c_city');
+        for (var m = 0; m < li.length; m++) {
+            li[m].index = m;
+            li[m].addEventListener('tap', function () {
+                for (var n = 0; n < li.length; n++) {
+                    li[n].className = '';
+                    div[n].className = 'c_city';
+                }
+                this.className = 'active';
+                var num = this.index;
+                div[num].className = 'c_city active';
+            });
+        }
+        mui.init()
+    </script>
+</body>
+
+</html>

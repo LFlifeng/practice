@@ -1,0 +1,123 @@
+
+.zh_topBar {
+    background-color: #fff;
+}
+
+.zh_topBar a i {
+    color: #000;
+    font-size: 18px;
+    margin-left: 10px;
+}
+.zh_layout {
+    text-align: center;
+    height: 120px;
+    line-height: 100px;
+    background: url(../img/qybg.jpg) no-repeat;
+    background-size: cover;
+}
+.flex_content {
+	display: flex;
+    position: relative;
+    padding: 0 20px;
+    padding-top: 65px;
+}
+
+.flex_content .search_icon {
+	background-color: #fff;
+	width: 20%;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+    border-radius: 0 20px 20px 0;
+    font-size: 16px;
+    color: #759aff;
+}
+
+.flex_content .search_icon img {
+	width: 20px;
+}
+
+.flex_content .search_input {
+	width: 80%;
+    font-size: 16px;
+    border: none;
+	outline: none;
+	border-radius: 20px 0 0 20px;
+	padding-left: 20px;
+}
+.zh_container {
+    margin-top: 30px;
+}
+/* 热门搜索*/
+.info_title {
+    /* background-color: #fff; */
+    height: 20px;
+    margin-top: 20px;
+}
+.info_title .recommend {
+    margin-left: 15px;
+}
+.info_title .recommend span {
+    font-size: 17px;
+    color: #202020;
+    margin-left: 5px;
+    font-weight: 700;
+}
+.info_title img {
+    width: 15px;
+    margin-top: -6px;
+}
+
+.info {
+    /* background-color: #f1f1f1; */
+}
+.info ul {
+    background-color: #f1f1fb;
+}
+.info ul li {
+    background-color: #fff;
+    margin: 10px 0;
+}
+.mui-media-body {
+	font-size: 16px;
+	color: #505050;
+	width: 100%;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.qy img {
+    width: 46px;
+    border-radius: 50%;
+}
+.qy_name {
+    color: #202020;
+    font-size: 16px;
+}
+.item_flex {
+	display: flex;
+	color: #a0a0a0;
+    align-items: center;
+    margin-top: 5px;
+}
+.item_flex>.flex {
+    padding-right: 10px;
+    height: 18px;
+	font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    margin: 0 3px;
+    border-right: 1px solid #ccc;
+}
+.item_flex>.flex:last-child {
+    border: none;
+}
+.qy_info {
+    margin-top: 5px;
+}
+.qy_info .zbxx i {
+    color: #f2504e;
+}
+.mui-table-view:before,.mui-table-view:after {
+    background-color: #fff;
+}

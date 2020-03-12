@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="res/mui/css/mui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="res/mui/css/mui.picker.css">
+    <link rel="stylesheet" href="res/mui/css/mui.poppicker.css">
+    <link rel="stylesheet" href="res/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/add_arcDetail.css">
+</head>
+
+<body>
+    <div class="zh_layout">
+        <header class="zh_topBar clearfix">
+            <a href="javascript:history.back()" class="l"><i class="mui-icon iconfont icon-back"></i></a>
+        </header>
+        <div class="zh_container">
+            <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <div class="company_info">
+                        <div class="address">
+                            <div class="address_title">选择所在地区</div>
+                            <div class="address_m clearfix">
+                                <div class="address_n l">
+                                    <span>内蒙古 <img src="./img/close.png" class="111" alt=""></span>
+                                    <span>黑龙江 <img src="./img/close.png" alt=""></span>
+                                    <span>吉林 <img src="./img/close.png" alt=""></span>
+                                    <span>黑龙江 <img src="./img/close.png" alt=""></span>
+                                    <span>辽宁 <img src="./img/close.png" alt=""></span>
+                                </div>
+                                <div class="address_b r">+添加</div>
+                            </div>
+                        </div>
+                        <div class="address">
+                            <div class="address_title">产品图片展示<i>最多可上传6张</i></div>
+                            <div class="address_m">
+                                <div class="add_img">
+                                    <!-- <img src="./img/add.jpg" alt=""> -->
+                                    <div class="headdiv">
+                                        <input type="file" style="" capture="camera" accept="image/jpeg,image/gif,image/jpg,image/png" name="" value="" >
+                                        <img src="./img/add.jpg" id="userImg" />
+                                        <span id="uploadImage" class="mui-icon mui-icon-upload"></span>
+                                    </div>
+                                </div>
+                                <ul id="imgs" class="mui-table-view mui-grid-view">
+                                    <li class="mui-table-view-cell mui-media mui-col-xs-4">
+                                        <img class="mui-media-object" src="">
+                                        <span class="mui-icon mui-icon-trash deleteBtn"
+                                            onclick="deleteImg(event)"></span>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="confirm">确认提交</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="res/mui/js/mui.js"></script>
+    <script src="res/mui/js/mui.min.js"></script>
+    <script src="res/mui/js/mui.picker.js"></script>
+    <script src="res/mui/js/mui.poppicker.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        $('.address_b').on('tap', function () {
+            var _this = this;
+            var picker = new mui.PopPicker();
+            picker.setData([
+                { value: 'bj', text: '北京' },
+                { value: 'sh', text: '上海' },
+            ]);
+            //添加所在地区
+            picker.show(function (selectItems) {
+                $(_this).siblings('.address_n').append(" <span>" + selectItems[0].text + " <img src='./img/close.png'></span>");
+                mui.toast('添加成功');
+            });
+        });
+        //点击X删除地区
+        $('.address_n>span>img').on('tap', function (e) {
+            var _this = this;
+            mui.confirm('确认删除吗？', '删除', ['是', '否'], function (e) {
+                if (e.index === 0) {
+                    $(_this).parent().remove();
+                }
+            }, 'div');
+        });
+
+
+        //上传图片(还存在问题)
+        mui.plusReady(function () {
+            $('#userImg').on('tap', function () {
+                if (mui.os.plus) {
+                    var buttonTit = [{
+                        title: "拍照"
+                    }, {
+                        title: "从手机相册选择"
+                    }];
+
+                    plus.nativeUI.actionSheet({
+                        title: "上传图片",
+                        cancel: "取消",
+                        buttons: buttonTit
+                    }, function (b) { /*actionSheet 按钮点击事件*/
+                        switch (b.index) {
+                            case 0:
+                                break;
+                            case 1:
+                                getImage(); /*拍照*/
+                                break;
+                            case 2:
+                                galleryImg(); /*打开相册*/
+                                break;
+                            default:
+                                break;
+                        }
+                    })
+                }
+            }, false);
+
+            // 拍照获取图片  
+            function getImage() {
+                var c = plus.camera.getCamera();
+                c.captureImage(function (e) {
+                    plus.io.resolveLocalFileSystemURL(e, function (entry) {
+                        var imgSrc = entry.toLocalURL() + "?version=" + new Date().getTime(); //拿到图片路径  
+                        setFile(imgSrc);
+                        setHtml(imgSrc);
+                    }, function (e) {
+                        console.log("读取拍照文件错误：" + e.message);
+                    });
+                }, function (s) {
+                    console.log("error" + s.message);
+                }, {
+                    filename: "_doc/camera/"
+                })
+            }
+            // 从相册中选择图片   
+            function galleryImg() {
+                // 从相册中选择图片  
+                plus.gallery.pick(function (e) {
+                    for (var i in e.files) {
+                        var fileSrc = e.files[i];
+                        setFile(fileSrc);
+                        setHtml(fileSrc);
+                    }
+                }, function (e) {
+                    console.log("取消选择图片");
+                }, {
+                    filter: "image",
+                    multiple: true,
+                    //maximum: 5,
+                    system: false,
+                    onmaxed: function () {
+                        plus.nativeUI.alert('最多只能选择5张图片');
+                    }
+                });
+            }
+
+            //删除当前照片--删除当前元素的整个父级元素
+            function deleteImg(event) {
+                var obj = event.srcElement;
+                obj.parentElement.remove();
+            }
+
+            function setHtml(path) {
+                var str = '';
+                str = '<li class="mui-table-view-cell mui-media mui-col-xs-4">' +
+                    '<img class="mui-media-object" src="' + path + '">' +
+                    '<span class="mui-icon mui-icon-trash deleteBtn" onclick="deleteImg(event)"></span>' +
+                    '</li>';
+                jQuery("#imgs").append(str);
+            }
+
+            function setFile(fileSrc) {
+                var image = new Image();
+                image.src = fileSrc;
+                fileArr.push(image);
+            }
+            document.getElementById('uploadImage').addEventListener('tap', function () {
+                var files = fileArr;
+                var wt = plus.nativeUI.showWaiting();
+                var task = plus.uploader.createUpload('http://127.0.0.1:8848/weizhen_app/Upload', {
+                    method: "POST"
+                },
+                    function (t, status) { //上传完成
+                        if (status == 200) {
+                            alert("上传成功：" + t.responseText);
+                            wt.close(); //关闭等待提示按钮
+                        } else {
+                            alert("上传失败：" + status);
+                            wt.close(); //关闭等待提示按钮
+                        }
+                    }
+                );
+                //将文件集合添加到上传队列中
+                for (var i = 0; i < files.length; i++) {
+                    var f = files[i];
+                    task.addFile(f.src, {
+                        key: i
+                    });
+                }
+                //传其他的参数 如备注
+                //添加其他参数
+                //遍历5个input框
+                task.addData("comment", "test");
+                task.start();
+            });
+        });
+    </script>
+</body>
+
+</html>

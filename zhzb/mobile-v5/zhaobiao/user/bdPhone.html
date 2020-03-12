@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link href="../res/mui/css/mui.min.css" rel="stylesheet" />
+    <link href="../res/mui/css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/bdPhone.css">
+</head>
+
+<body>
+    <header class="zh_topBar clearfix">
+        <a href="javascript:history.back()" class="l"><i class="mui-icon iconfont icon-back"></i></a>
+        <span>绑定手机</span>
+    </header>
+    <ul class="mui-table-view">
+        <li class="mui-table-view-cell clearfix" style="border-bottom: 1px solid #efefef;">
+            <div class="l" style="display: flex;"><img src="../img/phone.png" alt="" style="margin-top: 10px;"><input type="tel" placeholder='请输入手机号'></div>
+        </li>
+        <li class="mui-table-view-cell claerfix">
+            <div class="l"><img src="../img/yzm.png" alt=""><input type="text" placeholder='请输入验证码'></div>
+            <div class="r hq">获取验证码</div>
+        </li>
+    </ul>
+    <div class="qd">
+        <div>确定绑定</div>
+    </div>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../res/mui/js/mui.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript">
+        $('.hq').on('tap', function () {
+            var time = 60;
+            var _this = this;
+            var _time = setInterval(function () {
+                $(_this).text(time+'秒后重新发送');
+                time--;
+                if(time < 0) {
+                    clearInterval(_time);
+                    $(_this).text('获取验证码');
+                }
+            }, 1000);
+        })
+    </script>
+</body>
+
+</html>

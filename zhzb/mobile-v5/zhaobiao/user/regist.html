@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link href="../res/mui/css/mui.min.css" rel="stylesheet" />
+    <link href="../res/mui/css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../res/mui/css/mui.picker.css">
+    <link rel="stylesheet" href="../res/mui/css/mui.poppicker.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/regist.css">
+</head>
+
+<body>
+    <div class="top_img"></div>
+    <div class="bottom_img"></div>
+    <div class="tracker">
+        <p>选择地区</p>
+        <div class="address_m clearfix">
+            <div class="address_n l" id="address_n">
+                <span>内蒙古 <img src="../img/close.png" alt=""></span>
+                <span>黑龙江 <img src="../img/close.png" alt=""></span>
+                <span>吉林 <img src="../img/close.png" alt=""></span>
+                <span>黑龙江 <img src="../img/close.png" alt=""></span>
+                <span>辽宁 <img src="../img/close.png" alt=""></span>
+            </div>
+            <div class="address_b r" id="address_b">添加</div>
+        </div>
+    </div>
+    <div class="tracker">
+        <p>关键词设置</p>
+        <div class="address_m">
+            <div class="address_n" id="info">
+                <span>建筑材料 <img src="../img/close.png" alt=""></span>
+                <span>涂料 <img src="../img/close.png" alt=""></span>
+            </div>
+        </div>
+        <div class="hy_word">
+            <input type="text" placeholder="最多添加5组关键词">
+            <div class="btn r">添加</div>
+        </div>
+    </div>
+    <div class="confirm">确定</div>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../res/mui/js/mui.min.js"></script>
+    <script src="../res/mui/js/mui.picker.js"></script>
+    <script src="../res/mui/js/mui.poppicker.js"></script>
+    <script src="../js/data.city.js"></script>
+    <script type="text/javascript">
+        $('#address_b').on('tap', function () {
+            var _this = this;
+            var picker = new mui.PopPicker({
+                layer: 2
+            });
+            picker.setData(init_city_picker);
+            picker.pickers[0].setSelectedIndex(1);
+            picker.pickers[1].setSelectedIndex(1);
+            //添加所在地区
+            picker.show(function (selectItems) {
+                $(_this).siblings('#address_n').append(" <span>" + selectItems[0].text + " <img src='../img/close.png'></span>");
+                mui.toast('添加成功');
+            });
+        });
+        //点击按钮添加关键词
+        $('.hy_word .btn').on('tap', function () {
+            var value = $(this).siblings('input').val();
+            if (value === '') {
+                mui.toast('关键词不能为空');
+            } else {
+                $('.hy_word').siblings('.address_m').children('.address_n').append(" <span>" + value + " <img src='../img/close.png'></span>");
+                $(this).siblings('input').val('');
+            }
+        });
+        //点击X删除
+        $('#address_n>span>i').on('tap', function (e) {
+            var _this = this;
+            mui.confirm('确认删除吗？', '删除', ['是', '否'], function (e) {
+                if (e.index === 0) {
+                    $(_this).parent().remove();
+                }
+            }, 'div');
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+body {
+    background-color: #f1f1f1;
+}
+
+.zh_topBar {
+    background-color:#d93f3f;
+}
+
+.zh_topBar a i {
+    color: #fff;
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+.zh_topBar img {
+    width: 15px;
+}
+
+.zh_topBar span {
+    color: #fff;
+    font-size: 17px;
+}
+
+/* 会员等级 选择服务 */
+
+.m_member {
+    margin-top: 45px;
+}
+
+.m_member .m_title {
+    background-color: #f1f1f1;
+    font-size: 16px;
+    height: 15px;
+}
+
+.m_member .m_content {
+    background-color: #fff;
+    border-top: 1px #fff solid;
+    height: 260px;
+}
+.m_content .c_title {
+    margin-top: 10px;
+    margin-left: 15px;
+    padding-left: 10px;
+    color: #505050;
+    font-size: 16px;
+    font-weight: 700;
+    border-left: 4px #f70000 solid;
+}
+.m_content .c_content .c_box {
+    width: 160px;
+    height: 80px;
+    margin-top: 25px;
+    margin-left: 20px;
+    border: 1px #e1e1e1 solid;
+    border-radius: 5px;
+}
+.m_content .c_content .c_box.active {
+    border-color: #f70000;
+}
+.c_box .b_box {
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(to right, #ff000f, #f70000);
+    border-radius: 5px 0 20px 0;
+}
+.c_box .b_content .grade img {
+    width: 30px;
+    margin-top: -12px;
+    margin-left: 5px;
+}
+.c_box .b_content .grade span {
+    color: #e14349;
+    font-size: 24px;
+}
+.c_box .b_content .grade span i {
+    color: #909090;
+    font-size: 13px;
+    font-weight: 700;
+}
+.m_content .title {
+    background-color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    color:#636363;
+    border-left: 4px #f70000 solid;
+    margin-top: 10px;
+    margin-left: 15px;
+    padding-left: 10px;
+}
+.m_content form,
+.m_content .word{
+    background-color: #fff;
+    margin-left: 90px;
+}
+.m_content .word {
+    margin-bottom: 50px;
+}
+/* 会员购买 */
+
+.pay {
+    text-align: center;
+    background-color: #fff;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.b_pay {
+    width: 200px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    background-color: #348aea;
+    border-radius: 18px;
+    margin-left: 25%;
+    margin-top: 150px;
+}
+
+.o_pay {
+    font-size: 16px;
+    color: #cfa56b;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* 七大权益 */
+
+.rights {
+    height: 420px;
+    margin-top: 10px;
+    background-color: #fff;
+    border-top: 1px solid #fff;
+}
+
+.rights .r_title {
+    margin-top: 10px;
+    margin-left: 15px;
+    padding-left: 10px;
+    color: #505050;
+    font-size: 16px;
+    font-weight: 700;
+    border-left: 4px #f70000 solid;
+}
+
+.rights .right {
+    margin-top: 10px;
+    margin-left: 11%;
+    text-align: center;
+}
+
+.rights .right img {
+    width: 48px;
+}
+
+.rights .right div {
+    color: #787878;
+    font-size: 15px;
+    margin: 10px 0;
+}
+
+/* 其他付费途径 */
+.o_payWay {
+    display: none;
+}
+.o_payWay .o_payTitle {
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #cfa669;
+    font-size: 16px;
+    font-weight: 700;
+}
+.o_payWay .fanhui {
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: 700;
+}
+.o_payWay form {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.o_payWay form label {
+    font-size: 16px;
+}
+.o_payWay form input {
+    border: none;
+    background-color: #f1f1f1;
+}

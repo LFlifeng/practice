@@ -1,0 +1,50 @@
+body {
+    background-color: #fff;
+}
+/* 头部 */
+.zh_topBar {
+    
+}
+.zh_topBar a {
+    color: #000;
+    font-size: 17px;
+}
+.zh_topBar a i {
+    color: #000;
+    font-size: 18px;
+    margin: 0 10px;
+}
+
+.zh_topBar span {
+    color: #000;
+    font-size: 17px;
+}
+.zh_container {
+    margin-top: 45px;
+}
+.mui-input-group:before {
+    background-color: #fff;
+}
+.mui-input-group:after {
+    background-color: #fff;
+}
+.mui-input-row label {
+    color: #505050;
+}
+.mui-input-row input {
+    color: #202020;
+}
+.zh_container .zy {
+    padding: 0 15px;
+    margin-top: 15px;
+    color: #9b9696;
+}
+.zh_container .queren {
+    padding: 10px;
+    text-align: center;
+    margin:80px 15px;
+    color: #fff;
+    font-size: 16px;
+    background-color: #f2504e;
+    border-radius: 5px;
+}

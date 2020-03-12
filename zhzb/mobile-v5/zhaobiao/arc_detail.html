@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>中汇招标----供应商列表</title>
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link href="res/mui/css/mui.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="res/mui/css/mui.picker.css">
+	<link rel="stylesheet" href="res/mui/css/mui.poppicker.css">
+	<link href="res/mui/css/iconfont.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/arc_detail.css">
+</head>
+
+<body>
+	<header class="zh_topBar clearfix">
+		<a href="javascript:history.back()" class="l"><i class="mui-icon iconfont icon-back"></i></a>
+		<span>供应商列表</span>
+	</header>
+	<div class="zh_layout">
+		<div class="tabs">
+			<ul>
+				<li id="2">
+					<span href="#" class="">产品</span>
+					<i class="fa fa-caret-down"></i>
+					<i class="fa fa-caret-up"></i>
+				</li>
+				<li id="3">
+					<span href="#">地区</span>
+					<i class="fa fa-caret-down"></i>
+					<i class="fa fa-caret-up"></i>
+				</li>
+			</ul>
+		</div>
+		<!-- 产品信息 -->
+		<div class="company">
+			<div class="c_name">
+				<span>绍兴市博创商贸有限公司</span>
+				<i>新</i>
+			</div>
+			<div class="c_address">
+				所在地区: <span>浙江</span><span>台州</span>
+			</div>
+			<div class="c_product c_address">
+				供应产品: <span>食品</span><span>膨化食品</span>
+			</div>
+			<div class="c_img">
+				<img src="./img/c2.jpg" alt="">
+				<img src="./img/c2.jpg" alt="">
+				<img src="./img/c2.jpg" alt="">
+			</div>
+		</div>
+		<div class="company">
+			<div class="c_name">
+				<span>绍兴市博创商贸有限公司</span>
+				<i>新</i>
+			</div>
+			<div class="c_address">
+				所在地区: <span>浙江</span><span>台州</span>
+			</div>
+			<div class="c_product c_address">
+				供应产品: <span>食品</span><span>膨化食品</span>
+			</div>
+			<div class="c_img">
+				<img src="./img/c2.jpg" alt="">
+				<img src="./img/c2.jpg" alt="">
+				<img src="./img/c2.jpg" alt="">
+			</div>
+		</div>
+		<div class="company">
+			<div class="c_name">
+				<span>绍兴市博创商贸有限公司</span>
+				<i>新</i>
+			</div>
+			<div class="c_address">
+				所在地区: <span>浙江</span><span>台州</span>
+			</div>
+			<div class="c_product c_address">
+				供应产品: <span>食品</span><span>膨化食品</span>
+			</div>
+			<div class="c_img">
+				<img src="./img/c2.jpg" alt="">
+				<img src="./img/c2.jpg" alt="">
+				<img src="./img/c2.jpg" alt="">
+			</div>
+		</div>
+		<!-- <div class="create"><a href="./add_arcDetail0.html">加入</a></div> -->
+	</div>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="res/mui/js/mui.min.js"></script>
+	<script src="res/mui/js/mui.picker.js"></script>
+	<script src="res/mui/js/mui.poppicker.js"></script>
+	<script src="js/data.city.js"></script>
+	<script src="js/common.js"></script>
+	<script type="text/javascript">
+		// 地区
+		$('li#3').on('tap', function () {
+			var _this = this;
+			var picker = new mui.PopPicker({
+				layer: 2
+			});
+			picker.setData(init_city_picker);
+			picker.pickers[0].setSelectedIndex(1);
+			picker.pickers[1].setSelectedIndex(1);
+			//添加所在地区
+			picker.show(function (selectItems) {
+				$(_this).children('.tabs>ul li i:nth-child(2)').css({
+					'display': 'inline'
+				});
+				$(_this).children('.tabs>ul li i:nth-child(3)').css({
+					'display': 'none'
+				});
+				$(_this).children('span,.tabs>ul li i:nth-child(3)').removeClass('active');
+			});
+
+			$('.mui-poppicker-header .mui-btn').on('tap', function () {
+				$(_this).children('.tabs>ul li i:nth-child(2)').css({
+					'display': 'inline'
+				});
+				$(_this).children('.tabs>ul li i:nth-child(3)').css({
+					'display': 'none'
+				});
+				$(_this).children('span,.tabs>ul li i:nth-child(3)').removeClass('active');
+			});
+
+			$(this).children('.tabs>ul li i:nth-child(3)').css({
+				'display': 'inline'
+			});
+			$(this).children('.tabs>ul li i:nth-child(2)').css({
+				'display': 'none'
+			});
+			$(this).children('span,.tabs>ul li i:nth-child(3)').addClass('active');
+		});
+		// 产品
+		$('li#2').on('tap', function () {
+			var _this = this;
+			var picker = new mui.PopPicker();
+			picker.setData([
+				{ value: '1', text: '默认' },
+				{ value: '2', text: '优质' },
+				{ value: '3', text: '最新' },
+			]);
+			picker.show(function (selectItems) {
+				$(_this).children('.tabs>ul li i:nth-child(2)').css({
+					'display': 'inline'
+				});
+				$(_this).children('.tabs>ul li i:nth-child(3)').css({
+					'display': 'none'
+				});
+				$(_this).children('span,.tabs>ul li i:nth-child(3)').removeClass('active');
+
+			});
+
+			$('.mui-poppicker-header .mui-btn').on('tap', function () {
+				$(_this).children('.tabs>ul li i:nth-child(2)').css({
+					'display': 'inline'
+				});
+				$(_this).children('.tabs>ul li i:nth-child(3)').css({
+					'display': 'none'
+				});
+				$(_this).children('span,.tabs>ul li i:nth-child(3)').removeClass('active');
+			});
+
+			$(this).children('.tabs>ul li i:nth-child(3)').css({
+				'display': 'inline'
+			});
+			$(this).children('.tabs>ul li i:nth-child(2)').css({
+				'display': 'none'
+			});
+			$(this).children('span,.tabs>ul li i:nth-child(3)').addClass('active');
+		});
+		mui.init()
+	</script>
+</body>
+
+</html>

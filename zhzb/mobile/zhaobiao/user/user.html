@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>中汇招标</title>
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+	<link href="../res/mui/css/mui.min.css" rel="stylesheet" />
+	<link href="../res/mui/css/iconfont.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/user.css">
+</head>
+<style>
+	.mask {
+		position: fixed;
+		top: 0;
+		background: rgba(0, 0, 0, 0.3);
+		width: 100%;
+		z-index: 2000000;
+		display: none;
+	}
+
+	.m_content {
+		width: 60%;
+		margin: 200px auto;
+		border-radius: 6px;
+		position: relative;
+	}
+
+	.m_content img {
+		width: 100%;
+		border-radius: 5px;
+	}
+
+	.m_content i {
+		position: absolute;
+		top: -40px;
+		right: -20px;
+		color: #fff;
+		font-size: 36px;
+	}
+</style>
+
+<body>
+	<header class="zh_topBar">
+		<a href="qd.html" class="r"><img src="../img/qd.png" alt=""></a>
+	</header>
+	<div class="user clearfix">
+		<img src="../img/per.jpg" class="img l" alt="">
+		<div class="user_info l">
+			<h4>张三</h4>
+			<span>
+				VIP会员
+			</span>
+		</div>
+		<a class='r' href="person_info.html"><i class="mui-icon mui-icon-arrowright"></i></a>
+	</div>
+	<div class="user clearfix" style="display:none;">
+		<img src="../img/tx.png" alt="" class="img l" style="margin-top: 21px;margin-left: 12px;">
+		<div class="user_info l">
+			<h4 style="margin-top: 20px;">未登录</h4>
+		</div>
+	</div>
+	<div class="zh_container">
+		<div class="index_menu">
+			<li>
+				<a href="member.html"><img src="../img/hyzx.png" />
+					<p>会员中心</p>
+				</a>
+			</li>
+			<li>
+				<a href="wdzh.html"><img src="../img/wdzh.png" />
+					<p>我的账户</p>
+				</a>
+			</li>
+			<li>
+				<a href="wdzding.html"><img src="../img/wdzd.png" />
+					<p>我的专盯</p>
+				</a>
+			</li>
+			<li>
+				<a href="collection.html"><img src="../img/wdsc.png" />
+					<p>我的收藏</p>
+				</a>
+			</li>
+		</div>
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell">
+				<a href="wdcg.html" class="mui-navigate-right">
+					<img src="../img/wdcg.png" alt="">
+					我的采购
+				</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a href="gzqy.html" class="mui-navigate-right">
+					<img src="../img/wgzqy.png" alt="">
+					我关注的企业
+				</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a href="collection.html" class="mui-navigate-right">
+					<img src="../img/lsjl.png" alt="">
+					历史记录
+				</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a href="cjwt.html" class="mui-navigate-right">
+					<img src="../img/cjwt.png" alt="">
+					问题与反馈
+				</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a href="agreement.html" class="mui-navigate-right">
+					<img src="../img/fwtk.png" alt="">
+					服务条款
+				</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a href="" class="mui-navigate-none">
+					<img src="../img/lxkf.png" alt="">
+					联系客服
+					<span style="float: right;color:#e14349;font-size:15px;">400-568-4568</span>
+				</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a href="javascript:;" class="mui-navigate-none" id="erweima" >
+					<img src="../img/kfwx.png" alt="">
+					客服微信
+				</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a href="./table.html"class="mui-navigate-right">
+					<img src="../img/bb.png" alt="">
+					报表
+				</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a href="about.html" class="mui-navigate-right">
+					<img src="../img/gywm.png" alt="">
+					关于我们
+				</a>
+			</li>
+		</ul>
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell">
+				<a href="javascript:;" class="l">
+					<img src="../img/sz.png" alt="">
+					推送设置 <i style="margin-left: 30px;">09:00~22:00</i>
+				</a>
+				<div class="mui-switch r">
+					<div class="mui-switch-handle"></div>
+				</div>
+			</li>
+		</ul>
+		<button type="button" class="mui-btn" style="display:block;">退出</button>
+		<button type="button" class="mui-btn" style="display:none;">去登录</button>
+	</div>
+	<div class="mask">
+		<div class="m_content">
+			<img src="../img/erweimakfu.jpg" alt="">
+			<i class="mui-icon mui-icon-closeempty"></i>
+		</div>
+	</div>
+	<!-- 底部工具栏 -->
+	<footer class="zh_tabs">
+		<a href="../index.html" class="tab_home mui-icon iconfont icon-home"><span>搜索</span></a>
+		<!-- <a href="../classify.html" class="tab_classify fa fa-th-large"><span>分类</span></a> -->
+		<a href="../trackerList.html" class="tab_bookmark mui-icon iconfont icon-rss"><span>订阅</span></a>
+		<a href="user.html" class="tab_user mui-icon iconfont icon-me now"><span class="now">我的</span></a>
+	</footer>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../res/mui/js/mui.min.js"></script>
+	<script type="text/javascript">
+		var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+		$('.mask').css({
+			'height': h + 'px'
+		});
+		$('#erweima').on('click', function () {
+			$('.mask').show();
+		});
+		$('.mask .m_content>i').on('click', function () {
+			$('.mask').hide();
+		})
+	</script>
+</body>
+
+</html>

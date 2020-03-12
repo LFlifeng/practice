@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link href="../res/mui/css/mui.min.css" rel="stylesheet" />
+    <link href="../res/mui/css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/cjwt.css">
+</head>
+
+<body>
+    <header class="zh_topBar clearfix">
+        <a href="javascript:history.back()" class="l"><i class="mui-icon iconfont icon-back"></i></a>
+        <span>问题与反馈</span>
+    </header>
+    <div class="zh_container">
+        <div class="tabs">
+            <ul>
+                <li class="tab" id="1">
+                    <span class="active">常见问题</span>
+                </li>
+                <li class="tab" id="2">
+                    <span class="">建议与反馈</span>
+                </li>
+            </ul>
+        </div>
+        <div class="ul">
+            <ul class="mui-table-view li active">
+                <li class="mui-table-view-cell mui-collapse">
+                    <a class="mui-navigate-right" href="javascript:;">
+                        <span class="num">01</span>
+                        <span class="content">如何订阅产品</span>
+                    </a>
+                    <div class="mui-collapse-content">
+                        <p>进入我的————开通会员————选择会员类别————支付</p>
+                    </div>
+                </li>
+                <li class="mui-table-view-cell mui-collapse">
+                    <a class="mui-navigate-right" href="javascript:;">
+                        <span class="num">02</span>
+                        <span class="content">如何申请发票</span>
+                    </a>
+                    <div class="mui-collapse-content">
+                        <p>面板1子内容</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="li ">
+                <div class="title clearfix">
+                    <p class="l"><i></i>请填写问题或建议<span>(必填)</span></p>
+                    <span class="r"><i>0</i>/<i>200</i></span>
+                </div>
+                <textarea name="" id="content" cols="30" rows="3" placeholder="请填写尽量详细的问题描述，以便我们为您提供更好的帮助"></textarea>
+                <div class="title">
+                    <p><i></i>联系电话<span>(必填)</span></p>
+                </div>
+                <input type="tel" placeholder="填写您的手机号，方便我们与您联系">
+                <div class="title">
+                    <p><i></i>图片<span>(选填，仅能上传一张图片)</span></p>
+                </div>
+                <div class="container">
+                    <!--    照片添加    -->
+                    <div class="z_photo">
+                        <div class="z_file">
+                            <input type="file" name="file" id="file" value="" accept="image/*" multiple onchange="imgChange('z_photo')";/>
+                        </div>
+                    </div>
+                    <!--遮罩层-->
+                    <div class="z_mask">
+                        <!--弹出框-->
+                        <div class="z_alert">
+                            <p>确定要删除这张图片吗？</p>
+                            <p>
+                                <span class="z_cancel">取消</span>
+                                <span class="z_sure">确定</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ts">您也可以在微信公众号后台直接留言，将有客服为您解答问题，工作时间时间：9:00-18:00</div>
+                <div class="btn"><button>提交</button></div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../res/mui/js/mui.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript">
+        var tabs = $('.tabs>ul li.tab');
+        var keys = $('.ul .li');
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].index = i;
+            $(tabs[i]).on('tap', function () {
+                $(this).children('span').addClass('active');
+                $(this).siblings().children('span').removeClass('active');
+                for (var j = 0; j < tabs.length; j++) {
+                    var num = this.index;
+                    $(keys[num]).addClass('active');
+                    $(keys[num]).siblings().removeClass('active');
+                }
+            });
+        }
+        $('#content').bind('input propertychange', function () {
+            var fizeNum = $(this).val().length;
+            if (fizeNum > 200) {
+                var char = $(this).val();
+                char = char.substr(0, 200);
+                $(this).val(char);
+                fizeNum = 200;
+                mui.toast('消息内容不能超过200字');
+            }
+            $('.ul .li:last-child .title:first-child span i:first-child').text(fizeNum);
+        });
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    if (clientWidth >= 640) {
+                        docEl.style.fontSize = '100px';
+                    } else {
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    }
+                };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+        $('input[type=file]').on('click', function () {
+            if ($('.z_addImg').length > 0) {
+                $(this).attr('readOnly','readOnly');
+                $(this).unbind('change').attr('onchange','');
+                mui.toast('仅能上传一张图片')
+            }
+        })
+        function imgChange(obj1) {
+            //获取点击的文本框
+            var file = document.getElementById("file");
+            //存放图片的父级元素
+            var imgContainer = document.getElementsByClassName(obj1)[0];
+            //获取的图片文件
+            var fileList = file.files;
+            //文本框的父级元素
+            // var input = document.getElementsByClassName(obj2)[0];
+            var imgArr = [];
+            //遍历获取到得图片文件
+            for (var i = 0; i < fileList.length; i++) {
+                var imgUrl = window.URL.createObjectURL(fileList[0]);
+                imgArr.push(imgUrl);
+                var img = document.createElement("img");
+                img.setAttribute("src", imgArr[0]);
+                var imgAdd = document.createElement("div");
+                imgAdd.setAttribute("class", "z_addImg");
+                imgAdd.appendChild(img);
+                imgContainer.appendChild(imgAdd);
+            };
+            imgRemove();
+        };
+
+        function imgRemove() {
+            var imgList = document.getElementsByClassName("z_addImg");
+            var mask = document.getElementsByClassName("z_mask")[0];
+            var cancel = document.getElementsByClassName("z_cancel")[0];
+            var sure = document.getElementsByClassName("z_sure")[0];
+            for (var j = 0; j < imgList.length; j++) {
+                imgList[j].index = j;
+                imgList[j].onclick = function () {
+                    var t = this;
+                    mask.style.display = "block";
+                    cancel.onclick = function () {
+                        mask.style.display = "none";
+                    };
+                    sure.onclick = function () {
+                        mask.style.display = "none";
+                        t.remove();
+                    };
+
+                }
+            };
+        };
+    </script>
+</body>
+
+</html>

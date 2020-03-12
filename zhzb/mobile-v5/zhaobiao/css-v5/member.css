@@ -1,0 +1,241 @@
+.zh_topBar {
+    background-color: #fff;
+}
+
+.zh_topBar a {
+    color: #000;
+    font-size: 17px;
+}
+
+.zh_topBar a i {
+    color: #000;
+    font-size: 18px !important;
+}
+
+.zh_topBar span {
+    color: #000;
+    font-size: 17px;
+}
+
+.zh_content {
+    margin-top: 45px;
+    padding: 10px;
+}
+
+.m_member {
+    display: flex;
+    text-align: center;
+}
+
+.m_member .m_title {
+    width: 50%;
+}
+
+.m_member .m_title span {
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    color: #505050;
+    font-size: 16px;
+}
+
+.m_member .m_title span.active {
+    color: #df635c;
+    border-bottom: 3px solid #df635c;
+}
+
+.members {
+    margin-top: 10px;
+}
+
+.member .member_info {
+    width: 100%;
+    height: 165px;
+    border-radius: 10px;
+    background: url(../img/grhykbg.png) no-repeat;
+    background-size: cover;
+}
+
+.user .img {
+    width: 50px;
+    border-radius: 30px;
+    margin-top: 21px;
+    margin-left: 12px;
+}
+
+.user .user_info {
+    margin-top: 24px;
+    margin-left: 17px;
+}
+
+.user .user_info h4 {
+    color: #202020;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.user .user_info span {
+    display: inline-block;
+    padding: 0 10px;
+    height: 20px;
+    text-align: center;
+    line-height: 19px;
+    border-radius: 15px;
+    border: 1px solid #a59753;
+    color: #a59753;
+    font-size: 15px;
+}
+
+.user .user_info span img {
+    width: 20px;
+}
+
+.user .jiantou {
+    margin-top: 30px;
+    margin-right: 10px;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    color: #eadda4;
+    background-color: #d5914b;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 30px;
+}
+
+.user_code {
+    padding: 15px;
+    margin-top: 45px;
+}
+
+.user_code .code {
+    color: #7c5825;
+}
+
+.member_qy {
+    margin-top: 2px;
+}
+
+.member_qy .qy_title {
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+}
+
+.member_qy .qy_classes {
+    display: flex;
+}
+
+.member_qy .qy_classes .qy_class {
+    display: inline-block;
+    width: 25%;
+    padding: 10px 2px;
+    text-align: center;
+}
+
+.qy_class img {
+    width: 24px;
+}
+
+.qy_class div {
+    color: #505050;
+    margin-top: 10px;
+}
+
+.member .queren {
+    width: 50%;
+    height: 41px;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    font-size: 16px;
+    background-color: #e23229;
+    border-radius: 25px;
+    margin: auto;
+}
+
+.member .member_info.qy_member {
+    background: url(../img/qyhykbg.png);
+    background-size: cover;
+}
+
+.member_info.qy_member .user .user_info h4 {
+    color: #eae3ae;
+}
+
+.member_info.qy_member .user .user_info span {
+    border: 1px solid #eae3ae;
+    color: #eae3ae;
+}
+
+.member_info.qy_member .user .jiantou {
+    color: #505050;
+    background-color: #eae3ae;
+}
+
+.member_info.qy_member .user_code .code {
+    color: #eae3ae;
+}
+
+.members .member {
+    display: none;
+}
+
+.members .member.active {
+    display: block;
+}
+
+.user_area_title {
+    margin-top: 6px;
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+    height: 40px;
+    line-height: 40px;
+    text-align: lefts;
+}
+.user_area_title>i {
+    display: inline-block;
+    height: 20px;
+    width: 4px;
+    background-color: #e23229;
+    margin-top: -3px;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+.user_area_content {
+    height: auto;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+.user_area_list {
+    font-size: 16px;
+    line-height: 24px;
+    padding: 10px 12px;
+    height: 68px;
+    border: 1px solid #dadada;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    color: #969696;
+    box-shadow: 0 3px 5px #d1d1d1;
+}
+
+.us_content {
+    display: flex;
+    justify-content: space-between;
+}
+.qy_title>i {
+    display: inline-block;
+    height: 20px;
+    width: 4px;
+    background-color: #e23229;
+    margin-top: -3px;
+    vertical-align: middle;
+    border-radius: 2px;
+}

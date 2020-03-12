@@ -1,0 +1,157 @@
+/* 头部 */
+
+.zh_topBar {
+    background-color: #fff;
+}
+
+.zh_topBar a {
+    color: #000;
+    font-size: 18px;
+}
+
+.zh_topBar a i {
+    color: #000;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.zh_topBar span {
+    color: #000;
+    font-size: 17px;
+}
+
+.zh_container {
+    margin-top: 50px;
+}
+
+.flex_content {
+    display: flex;
+    position: relative;
+    margin: 0 10px;
+}
+
+.flex_content .search_icon {
+    background-color: #f2504e;
+    width: 20%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 0 20px 20px 0;
+}
+
+.flex_content .search_icon img {
+    width: 20px;
+}
+
+.flex_content .search_input {
+    width: 80%;
+    font-size: 16px;
+    border: 1px solid#f2504e;
+    outline: none;
+    border-radius: 20px 0 0 20px;
+    padding-left: 30px;
+    margin-bottom: 0;
+}
+
+/* 选项卡 */
+
+.tabs {
+    background-color: #fff;
+    text-align: center;
+}
+
+.tabs>ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    line-height: 40px;
+}
+
+.tabs>ul li {
+    width: 50%;
+}
+
+.tabs>ul li span {
+    font-size: 15px;
+    color: #646464;
+}
+
+.tabs>ul li i:nth-child(3) {
+    display: none;
+}
+
+.tabs>ul li span.active, .tabs>ul li i.active {
+    color: #f12727;
+}
+
+.tabs>ul li i:nth-child(2) {
+    display: inline;
+}
+.mui-content {
+    margin: 0 10px;
+}
+/* 发布按钮 */
+
+.create {
+    position: fixed;
+    z-index: 100;
+    bottom: 100px;
+    right: 40px;
+    width: 62px;
+    height: 62px;
+    line-height: 62px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #f2504e;
+    box-shadow: 1px 2px 8px #c0c0c0;
+}
+
+.create a {
+    color: #fff;
+    font-size: 16px;
+}
+
+/* 采购信息 */
+
+.cg_info {
+    background-color: #f1f1fb;
+    margin-top: 20px;
+}
+.cg_info>div {
+    position: relative;
+    padding-top: 8px;
+    background-color: #fff;
+    margin-top: 10px;
+}
+.cg_info>div>img {
+     width: 72px;
+    height: 24px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.info {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.info .info_title {
+    font-size: 16px;
+    color: #202020;
+    font-weight: 600;
+}
+
+.info .info_one {
+    margin-top: 10px;
+}
+
+.info_one .info_pro {
+    font-size: 14px;
+    color: #828282;
+}
+
+.mui-backdrop {
+    z-index: 998;
+    display: block;
+}

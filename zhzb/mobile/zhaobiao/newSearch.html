@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>中汇招标----搜索</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+    <link href="res/mui/css/mui.min.css" rel="stylesheet" />
+    <link href="res/mui/css/iconfont.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/newSearch.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <header class="zh_topBar clearfix">
+        <a href="javascript:history.back()" class="l"><i class="mui-icon iconfont icon-back"></i></a>
+        <span>搜索</span>
+    </header>
+    <div class="zh_container">
+        <div class="flex_content">
+            <input type="text" class="search_input" placeholder="请输入项目名称、行业分类">
+            <div class="search_icon" onclick="window.open('./newSearch.html','_self')"><img src="./img/ssicon.png"
+                    alt=""></div>
+        </div>
+        <div class="tabs">
+            <ul>
+                <li class="tab" id="1">
+                    <span>地区</span>
+                    <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-caret-up"></i>
+                </li>
+                <li class="tab" id="2">
+                    <span>时间</span>
+                    <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-caret-up"></i>
+                </li>
+                <li class="tab" id="3">
+                    <span>类型</span>
+                    <i class="fa fa-caret-down"></i>
+                    <i class="fa fa-caret-up"></i>
+                </li>
+            </ul>
+        </div>
+        <div class="ul">
+            <div class="li address" id="address">
+                <div class="province clearfix">
+                    <ul class="pro_name l">
+                        <li v-for='item in address'>{{item.text}}</li>
+                    </ul>
+                    <ul class="city_name l" v-for='item in address'>
+                        <li v-for="item1 in item.children" class="mui-input-row mui-checkbox mui-left"><input
+                                type="checkbox"><span>{{item1.text}}</span></li>
+                    </ul>
+                </div>
+                <div class="queding">确定</div>
+            </div>
+            <div class="li keys">
+                <div class="key_name_info">
+                    <span>近一个周</span>
+                    <span class="active">近一个月</span>
+                    <span>近三个月</span>
+                </div>
+                <div class="queding">确定</div>
+            </div>
+            <div class="li keys">
+                <div class="key_name_info">
+                    <span>招标公告</span>
+                    <span class="active">预审公告</span>
+                    <span>变更公告</span>
+                    <span>中标公告</span>
+                    <span>政府招标</span>
+                    <span>企业招标</span>
+                    <span>采购公告</span>
+                    <span>中标采购</span>
+                    <span>企业采购</span>
+                    <span>合同采购</span>
+                    <span>政府采购</span>
+                    <span>废标/流标公告</span>
+                    <span>结果公告</span>
+                    <span>合同公告</span>
+                    <span>延期公告</span>
+                    <span>终止公告</span>
+                    <span>其他公告</span>
+                </div>
+                <div class="queding">确定</div>
+            </div>
+        </div>
+        <div class="mui-content">
+            <div class="mui-slider">
+                <div class="mui-slider-group mui-slider-loop">
+                    <!--支持循环，需要重复图片节点-->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                    </div>
+                    <div class="mui-slider-item">
+                        <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                    </div>
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                    </div>
+                    <div class="mui-slider-item">
+                        <a href="user/pt_member.html"><img src="img/banner001.jpg" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 相关信息 -->
+        <!-- <div class="info_titl">
+            找到相关信息<span>56266</span>条
+        </div> -->
+        <div class="info">
+            <div class="wxx">
+                <div style="margin:80px 33%; margin-bottom: 10px;">
+                    <img src="./img/qsy1.jpg" alt="" style="width: 120px;">
+                </div>
+                <div class="wxx_text" style="text-align: center; margin: 0 10px;">很抱歉，您搜索的条件" <span style="color:#f64b4b ;">北京</span> "" <span style="color:#f64b4b ;">绿化招标公告</span> "近三个月没有找到，您可更换时间或关键词搜索。</div>
+            </div>
+            <ul class="mui-table-view" style="display:none">
+                <li class="mui-table-view-cell mui-media">
+                    <a href="javascript:;">
+                        <div class="mui-media-body">
+                            <span><i></i>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告</span>
+                            <div class="item_flex">
+                                <div class="flex"><img src="./img/wz.png" alt=""><span>北京</span></div>
+                                <div class="flex"><img src="./img/fl.png" alt=""><span>招标信息</span></div>
+                                <div class="flex"><img src="./img/sj.png" alt=""><span>2018-05-12</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media">
+                    <a href="javascript:;">
+                        <div class="mui-media-body">
+                            <span><i></i>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告</span>
+                            <div class="item_flex">
+                                <div class="flex"><img src="./img/wz.png" alt=""><span>北京</span></div>
+                                <div class="flex"><img src="./img/fl.png" alt=""><span>招标信息</span></div>
+                                <div class="flex"><img src="./img/sj.png" alt=""><span>2018-05-12</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media">
+                    <a href="javascript:;">
+                        <div class="mui-media-body">
+                            <span><i></i>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告</span>
+                            <div class="item_flex">
+                                <div class="flex"><img src="./img/wz.png" alt=""><span>北京</span></div>
+                                <div class="flex"><img src="./img/fl.png" alt=""><span>招标信息</span></div>
+                                <div class="flex"><img src="./img/sj.png" alt=""><span>2018-05-12</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media">
+                    <a href="javascript:;">
+                        <div class="mui-media-body">
+                            <span><i></i>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告</span>
+                            <div class="item_flex">
+                                <div class="flex"><img src="./img/wz.png" alt=""><span>北京</span></div>
+                                <div class="flex"><img src="./img/fl.png" alt=""><span>招标信息</span></div>
+                                <div class="flex"><img src="./img/sj.png" alt=""><span>2018-05-12</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media">
+                    <a href="javascript:;">
+                        <div class="mui-media-body">
+                            <span><i></i>伍家岗区园林绿化建设管护中心2020-2023年度花卉采购及栽植管养项目招标公告</span>
+                            <div class="item_flex">
+                                <div class="flex"><img src="./img/wz.png" alt=""><span>北京</span></div>
+                                <div class="flex"><img src="./img/fl.png" alt=""><span>招标信息</span></div>
+                                <div class="flex"><img src="./img/sj.png" alt=""><span>2018-05-12</span></div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="res/mui/js/mui.min.js"></script>
+    <script src="js/data.city.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: "#address",
+            data() {
+                return {
+                    address: [],
+                }
+            },
+            created() {
+                this.showAddress()
+            },
+            methods: {
+                showAddress() {
+                    this.address = init_city_picker;
+                }
+            }
+        });
+        var tabs = $('.tabs>ul li.tab');
+        var keys = $('.ul .li');
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].index = i;
+            $(tabs[i]).on('tap', function () {
+                $('.ul').css({
+                    'z-index': '100000',
+                    'background': 'rgba(0, 0, 0, 0.3)'
+                })
+                $(this).children('i:nth-child(3)').css({
+                    'display': 'inline'
+                });
+                $(this).children('i:nth-child(2)').css({
+                    'display': 'none'
+                });
+                $(this).children('span,i:nth-child(3)').addClass('active');
+                for (var j = 0; j < tabs.length; j++) {
+                    var num = this.index;
+                    $(keys[num]).addClass('active');
+                    $(keys[num]).siblings().removeClass('active');
+                    //点击确定按钮关闭弹出层
+                    $('.queding').on('tap', function () {
+                        $('.ul').css({
+                            'z-index': '0 !important',
+                            'background': 'rgba(0, 0, 0, 0)'
+                        });
+                        $(keys[num]).removeClass('active');
+                        $('.tabs>ul li').children('i:nth-child(2)').css({
+                            'display': 'inline'
+                        });
+                        $('.tabs>ul li').children(' i:nth-child(3)').css({
+                            'display': 'none'
+                        });
+                        $('.tabs>ul li').children('span,i:nth-child(3)').removeClass('active');
+                    });
+                }
+                $(this).siblings().children('i:nth-child(2)').css({
+                    'display': 'inline'
+                });
+                $(this).siblings().children(' i:nth-child(3)').css({
+                    'display': 'none'
+                });
+                $(this).siblings().children('span,i:nth-child(3)').removeClass('active');
+            });
+        }
+
+        //省市区
+        var province = $('.address .province .pro_name li');
+        var city = $('.address .province .city_name');
+        for (var i = 0; i < province.length; i++) {
+            province[i].index = i;
+            $(province).on('tap', function () {
+                $(this).addClass('active');
+                $(this).siblings().removeClass('active');
+                for (var j = 0; j < province.length; j++) {
+                    var num = this.index;
+                    $(city[num]).addClass('active');
+                    $(city[num]).siblings().removeClass('active');
+                    //点击确定按钮关闭弹出层
+                    $('.queding').on('tap', function () {
+                        $('.ul').css({
+                            'z-index': '0 !important',
+                            'background': 'rgba(0, 0, 0, 0)'
+                        });
+                        $('.tabs>ul li').children('i:nth-child(2)').css({
+                            'display': 'inline'
+                        });
+                        $('.tabs>ul li').children(' i:nth-child(3)').css({
+                            'display': 'none'
+                        });
+                        $('.tabs>ul li').children('span,i:nth-child(3)').removeClass('active');
+                    });
+                }
+            })
+        }
+        //获得slider插件对象
+        var gallery = mui('.mui-slider');
+        gallery.slider({
+            interval: 5000//自动轮播周期，若为0则不自动播放，默认为0；
+        });
+    </script>
+</body>
+
+</html>
