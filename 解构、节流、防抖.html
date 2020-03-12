@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解构、节流、防抖</title>
+</head>
+
+<body>
+    <script>
+        //无解构赋值情况
+        // let arr = [0,1,2];
+        // let a = arr[0];
+        //数组解构赋值
+        let arr = [0, 1, 2];
+        let [a, b, c] = arr;
+        //对象解构赋值
+        // let {name,age} = {name: 'swr',age:28};
+        // console.log(name);
+        // console.log(age);
+        // let {name:Name,age} = {name: 'swr',age:28};
+        let name, aeg;
+        ({ name, age } = { name: 'swr', age: 22 })
+        console.log(name);
+        console.log(age);
+        // 节流函数
+        // 应用场景（让函数有规律的进行调用，比如游戏中发射子弹的频率、滚动事件）
+        /**
+        * @param {function} fun 调用函数
+        * @param {number} delay 延迟调用时间
+        * @param {array} args 剩余参数
+        */
+        const throttle = (fun, delay, ...args) => {
+            let last = null;
+            return (...rest) => {
+                const now = + new Date();
+                let _args = [...args, ...rest];
+                if (now - last > delay) {
+                    fun.apply(null, args);
+                    last = now;
+                }
+            }
+        }
+        // 测试节流函数
+        var obj = { a: 1 };
+        var num = 0;
+        //实例
+        var throttleExample = throttle(function (...rest) {
+            console.log(rest, this.a);
+            num++;
+        }.bind(obj), 1000);
+        throttleExample(num);
+        throttleExample(num);
+        throttleExample(num);
+
+        //防抖函数
+        //应用场景（输入框输入事件、window.resize事件[窗口大小调整事件]、滚动事件）
+        /**
+        * @param {function} fun 调用函数
+        * @param {number} delay 延迟调用时间
+        * @param {array} args 剩余参数
+        */
+        const debouce = (fun, delay, ...args) => {
+            let timer = null;
+            return (...rest) => {
+                clearTimeout(timer);
+                timer = setTimeout(() => {
+                    fun.apply(null, [...args, ...rest]);
+                }, delay);
+            }
+        }
+        //测试防抖函数
+        var obj1 = { a: 1 };
+        var num1 = 0;
+        //实例
+        var debouceExample = debouce(function(...rest){
+            console.log(rest,this.a);
+            num1++;
+        }.bind(obj),1000);
+        debouceExample(num1);
+        debouceExample(num1);
+        debouceExample(num1);
+    </script>
+</body>
+
+</html>
