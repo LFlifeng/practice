@@ -299,12 +299,68 @@
             var construct = Array.prototype.shift.call(arguments);
             res.__proto__ = construct.prototype;
             //使用apply执行构造函数，将构造函数的属性挂载在res上面
-            var conRes = construct.apply(res,arguments);
+            var conRes = construct.apply(res, arguments);
             //判断返回类型
             return conRes instanceof Object ? conRes : res;
         }
-        //模拟实现call，apply
+        //模拟实现call，apply; call()方法接受的是参数列表，apply()方法接受的参数是一个参数数组
+        function foo2(b = 0) {
+            console.log(this.a + b);
+        }
+        const obj4 = {
+            a: 1,
+            foo: foo4
+        }
+        const obj5 = {
+            a: 2,
+            foo: foo4
+        }
+        // 第一版call方法 解决this问题
+        Function.prototype.call1 = function (context) {
+            context = context || {};
+            context[this.name] = this; //this.name是函数声明的名称
+            context[this.name]();
+            delete context[tis.name];
+        }
+        //解决传参问题
+        Function.prototype.call2 = function (context) {
+            context = context || {};
+            var params = [];
+            for (var i = 1; i < arguments.length; i++) {
+                params[i - 1] = arguments[i];
+            }
+            context.func = this;
+            context.func(); //es6方法扩展运算符   context.func(...parmas)
+            delete context.func;
+        }
+        // 检测第一版
+        foo4.call2(obj4, 1); //2
+        f004.call2(obj4, 2); //4
 
+        //第二版 call方法 eval()方法把参数拼接成字符串
+        Function.prototype.call3 = function (context) {
+            context = context || {};
+            var parmas = [];
+            for (var i = 1; i < arguments.length; i++) {
+                parmas[i - 1] = arguments[i];
+            }
+            //注意，此处的this是指的被调用的函数
+            context.func = this;
+            eval('context.func(' + parmas.join(',') + ')');
+            delete context.func;
+        }
+        //第三版 接受null或undefined为参数的时候将this指向window，
+        Function.prototype.call3 = function (context) {
+            context = context || window;
+            var parmas = [];
+            for (var i = 1; i < arguments.length; i++) {
+                parmas[i - 1] = arguments[i];
+            }
+            //注意，此处的this是指的被调用的函数
+            context.func = this;
+            eval('context.func(' + parmas.join(',') + ')');
+            delete context.func;
+        }
     </script>
 </body>
 
