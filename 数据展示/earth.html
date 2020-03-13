@@ -257,7 +257,6 @@
         barData = barData.sort(function (a, b) {
             return b.value - a.value;
         });
-
         option = {
             backgroundColor: '#00013a',
             title: [{
@@ -578,7 +577,6 @@
         if (option && typeof option === "object") {
             myChart.setOption(option, true);
         }
-
         function getAddress(num, type) {
             var addstr = '';
             switch (type) {
@@ -594,7 +592,6 @@
             }
             return addstr;
         }
-
         var pro;
         var c_index = 0;
         var item;
@@ -635,7 +632,7 @@
             timer = setInterval(function () {
                 var index = (c_index + 1) % json[pro].l.length;
                 c_index = index;
-                showClassify()
+                showClassify();
             }, 2000);
         }
         // 展示省市数据
@@ -683,9 +680,8 @@
             }
             $($(".city .ul1>div")[c_index]).css({
                 "background-color": "rgba(233,63,66,.9)"
-            })
+            });
             item = $($(".city .ul1>div")[c_index]);
-
         }
         //点击省份显示市级的各项数据
         myChart.on('click', function (params) {
@@ -709,8 +705,7 @@
                             init();
                             inited = true;
                         }
-                    }
-                    else {
+                    } else {
                         data = eval('(' + msg.data.substring(5) + ')');
                         for (var i = 0; i < data.length; i++) {
                             var name = data[i].province;
@@ -762,7 +757,7 @@
                             value: valarr
                         }];
                         myChart.setOption(option, true);
-                        showData(obj.province)
+                        showData(obj.province);
                         c_index = 0;
                         showClassify();
                     }
