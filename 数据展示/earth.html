@@ -765,7 +765,7 @@
                 a.onclose = function () {
                     // // 关闭 websocket
                     clearTimeout(_time);
-                    _time = setTimeout(function () {
+                    var _time = setTimeout(function () {
                         WebSocketTest();
                     }, 2000);
                 };
