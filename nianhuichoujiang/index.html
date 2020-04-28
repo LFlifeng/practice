@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="screen-orientation" content="portrait">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    <title>年会抽奖小程序</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/wall.css">
+    <link rel="stylesheet" href="css/base.css">
+</head>
+
+<body>
+    <div id="main" class="wall"></div>
+    <div id="result" class="result"></div>
+    <div id="tools" class="tools">
+        <button v-on="click: onClick($value)" class="pure-button" v-class="button-error: selectName == $value"
+            v-repeat="btns">{{$value}}</button>
+        <button class="pure-button" v-on="click: toggle" v-class="
+                button-secondary: !running,
+                button-success: running
+            ">{{running?'停!':'开始'}}</button>
+        <button class="pure-button button-warning" v-on="click: reset">重置</button>
+    </div>
+    <div class="jiangchi">
+        <div class="jiang te">
+            <span>特等奖</span>
+            <div class="img"></div>
+        </div>
+        <div class="jiang one">
+            <span>一等奖</span>
+            <div class="img"></div>
+        </div>
+        <div class="jiang two">
+            <span>二等奖</span>
+            <div class="img"></div>
+        </div>
+        <div class="jiang three">
+            <span>三等奖</span>
+            <div class="img"></div>
+        </div>
+        <div class="jiang four">
+            <span>幸运奖</span>
+            <div class="img"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/zepto.js"></script>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript" src="js/tagcanvas.js"></script>
+    <script type="text/javascript" src="js/member.js"></script>
+    <script type="text/javascript">
+        (function () {
+            var choosed = JSON.parse(localStorage.getItem('choosed')) || {};
+            var speed = function () {
+                return [0.1 * Math.random() + 0.01, -(0.1 * Math.random() + 0.01)];
+            };
+            var getKey = function (item) {
+                return item.name;
+            };
+            var createHTML = function () {
+                // debugger;
+                var html = ['<ul>'];
+                member.forEach(function (item, index) {
+                    item.index = index;
+                    var key = getKey(item);
+                    var color = choosed[key] ? 'yellow' : 'white';
+                    html.push('<li><a href="#" style="color: ' + color + ';">' + '<img width="60px" height="60px" src="' + item.path + '" /> + </a></li>');
+                });
+                html.push('</ul>');
+                return html.join('');
+            };
+            var j_name = '';
+            var lottery = function (count) {
+                var list = canvas.getElementsByTagName('a');
+                var color = 'yellow';
+                // debugger;
+                var ret = member
+                    .filter(function (m, index) {
+                        m.index = index;
+                        // 固定获奖的人
+                        //if(m.count != count)
+                        //{
+                        //	return;
+                        //}
+                        return !choosed[getKey(m)];
+                    })
+                    .map(function (m) {
+                        return Object.assign({
+                            score: Math.random()
+                        }, m);
+                    })
+                    .sort(function (a, b) {
+                        return a.score - b.score;
+                    })
+                    .slice(0, count)
+                    .map(function (m) {
+                        // console.log(m)
+                        // console.log(getKey(m))
+                        // console.log(member[m.index].name===(m.name))
+                        // if (member[m.index].name === m.name) {
+                        //     var zj = [];
+                        //     zj.push(member[m.index])
+                        //     console.log(zj)
+                        //     // var member1 = member.splice(m.index, 1);
+                        //     // member1.push(member1)
+                        //     // console.log(member1)
+                        //     // member = member;
+                        //     // console.log(member)
+                        // }
+                        choosed[getKey(m)] = 1;
+                        list[m.index].style.color = color;
+                        return '<p>' + m.name + '</p>' + '<img width="120px" height="120px" src="' + m.path + '" />';
+                    });
+                localStorage.setItem('choosed', JSON.stringify(choosed));
+                return ret;
+            };
+            var canvas = document.createElement('canvas');
+            canvas.id = 'myCanvas';
+            canvas.width = document.body.offsetWidth;
+            canvas.height = document.body.offsetHeight;
+            document.getElementById('main').appendChild(canvas);
+            var tools = new Vue({
+                el: '#tools',
+                data: {
+                    selected: 0,
+                    selectName: '',
+                    running: false,
+                    btns: [
+                        '幸运奖', '三等奖', '二等奖', '一等奖', '特等奖'
+                    ],
+                    btns_name: [],
+                    j_ret: [],
+                },
+                ready() {
+                    canvas.innerHTML = createHTML();
+                    TagCanvas.Start('myCanvas', '', {
+                        textColour: null,
+                        initial: speed(),
+                        dragControl: 1,
+                        textHeight: 14
+                    });
+                },
+                created(){
+                    // $('.four .img').html('<span>' + this.j_ret.join('</span><span>') + '</span>');
+                },
+                methods: {
+                    reset() {
+                        if (confirm('确定要重置么？所有之前的抽奖历史将被清除！')) {
+                            localStorage.clear();
+                            location.reload(true);
+                        }
+                    },
+                    onClick(num) {
+                        $('#result').css('display', 'none');
+                        $('#main').removeClass('mask');
+                        if (num == '特等奖') {
+                            j_name = '特等奖';
+                            this.selected = 1;
+                            this.selectName = '特等奖';
+                        } else if (num == '一等奖') {
+                            j_name = '一等奖';
+                            this.selected = 2;
+                            this.selectName = '一等奖';
+                        } else if (num == '二等奖') {
+                            j_name = '二等奖';
+                            this.selected = 3;
+                            this.selectName = '二等奖';
+                        } else if (num == '三等奖') {
+                            j_name = '三等奖';
+                            this.selected = 5;
+                            this.selectName = '三等奖';
+                        } else if (num == '幸运奖') {
+                            j_name = '幸运奖';
+                            this.selected = 10;
+                            this.selectName = '幸运奖';
+                        }
+                    },
+                    toggle() {
+                        if (this.running) {
+                            var total = 21;//奖项个数
+                            TagCanvas.SetSpeed('myCanvas', speed());
+                            var ret = lottery(this.selected);
+                            this.j_ret = ret;
+                            // if (ret.length === 0) {
+                            //     $('#result').css('display', 'block').html('<span>已抽完</span>');
+                            //     return;
+                            // }
+                            // 判断抽奖结束
+                            if ($('.jiang .img>span>img').length  == total) {
+                                $('#result').css('display', 'block').html('<span>全部奖项均已抽完</span>');
+                                return;
+                            } else if ($('.te .img>span>img').length  == 1) {
+                                $('#result').css('display', 'block').html('<span>特等奖已抽完</span>');
+                                return;
+                            } else if ($('.one .img>span>img').length  == 2) {
+                                $('#result').css('display', 'block').html('<span>一等奖已抽完</span>');
+                                return;
+                            } else if ($('.two .img>span>img').length  == 3) {
+                                $('#result').css('display', 'block').html('<span>二等奖已抽完</span>');
+                                return;
+                            } else if ($('.three .img>span>img').length  == 5) {
+                                $('#result').css('display', 'block').html('<span>三等奖已抽完</span>');
+                                return;
+                            } else if ($('.four .img>span>img').length  == 10) {
+                                $('#result').css('display', 'block').html('<span>幸运奖已抽完</span>');
+                                return;
+                            } else if (this.selected  == 0) {
+                                $('#result').css('display', 'block').html('<span>请选择奖项</span>');
+                                return;
+                            }
+                            $('#result').css('display', 'block').html('<span>' + ret.join('</span><span>') + '</span>');
+                            if (j_name == '特等奖') {
+                                $('.te .img').html('<span>' + ret.join('</span><span>') + '</span>');
+                            } else if (j_name == '一等奖') {
+                                $('.one .img').html('<span>' + ret.join('</span><span>') + '</span>');
+                            } else if (j_name == '二等奖') {
+                                $('.two .img').html('<span>' + ret.join('</span><span>') + '</span>');
+                            } else if (j_name == '三等奖') {
+                                $('.three .img').html('<span>' + ret.join('</span><span>') + '</span>');
+                            } else if (j_name == '幸运奖') {
+                                $('.four .img').html('<span>' + ret.join('</span><span>') + '</span>');
+                            }
+                            TagCanvas.Reload('myCanvas');
+                            setTimeout(function () {
+                                localStorage.setItem(new Date().toString(), JSON.stringify(ret));
+                                $('#main').addClass('mask');
+                            }, 30);
+                        } else {
+                            $('#result').css('display', 'none');
+                            $('#main').removeClass('mask');
+                            TagCanvas.SetSpeed('myCanvas', [5, 1]);
+                        }
+                        this.running = !this.running;
+                    },
+
+                },
+            });
+        })();
+    </script>
+</body>
+
+</html>
