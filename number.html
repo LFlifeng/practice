@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <style>
         #box {
-            color:#ba3f44;
+            color: #ba3f44;
             font-weight: 700;
             font-size: 30px;
         }
     </style>
 </head>
+
 <body>
     <div id="box"></div>
     <script src="https://cdn.bootcss.com/countup.js/1.9.3/countUp.js"></script>
     <script type="text/javascript">
         var options = {
-            useEasing: true, 
-            useGrouping: true, 
-            separator: ',', 
-            decimal: '.', 
+            useEasing: true,
+            useGrouping: true,
+            separator: ',',
+            decimal: '.',
         };
         var demo = new CountUp('box', 0, 154654665, 0, 2.5, options);
         if (!demo.error) {
@@ -27,6 +29,52 @@
         } else {
             console.error(demo.error);
         }
+
+        const getData = () => new Promise(resolve => setTimeout(() => { resolve('data') }, 1000));
+        function* test() {
+            const data = yield getData();
+            console.log('data：',data);
+            const data2 = yield getData();
+            console.log('data2：',data2);
+            return 'success';
+        }
+        var gen = testG();
+        //第一次调用gen.next()此时只执行了yield getData()且把这个结果赋值给了dataPromise
+        // 但是data的值是并没有确定的，它需要等到下次调用gen.next()的时候传递进来
+        // 也就是说第一次调用gen.next()仅仅是对dataPromise赋值，第一个console.log('data: ',data)都不会执行
+        var dataPromise = gen.next();
+        // 此时的dataPromise中的value是getData的返回值也就是Promise{<resolve>:"data"}
+        // 完整来说：{value:Promise{<resolve>:"data"},done:false}
+        console.log(dataPromise);
+        // 第二次调用gen.next()传递进去的参数就是data的值了，且会执行console.log('data: ',data)
+        // 并且执行了第二个yield getData()  且把这个结果赋值给了dataPromise2
+        // 也就是说第二次调用的gen.next() 做了两件事：1.传递参数赋值data;2.执行yield getData() 赋值dataPromise2
+        var dataPromise2 = gen.next('这个参数才会被赋给data变量');
+        // 此时的dataPromise2中的value是第二次getData的返回值也就是Promise{<resolve>:"data"}
+        // 完整来说：{value:Promise{<resolve>:"data"},done:false}
+        console.log(dataPromise2);
+        // 第二次调用gen.next()传递进去的参数就是data2的值了，且会执行console.log('data2: ',data2)
+        // 并且执行了return 'success' 且把这个结果赋值给了dataPromise3
+        // 也就是说第二次调用的gen.next() 做了两件事：1.传递参数赋值data2;2.执行return 'success' 赋值dataPromise3
+        var dataPromise3 = gen.next('这个参数才会被赋给data2变量');
+        // 此时的dataPromise3是最终的返回值也就是{value:'success',done:true}
+        console.log(dataPromise3);
+        //生成器函数
+        // function* showWords(i) {
+        //     yield 10;
+        //     yield 11;
+        //     return i + 12;
+        // }
+
+        // var show = showWords(1);
+        // console.log(show.next())
+        // show.next() // {done: false, value: "one"}
+        // console.log(show.next())
+        // console.log(show.next())
+        // show.next() // {done: false, value: "two"}
+        // show.next() // {done: true, value: "three"}
+        // show.next() // {done: true, value: undefined}
     </script>
 </body>
+
 </html>
