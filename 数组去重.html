@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组去重</title>
+</head>
+
+<body>
+    <script>
+        function array_unique(arr) {
+            let len = arr.length;
+            if (len === 0) return arr;
+            let tmp = [];
+            for (let i = 0; i < len; i++) {
+                //判断数组arr的元素是否在数组tmp中
+                if (!tmp.includes(arr[i])) {
+                    tmp.push(arr[i]);
+                }
+            }
+            return tmp;
+        }
+        let array = [23, 23, '23', undefined, 'undefined', undefined, NaN, NaN, 'NaN', null, null, 'null', 'null'];
+        let newArr = array_unique(array);
+        console.log(newArr);
+    </script>
+</body>
+
+</html>
